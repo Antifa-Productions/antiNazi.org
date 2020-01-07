@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/antistate
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://motherearth.cf
+  * I am antistate (https://keybase.io/antistate) on keybase.
+  * I have a public key with fingerprint B783 4096 6776 6E2E 980A  47E9 D042 2B9B 4F5E E704
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120963f1d9269bd055a480cec4260ae7b246ba8efb65a5eb756b6dde14d229369c10a",
+      "fingerprint": "b783409667766e2e980a47e9d0422b9b4f5ee704",
+      "host": "keybase.io",
+      "key_id": "d0422b9b4f5ee704",
+      "kid": "0101da10f381e7b1da612cf3c2d2e6ac7bb1b0a38e364bc2c9a7a86ce0c46f0d1d9f0a",
+      "uid": "942b1ef25df0e3893c3b29597a5efb19",
+      "username": "antistate"
+    },
+    "service": {
+      "hostname": "motherearth.cf",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1578379921,
+  "expire_in": 157680000,
+  "prev": "14cf4af7249bf3829ae222675f879f2c0ea97261e6e20c358c6d8f1cf0dfcdb8",
+  "seqno": 76,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.3
+Comment: https://keybase.io/crypto
+
+yMN7AnicbVJ9UBRlHIY7AyUR0D5IymgTGJBwd28/r8nQsEAxcEpuROTaj3e5HeD2
+ulsODWwg5GBUZISYbgYRxvJqRinglOEjVCImieHDySRGkcEooSxgAD8Io/cY/a/9
+Z/f9vc/z7PM87/u9v9bLz3tw26bqpPQ7K7x7O6tzvNKfiTqRh/CKeBDR5yGZYPkF
+skRgU42ZsojoERTDUZbSSZjI4hTLiyhJcgSDCkAgcArlAM3jBMVzDJB4iuRIwNMk
+xVOiCDBCxHFWR7EChnJINCLJ5gxgtVhlswpleZrREVCYommKAjhgGZQjaMCKKIHj
+PMsTEgkAjRKQaFJsHgY0x3M2ECMrcAYXxmV7/4N/4hvFRA5DJR2DQZPwm8JwQdIJ
+uIgDihNonsd4lNMxQEcRvIALLEdzDCUAVCAoCRVhXmnZd86yHEvgPAYknBQlFOgY
+VifoeJwlWRpGlniM9QBtwGrmsgFEc2ZVtqmcCpBD0Qgc22UBeJr1RHkMyVZUE7AC
+zqqaYgQJ0i1WRVUEJQvumVTVYtN7uOpBiwecC3jjYxkjL5tFWCVk2IHVJitmRI9B
+pKDKHl2MhMXSLItj0Qg4YJGtwCibl8cUg8LH8x9gh5IYIUgEJ9E4wfKwI5zlAI7j
+FE1KDM1KuIACjqVxCgPwdFBBRzICJTISJsBqJEHkGcQT7EOzguhpCvrkMqCmTc4w
+c2qOFcb+rjNthZe3n5fPUxrPHfPyWxX45OYlfhawlHzVFHBxutVdW22IGjzv7pxt
+eTr23ovP33nvVqPv9e0P7znillwTn1a7/3TY358sKRkL1d9o388q+674l64ubj08
+P1DQp2k+W3nz7fKgtg46YadO7V34qcJQFX7+gXuyO7rDOTNcVH9/U0dJEZpQU5an
+/SW0pMvVGOKMDIlpLh794OSevriJhn9Pg9tb6pmeytg0d11YR1FIfPKz0zM9SxOO
+eP99N7VHNtRkyF/uadzeNjLiX3siYnJbfqir0P2O+nLQQ9/B0ARt4LnxqI1r1s6F
+I5dz444tBF6a3qt37x8qMzVWf5yjOdpgiUBnC6/l3HXemGrUOH977e7xuqQ2u+h0
+FWuuCjEvzDjamuvKR4MfiF1h5+yl67ICht7q/mTzypTUy5XK57m3Dyuvhu3dcnF9
+fu3Gr/JXlpFuY8EabH7g+Nf9s1MFu3f+sO6bH5Ud3j2t43VrfV9/dH0xpbk08dFi
+07XslKQCZ521/1Tft/VH4784PZfQXjynHcv8NTKcDJjfZbA6doUl+zasX3SerO/y
+dvl8FBCeWmPI1A79zFzp+v0S1hLk1hw5VtbfHVseSjb9lTc6tjt9h5ntaXKNDqyK
+HE5mh8dPXQgZebcwbPTMc6n2duXNqe6UPy4khmwG7vuu4NReQ7RPYAtVFfHS344z
+afQbtwzDWxfOHgiu2PBKnhRbtbi64p9D/wFfwMkV
+=5cWy
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/antistate
+
+==================================================================
