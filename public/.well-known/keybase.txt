@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/intr0_intr0
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://motherearth.cf
+  * I am intr0_intr0 (https://keybase.io/intr0_intr0) on keybase.
+  * I have a public key ASAJUfbfq20Dz14_Tw7rQusT2u9xKFrfX8JHpvOY_selvgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120ecf12960821d6e0a6ff659531689f3fdb4fd92241f511bf971398e1ccb24bbc70a",
+      "host": "keybase.io",
+      "kid": "01200951f6dfab6d03cf5e3f4f0eeb42eb13daef71285adf5fc247a6f398fec7a5be0a",
+      "uid": "277f01ff58ce9adc3bd7416abb564f19",
+      "username": "intr0_intr0"
+    },
+    "merkle_root": {
+      "ctime": 1578496524,
+      "hash": "3f9057467f6e54dff638eecae86976b5ddc66d8d79f00abc0fdda2b50f515f951ef072fc866e8a0f2b867572b654021bfab47646609cf0bd3a3bed06c24c53d6",
+      "hash_meta": "56cf17ccfc26a5aad7d93278fa4dfad9eb0326dae3ca5dac3bb88afe46b094cc",
+      "seqno": 14138968
+    },
+    "service": {
+      "entropy": "XwN66vHX9LuSznumUgu8pWvC",
+      "hostname": "motherearth.cf",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.1.0"
+  },
+  "ctime": 1578496545,
+  "expire_in": 504576000,
+  "prev": "2281e09a710eebca326d321e05458bce0f350e2bc4ff54fbb924e2f2577f4bf5",
+  "seqno": 65,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgCVH236ttA89eP08O60LrE9rvcSha31/CR6bzmP7Hpb4Kp3BheWxvYWTESpcCQcQgIoHgmnEO68oybTIeBUWLzg81DivE/1T7uSTi8ld/S/XEIDE8vwIL4s3dGFHr7aeoeok/bvStawr9s04Zrv54qlMqAgHCo3NpZ8RAg4xTlARb3UBn0W4DjQDQYIi5YwIjtHdUb4MqfYPdKBv4GdNg2CuCYETSa5Yn25JmZzOrVUi/Z1oIcz3YMkBCA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEFBpsucEU2iie+UC5u+qUonsH09a2iHBc/LlC3XUBGko3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/intr0_intr0
+
+==================================================================
