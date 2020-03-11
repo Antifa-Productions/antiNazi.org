@@ -12,6 +12,10 @@
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     X-Content-Type-Options = "nosniff"
     X-DNS-Prefetch-Control = "off"
-    Clear-Site-Data = "*"
+    Clear-Site-Data =  '"cache", "cookies", "storage", "executionContexts"'
     Set-Cookie = "__Host-max-age=0; Path=/; HttpOnly; Secure; SameSite=Strict"
     Cross-Origin-Resource-Policy = "same-orign"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Access-Control-Allow-Methods = "GET"
+    Allow = "GET"
