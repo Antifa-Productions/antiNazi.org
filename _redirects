@@ -1,2 +1,0 @@
-# Redirect default Netlify subdomain to primary domain
-https://keen-mayer.netlify.com/* https://www.motherearth.cf/:splat 301!
