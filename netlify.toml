@@ -1,0 +1,17 @@
+headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "base-uri 'none';block-all-mixed-content;child-src 'none';connect-src 'none';default-src 'none';font-src 'none';form-action 'none';frame-ancestors 'none';frame-src 'none';img-src 'self';manifest-src 'none';media-src 'none';navigate-to 'none';object-src 'none';script-src 'none';script-src-attr 'none';script-src-elem 'none';style-src https://cdn.iosprivacy.com:443;style-src-attr 'none';style-src-elem https://iosprivacy.com:443;upgrade-insecure-requests;worker-src 'none'"
+    Feature-Policy = "accelerometer 'none';ambient-light-sensor 'none';autoplay 'none';camera 'none';display-capture 'none';document-domain 'none';encrypted-media 'none';fullscreen 'none';geolocation 'none';gyroscope 'none';layout-animations 'none';legacy-image-formats 'none';magnetometer 'none';microphone 'none';midi 'none';oversized-images 'none';payment 'none';picture-in-picture 'none';publickey-credentials 'none';speaker 'none';sync-xhr 'none';unsized-media 'none';usb 'none';vibrate 'none';vr 'none';wake-lock 'none"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "s-maxage=120, max-age=60, stale-while-revalidate=30"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-DNS-Prefetch-Control = "off"
+    Clear-Site-Data = "*"
+    Set-Cookie = "__Host-max-age=0; Path=/; HttpOnly; Secure; SameSite=Strict"
+    Cross-Origin-Resource-Policy = "same-orign"
