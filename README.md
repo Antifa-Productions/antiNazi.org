@@ -1,8 +1,10 @@
+[![pipeline status](https://gitlab.com/motherearth/lit/badges/master/pipeline.svg)](https://gitlab.com/motherearth/lit/-/commits/master)
+***
 **From Vol. 1 No. 1, March 1906**
 ***
-WITHOUT GOVERNMENT
+# WITHOUT GOVERNMENT
 
-By MAX BAGINSKI
+### By MAX BAGINSKI
 
 The gist of the anarchistic idea is this, that there are qualities present in man, which permit the possibilities of social life, organization, and co-operative work without the application of force. Such qualities are solidarity, common action, and love of justice. To-day they are either crippled or made ineffective through the influence of compulsion; they can hardly be fully unfolded in a society in which groups, classes, and individuals are placed in hostile, irreconcilable opposition to one another. In human nature to-day such traits are fostered and developed which separate instead of combining, call forth hatred instead of a common feeling, destroy the humane instead of building it up. The cultivation of these traits could not be so successful if it did not find the best nourishment in the foundations and institutions of the present social order.
 
