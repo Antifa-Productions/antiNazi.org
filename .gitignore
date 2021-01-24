@@ -1,7 +1,5 @@
 secring.*
 **/.gnupg/*.gpg
-.fuse_hidden*
-.Trash-*
 **/.ssh/id_*
 **/.ssh/*_id_*
 **/.ssh/known_hosts
