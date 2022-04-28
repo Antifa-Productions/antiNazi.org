@@ -1,3 +1,5 @@
+https://*antinazi.org/*
+
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Content-Security-Policy: base-uri 'none';block-all-mixed-content;connect-src https://cdn.iosprivacy.com 'self';default-src 'none';font-src 'none';form-action 'none';frame-ancestors 'none';frame-src 'none';img-src https://cdn.iosprivacy.com 'self';manifest-src 'none';media-src 'none';object-src 'none';require-trusted-types-for 'script';script-src 'none';style-src 'sha256-YXhx5/bnv81FPJK/jp3i55+NqRR4cpREsqIeclviBUo=';upgrade-insecure-requests;worker-src 'none'
@@ -5,5 +7,5 @@
   X-DNS-Prefetch-Control: off
   Cache-Control: private, must-understand, no-store
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), clipboard-read=(), clipboard-write=(), fullscreen=(), geolocation=(), gyroscope=(), hid=(), interest-cohort=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=()
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), clipboard-read=(), clipboard-write=(), display-capture=(), document-domain=(), fullscreen=(), geolocation=(), gyroscope=(), hid=(), interest-cohort=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=()
 Expect-CT: max-age=604800, enforce
