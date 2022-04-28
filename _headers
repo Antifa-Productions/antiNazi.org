@@ -1,5 +1,5 @@
-https://*antinazi.org/*
-
+https://*antinazi.org*
+https://ce09bc54.org-e1h.pages.dev*
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Content-Security-Policy: base-uri 'none';block-all-mixed-content;connect-src https://cdn.iosprivacy.com 'self';default-src 'none';font-src 'none';form-action 'none';frame-ancestors 'none';frame-src 'none';img-src https://cdn.iosprivacy.com 'self';manifest-src 'none';media-src 'none';object-src 'none';require-trusted-types-for 'script';script-src 'none';style-src 'sha256-YXhx5/bnv81FPJK/jp3i55+NqRR4cpREsqIeclviBUo=';upgrade-insecure-requests;worker-src 'none'
