@@ -1,7 +1,10 @@
-image: alpine:latest
-
+include:
+  template: Security/Secret-Detection.gitlab-ci.yml
+  image: alpine:latest
+##
 pages:
   stage: deploy
+  stage: test
   script:
   - echo 'Nothing to do...'
   artifacts:
