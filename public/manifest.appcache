@@ -13,8 +13,6 @@ touch-icon-ipad-retina.png
 NETWORK:
 *
 
-# static.html will be served if index.html is inaccessible
-# offline.png will be served in place of all images in img/l/
-# offline.html will be served in place of all other .html files
+# static/index.html will be served if index.html is inaccessible
 FALLBACK:
 /index.html /static/index.html
