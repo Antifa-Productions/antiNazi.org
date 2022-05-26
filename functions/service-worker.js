@@ -61,7 +61,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
       '/',
-      'public/index.html',
+      '/public/index.html',
       '/public/image-list.js',
       '/public/img/apple-',
       'https://cdn.iosprivacy.com/touch-icon-iphone-retina.png',
