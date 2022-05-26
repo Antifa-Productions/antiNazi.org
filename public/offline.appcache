@@ -1,18 +1,11 @@
 CACHE MANIFEST
-# Offline appCache
-
-# Explicitly cached 'master entries'.
 CACHE:
 index.html
 favicon.ico
 favicon.png
 touch-icon-iphone-retina.png
 touch-icon-ipad-retina.png
-
-# Resources that require the user to be online.
 NETWORK:
 *
-
-# static/index.html will be served if index.html is inaccessible
 FALLBACK:
 /index.html /static/index.html
