@@ -1,0 +1,22 @@
+{
+	"name": "antiNazi",
+	"short_name": "antiNazi",
+	"description": "Towards the revolutionary necessity for abolishing the police along with capitalism.",
+	"lang": "en",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"theme_color": "#2f2f2f",
+	"icons": [
+		{
+			"src": "https://antinazi.org/touch-icon-iphone-retina.png",
+			"sizes": "250x250",
+			"type": "image/png"
+		},
+		{
+			"src": "https://antinazi.org/touch-icon-ipad-retina.png",
+			"sizes": "300x300",
+			"type": "image/png"
+		},
+	]
+}
