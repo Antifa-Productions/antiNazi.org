@@ -61,9 +61,11 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
       '/',
+      '/public/manifest.json',
       '/public/index.html',
-      '/public/image-list.js',
+      '/public/static/index.html',
       '/public/img/apple-',
+      '/public/manifest_icons/icon_',
       'https://cdn.iosprivacy.com/touch-icon-iphone-retina.png',
       'https://cdn.iosprivacy.com/touch-icon-iphone-retina.png'
     ]
@@ -76,7 +78,7 @@ self.addEventListener('fetch', (event) => {
     cacheFirst({
       request: event.request,
       preloadResponsePromise: event.preloadResponse,
-      fallbackUrl: '/sw-test/gallery/myLittleVader.jpg',
+      fallbackUrl: 'https://cdn.iosprivacy.com/AntiNaziTwitter.png',
     })
   );
 });
