@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/anti_nazi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://antinazi.org
+  * I am anti_nazi (https://keybase.io/anti_nazi) on keybase.
+  * I have a public key with fingerprint B5F6 4A12 8076 19E6 8A2C  0F81 1A2C 80E3 095F 34A1
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01017ce990b952f191f9b6fa66c568619608e933bbf6a0b66c8f4d1eb4142759f99c0a",
+      "fingerprint": "b5f64a12807619e68a2c0f811a2c80e3095f34a1",
+      "host": "keybase.io",
+      "key_id": "1a2c80e3095f34a1",
+      "kid": "01017ce990b952f191f9b6fa66c568619608e933bbf6a0b66c8f4d1eb4142759f99c0a",
+      "uid": "97027cdf9aaf30144daf35dadf1da619",
+      "username": "anti_nazi"
+    },
+    "service": {
+      "hostname": "antinazi.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1653778596,
+  "expire_in": 157680000,
+  "prev": "cc805986fbe14026f81b9f69c68b5e76a004a85185e3440f17a8176ad2c7a871",
+  "seqno": 2,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMIoAnicrZJtSBRBGMdPS8OLoDfNIqKWK6muY+dud3bnysqIUCSz+hCIeMzuzpyL
+unvurmaZvWBRGRUVRH7pBaKXKyg00pAgQ418Ac3KOPIFKciICoqKIGpWCvrQx+bL
+M/vM7//fZ/5Mx4wpHm/Sx66inKL+k/1JPe3nqjzK6WuXaznF1HZx4VqujEwWUq4R
+24mU6RoX5njAA0klCPEKEoMUIECRAimGUBWhDAGCvExQKKQoFGJeYW2ZChogigCE
+oCQiipDKY87PUd2IEitm6YbDbBWRQgGDoMxLzINAGQdVnsoAsCrzJMQjkYYYwISl
+pu0q2HAKtklAN1mPfUQmx/sH/5/nrpq0QxIflFSNIoxpiAeCoLEqalijQMPMzQVt
+Yhm4gjAaG44eMfBunavzc6xdravETda9yl+ISwRMK8rEMct0TNUsZyeljhOzw67S
+2RVz0Z1Eifw2iSi6obEgmaKaWLZuGlwYMFJ1dNcVQDEkSbKIoJ8jNTHdIhHdJUQJ
+yjxb7n9INbNUWWgikiFVCBD4IGTJK4hCpEJZEYnEEuEFLItAFklIEHgKJCwD1taC
+KttJbsw2qTRMLhxkY+Ios7T1qIGdKotwdQ8fFE/1JHk9qSnJ7gPzeNNm/nl2Y7XT
+fpIj4MvaNw3z1o/PLT9R39weHs3K23zi+lN/3+ev6YEd2Zt8c37cKYgVFrTFZz8e
+CNd7c3prskYyksty0s8MZg70vq+5/SCl7G7j9+dHv/WtunW8au8O7qX68tWFdVZK
+dmrnWO/ZpKaVG3zXN+7vWtJb2LrM6t7W4M8Inb/YuvDSqe7Klg+tWkeifekee2Br
+QduhhNy/4uAbct83Es/bkDWUGPTEb44upp7iztUTiw4/8TW+jl85tjGzAa57Xpg/
+a/RZtrm95FHe0LDVlVZ+48X0pu4J32huhRwd6hTGW5rb5ge8uVuKEu9WmgfuXR2b
+a60Z3/6wuGb5vvyekgXDhbnxT2/n/AKmF0Ry
+=EQTo
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/anti_nazi
+
+==================================================================
