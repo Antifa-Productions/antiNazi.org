@@ -1,10 +1,11 @@
+
 [![Latest Release](https://gitlab.com/antinazi/org/-/badges/release.svg)](https://gitlab.com/antinazi/org/-/releases)
 
 ### https://antinazi.org/
 
-## How to read offline on iOS :
+### • How to read offline on iOS :
 
-### [how to have an offline build of the latest antinazi.org website]
+- How to download the latest build of the antinazi.org website for viewing anytime, with or without an internet connection.
 
 ***
 
