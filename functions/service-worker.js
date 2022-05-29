@@ -66,6 +66,8 @@ self.addEventListener('install', (event) => {
       '/manifest_icons/',
       '/public/',
       '/img/',
+      '/css/',
+      '/lit/',
       '/static/',
       '/public/manifest.json',
       '/public/index.html',
