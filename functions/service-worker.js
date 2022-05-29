@@ -67,7 +67,8 @@ self.addEventListener('install', (event) => {
       '/public/img/apple-',
       '/public/manifest_icons/icon_',
       'https://cdn.iosprivacy.com/touch-icon-iphone-retina.png',
-      'https://cdn.iosprivacy.com/touch-icon-iphone-retina.png'
+      'https://cdn.iosprivacy.com/touch-icon-iphone-retina.png',
+      'https://cdn.iosprivacy.com/AntiNaziTwitter.png',
     ]
     )
   );
