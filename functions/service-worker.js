@@ -61,6 +61,12 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     addResourcesToCache([
       '/',
+      'index.html',
+      'manifest.json',
+      '/manifest_icons/',
+      '/public/',
+      '/img/',
+      '/static/',
       '/public/manifest.json',
       '/public/index.html',
       '/public/static/index.html',
