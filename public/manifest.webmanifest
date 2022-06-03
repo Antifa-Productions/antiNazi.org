@@ -1,51 +1,47 @@
 {
+    "@type": "WebSite",
     "name": "anti-Nazi",
     "short_name": "antiNazi",
-    "start_url": "/",
-    "display": "fullscreen",
+    "start_url": "https://antinazi.org",
+    "display": "standalone",
     "background_color": "#2f2f2f",
-    "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+    "description": "iOS Privacy | Technology to Enhance Network Security & Privacy",
     "dir": "ltr",
-    "categories": "education,government,lifestyle,politics",
+    "categories": "education,productivity,politics",
     "lang": "en",
-    "orientation": "any",
+    "orientation": "portrait",
     "scope": "/",
-    "theme_color": "#2f2f2f",
+    "theme_color": "#900",
     "icons": [
         {
-            "src": "/manifest_icons/icon_48x48.png",
-            "sizes": "48x48",
-            "type": "image/png"
+            "@type": "image/png",
+            "src": "/icon_48x48.png",
+            "sizes": "48x48"
         },
         {
-            "src": "/manifest_icons/icon_72x72.png",
-            "sizes": "72x72",
-            "type": "image/png"
+            "@type": "image/png",
+            "src": "/icon_72x72.png",
+            "sizes": "72x72"
         },
         {
-            "src": "/manifest_icons/icon_96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
+            "@type": "image/png",
+            "src": "/icon_96x96.png",
+            "sizes": "96x96"
         },
         {
-            "src": "/manifest_icons/icon_144x144.png",
-            "sizes": "144x144",
-            "type": "image/png"
+            "@type": "image/png",
+            "src": "/icon_144x144.png",
+            "sizes": "144x144"
         },
         {
-            "src": "/manifest_icons/icon_168x168.png",
-            "sizes": "168x168",
-            "type": "image/png"
+            "@type": "image/png",
+            "src": "/icon_168x168.png",
+            "sizes": "168x168"
         },
         {
-            "src": "/manifest_icons/icon_192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/manifest_icons/icon_512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
+            "@type": "image/png",
+            "src": "/icon_192x192.png",
+            "sizes": "192x192"
         }
     ]
 }
