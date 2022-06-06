@@ -6,7 +6,7 @@
 
 ***
 
- - 1) Open https://antinazi.org in Safari iOS / iPadOS / macOS (unsure about MacOS as I don't have a Mac - $$$$$$)
+ - 1) Open `https://antinazi.org` in Safari iOS / iPadOS / macOS (unsure about MacOS as I don't have a Mac - $$$$$$)
  - 2) Using the share function (the arrrow in the center of the address bar), add `antiNazi.org` to the homescreen.
  - 3) The PWA that was just "installed" via Safari is, of course, antiNazi. It's 100% offline capable, so one may read the included literature without a network connection whenever one feels like reading more of:
   - a) Thoreau, Goldman, De Cleyre, Proudhon, and more. Works are rotated every two to three months.
@@ -19,3 +19,9 @@ For Chromium:
 - 2) Open the tools (currently Chromium has them on the right of the browser), specifically the developer tools.
 - 3) Verify the registration of the service worker by inspecting the tool named "application". It will show the webmanifest & the registration of 'sw.js', the service worker that caches vital website resources to be included in the PWA.
 - 4) Open antiNazi.org as its own standalone application via Chromium. One may add the app icon to any app dock using the XFCE DE for Linux as an example. Or one may add it to the desktop. And one may also add it to the "favorites" section of the XFCE Start Menu (Whisker). It will be added by Chromium to a section also created by Chromium titled "Chromium Apps" - the capital A icon (Anarchism) with antiNazi in type beneath it.
+
+***
+
+## Donate to the project to help it to continue, grow, & become more.
+
+### https://www.paypal.me/bashthefash
