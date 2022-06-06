@@ -7,7 +7,7 @@
     "background_color": "#2f2f2f",
     "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
     "dir": "ltr",
-    "categories": "education,productivity,politics",
+    "categories": ["books", "education", "politics"]
     "lang": "en",
     "orientation": "portrait",
     "scope": "https://antinazi.org",
@@ -22,11 +22,6 @@
             "@type": "image/png",
             "src": "/icon_x96.png",
             "sizes": "96x96"
-        },
-        {
-            "@type": "image/png",
-            "src": "/icon_x144.png",
-            "sizes": "144x144"
         },
         {
             "@type": "image/png",
