@@ -10,7 +10,7 @@
     "categories": ["books", "education", "politics"],
     "lang": "en",
     "orientation": "portrait",
-    "scope": "https://antinazi.org",
+    "scope": "/",
     "theme_color": "#900",
     "icons": [
         {
