@@ -15,33 +15,33 @@
     "icons": [
         {
             "@type": "image/png",
-            "src": "/icon_48x48.png",
-            "sizes": "48x48"
-        },
-        {
-            "@type": "image/png",
-            "src": "/icon_72x72.png",
+            "src": "/icon_72.png",
             "sizes": "72x72"
         },
         {
             "@type": "image/png",
-            "src": "/icon_96x96.png",
+            "src": "/icon_96.png",
             "sizes": "96x96"
         },
         {
             "@type": "image/png",
-            "src": "/icon_144x144.png",
+            "src": "/icon_144.png",
             "sizes": "144x144"
         },
         {
             "@type": "image/png",
-            "src": "/icon_168x168.png",
-            "sizes": "168x168"
-        },
-        {
-            "@type": "image/png",
-            "src": "/icon_192x192.png",
+            "src": "/icon_192.png",
             "sizes": "192x192"
+        },
+         {
+            "@type": "image/png",
+            "src": "/icon_384.png",
+            "sizes": "384x384"
+        },
+       {
+            "@type": "image/png",
+            "src": "/icon_512.png",
+            "sizes": "512x512"
         }
     ]
 }
