@@ -3,14 +3,14 @@
     "name": "anti-Nazi",
     "short_name": "antiNazi",
     "start_url": "https://antinazi.org",
-    "display": "standalone",
+    "display": "minimal-ui",
     "background_color": "#2f2f2f",
     "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
     "dir": "ltr",
     "categories": ["books", "education", "politics"],
     "lang": "en",
     "orientation": "portrait",
-    "scope": "",
+    "scope": "/",
     "theme_color": "#900",
     "icons": [
         {
