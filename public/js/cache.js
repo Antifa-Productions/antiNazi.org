@@ -25,7 +25,7 @@ self.onactivate = function (event) {
     // that aren't in expectedCaches
     event.waitUntil(caches.keys().then(function (cacheNames) {
         return Promise.all(cacheNames.map(function (cacheName) {
-            if (!/[apple-touch-icon.png]/\[touch - icon - ipad - retina.png] / \[touch - icon - iphone - retina.png] / \[favicon.png] / \[favicon.ico] / \[favicon.svg] / \[index.html] / \[main.js] / \[sw.js] / \[manifest.webmanifest] / \.test(cacheName)) {
+            if (![apple-touch-icon.png]/[touch-icon-ipad-retina.png]/[touch-icon-iphone-retina.png]/[favicon.png]/[favicon.ico]/[favicon.svg]/[index.html]/[main.js]/[sw.js]/[manifest.webmanifest]/.test(cacheName)) {
                 return;
             }
             if (expectedCaches.indexOf(cacheName) == -1) {
