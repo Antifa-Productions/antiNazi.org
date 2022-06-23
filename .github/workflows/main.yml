@@ -16,4 +16,4 @@ jobs:
         path: public
         key: ${{ runner.os }}-assets
 
-    - name: static-assets
+    - name: antinazi-cache.js
