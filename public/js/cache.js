@@ -25,7 +25,7 @@ self.onactivate = function (event) {
     // that aren't in expectedCaches
     event.waitUntil(caches.keys().then(function (cacheNames) {
         return Promise.all(cacheNames.map(function (cacheName) {
-            if (!['apple'+'-'+'touch'='-'+'icon'^] / ['touch'+'-'+'icon'^] / ['favicon'+'.'^] / ['index'+'.'+'html'] / ['main'+'.'+'js'] / ['sw'+'.'+'js'] / ['cache'+'.'+'js'] / ['manifest'+'.'+'webmanifest'] / test(cacheName)) {
+            if (!apple/touch/icon/favicon/index/js/manifest/test(cacheName)) {
                 return;
             }
             if (expectedCaches.indexOf(cacheName) == -1) {
@@ -38,7 +38,7 @@ self.onactivate = function (event) {
 self.onfetch = function (event) {
     var requestURL = new URL(event.request.url);
 
-    if (requestURL.hostname == 'api.antinazi.org') {
+    if (requestURL.hostname == 'antinazi.org') {
         event.respondWith(antinaziCache(event.request));
     } else if (/\antinazi\.org$/.test(requestURL.hostname)) {
         event.respondWith(antinaziCache(event.request));
@@ -52,7 +52,7 @@ function antinaziCache(request) {
         return caches.match(request);
     } else {
         return fetch(request.clone()).then(function (response) {
-            return caches
+            return cache
                 .open('antinazi-assets')
                 .then(function (cache) {
                     // clean up the asset cache
@@ -60,7 +60,7 @@ function antinaziCache(request) {
                         response
                             .clone()
                             .json(),
-                            caches.open('antinazi-assets')
+                            caches.open('public')
                         ])
                         .then(function (results) {
                             var data = results[0];
