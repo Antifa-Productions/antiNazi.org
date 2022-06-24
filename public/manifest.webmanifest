@@ -1,5 +1,6 @@
 {
    "@type": "WebSite",
+   "id": "/",
    "name": "anti-Nazi",
    "short_name": "antiNazi",
    "start_url": "/",
