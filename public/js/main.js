@@ -1,1 +1,1 @@
-"serviceWorker"in navigator&&navigator.serviceWorker.register("/sw.js").then(function(){console.log("Service Worker Registered")});
+navigator.serviceWorker.register('/sw.js');navigator.serviceWorker.ready.then((registration)=>{return registration.sync.background.register('backgroundSync')});self.addEventListener('sync',(event)=>{if(event.tag=='backgroundSync'){event.waitUntil(doSomeStuff())}});
