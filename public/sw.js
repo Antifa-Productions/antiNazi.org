@@ -1,5 +1,5 @@
 self.addEventListener('install', function (n) {
-  n.waitUntil(caches.open('v2').then(function (n) {
+  n.waitUntil(caches.open('v3').then(function (n) {
     return n.addAll(['/',
     '/index.html',
     '/css/',
