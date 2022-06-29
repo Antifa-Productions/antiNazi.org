@@ -1,8 +1,8 @@
 {
    "@type": "WebSite",
-   "name": "anti-Nazi",
-   "short_name": "antiNazi",
-   "start_url": "/",
+   "name": "anti-Nazi | Classic Anarchist Literature",
+   "short_name": "classicAnarchistLiterature",
+   "start_url": "https://antinazi.org/lit",
    "display": "standalone",
    "background_color": "#2f2f2f",
    "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
