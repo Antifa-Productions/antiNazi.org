@@ -4,7 +4,7 @@
   "short_name": "antiNazi",
   "start_url": "https://antinazi.org",
   "display": "standalone",
-  "background_color": "none",
+  "background_color": "#50352d",
   "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
   "dir": "ltr",
   "categories": [
