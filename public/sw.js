@@ -1,5 +1,5 @@
 self.addEventListener("install", function (n) {
-  n.waitUntil(caches.open("v11").then(function (n) {
+  n.waitUntil(caches.open("v12").then(function (n) {
     return n.addAll([
     ".",
     "/",
