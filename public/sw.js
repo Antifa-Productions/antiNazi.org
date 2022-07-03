@@ -1,6 +1,8 @@
 self.addEventListener("install", function (n) {
-  n.waitUntil(caches.open("v8").then(function (n) {
-    return n.addAll(["/",
+  n.waitUntil(caches.open("v11").then(function (n) {
+    return n.addAll([
+    ".",
+    "/",
     "/index.html",
     "/lit/",
     "/js/",
