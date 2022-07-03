@@ -14,7 +14,7 @@
    ],
    "lang": "en",
    "orientation": "natural",
-   "scope": "/",
+   "scope": "./",
    "theme_color": "#900",
    "icons": [
       {
