@@ -1,6 +1,10 @@
 [![Latest Release](https://gitlab.com/antinazi/org/-/badges/release.svg)](https://gitlab.com/antinazi/org/-/releases)
 
-### https://antinazi.org/
+### https://antinazi.org/ | antiNazi PWA
+- **antiNazi** is offline capable;
+
+### https://antinazi.org/lit | Classic Anarchist Literature PWA
+- **Classic Anarchist Literature**, while a PWA, requires network access. Getting it to function offline - when anyone can read the included literature offline.
 
 ### • How to read offline on iOS & within a Chromium App on desktop (Chromium requires a network connection):
 
@@ -23,6 +27,6 @@ For Chromium:
 
 ***
 
-## Donate to the project to help it to continue, grow, & become more.
+## Please donate to help keep the project continue, grow, & become more.
 
 ### https://www.paypal.me/bashthefash
