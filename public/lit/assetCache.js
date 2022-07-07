@@ -1,10 +1,10 @@
 const addResourcesToCache = async(resources) => {
-    const cache = await caches.open('v1');
+    const cache = await caches.open("v1");
     await cache.addAll(resources);
 };
 
 const putInCache = async(request, response) => {
-    const cache = await caches.open('v1');
+    const cache = await caches.open("v1");
     await cache.put(request, response);
 };
 
@@ -15,10 +15,10 @@ const cacheFirst = async({request, preloadResponsePromise, fallbackUrl}) => {
         return responseFromCache;
     }
 
-    // Next try to use the preloaded response, if it's there
+    // Next try to use the preloaded response, if it"s there
     const preloadResponse = await preloadResponsePromise;
     if (preloadResponse) {
-        console.info('using preload response', preloadResponse);
+        console.info("using preload response", preloadResponse);
         putInCache(request, preloadResponse.clone());
         return preloadResponse;
     }
@@ -37,10 +37,10 @@ const cacheFirst = async({request, preloadResponsePromise, fallbackUrl}) => {
         }
         // when even the fallback response is not available, there is nothing we can do,
         // but we must always return a Response object
-        return new Response('Network error happened', {
+        return new Response("Network error happened", {
             status: 408,
             headers: {
-                'Content-Type': 'text/plain'
+                "Content-Type": "text/plain"
             }
         });
     }
@@ -56,24 +56,35 @@ const enableNavigationPreload = async() => {
     }
 };
 
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
     event.waitUntil(enableNavigationPreload());
 });
 
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
     event.waitUntil(addResourcesToCache([
-        '/',
-        '/',
-        '/',
-        '/',
-        '/',
-        '/',
-        '/',
-        '/',
-        '/'
+        ".",
+        "/",
+        "/index.html",
+        "/lit/",
+        "/js/",
+        "/touch-icon-ipad-retina.png",
+        "/touch-icon-iphone-retina.png",
+        "/apple-touch-icon.png",
+        "/favicon.png",
+        "/favicon.svg",
+        "/favicon.ico",
+        "/maskable_icon.png",
+        "/icon_x72.png",
+        "/icon_x96.png",
+        "/icon_x128.png",
+        "/icon_x192.png",
+        "/icon_x384.png",
+        "/icon_x512.png",
+        "/AntiNaziTwitter.png",
+        "/manifest.webmanifest"
     ]));
 });
 
-self.addEventListener('fetch', (event) => {
-    event.respondWith(cacheFirst({request: event.request, preloadResponsePromise: event.preloadResponse, fallbackUrl: '/AntiNaziTwitter.png'}));
+self.addEventListener("fetch", (event) => {
+    event.respondWith(cacheFirst({request: event.request, preloadResponsePromise: event.preloadResponse, fallbackUrl: "/AntiNaziTwitter.png"}));
 });
