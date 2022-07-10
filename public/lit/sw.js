@@ -1,7 +1,6 @@
 self.addEventListener("install", function (n) {
-  n.waitUntil(caches.open("v11").then(function (n) {
+  n.waitUntil(caches.open("an-2").then(function (n) {
     return n.addAll([
-    ".",
     "/",
     "/index.html",
     "/lit/",
