@@ -1,11 +1,10 @@
 self.addEventListener("install", function (n) {
-  n.waitUntil(caches.open("v12").then(function (n) {
+  n.waitUntil(caches.open("an-1").then(function (n) {
     return n.addAll([
     ".",
     "/",
     "/index.html",
-    "/lit/",
-    "/js/",
+    "/js/main.js",
     "/touch-icon-ipad-retina.png",
     "/touch-icon-iphone-retina.png",
     "/apple-touch-icon.png",
