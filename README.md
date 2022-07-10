@@ -3,17 +3,14 @@
 ### https://antinazi.org/ | antiNazi PWA
 - **antiNazi** is offline capable;
 
-### https://antinazi.org/lit | Classic Anarchist Literature PWA
-- **Classic Anarchist Literature**, while a PWA, requires network access. Getting it to function offline - when anyone can read the included literature offline.
-
 ### • How to read offline on iOS & within a Chromium App on desktop (Chromium requires a network connection):
 
 ***
 
  - 1) Open `https://antinazi.org` in Safari iOS / iPadOS / macOS (unsure about MacOS as I don't have a Mac - $$$$$$)
  - 2) Using the share function (the arrrow in the center of the address bar), add `antiNazi.org` to the homescreen.
- - 3) The PWA that was just "installed" via Safari is, of course, antiNazi. It's 100% offline capable, so one may read the included literature without a network connection whenever one feels like reading more of:
-  - a) <del>Thoreau, Goldman, De Cleyre, Proudhon</del>, and more. Works are rotated every two to three months; these require a network connection.
+ - 3) The PWA that was just "installed" via Safari is, of course, antiNazi. It's 100% offline capable, so one may read the included literature without a network connection whenever one feels like so doing.
+
  - 4) Thank-you for choosing to read "antiNazi"! ♥️
 
 ***
