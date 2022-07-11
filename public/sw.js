@@ -1,6 +1,11 @@
-self.addEventListener("install", function (n) {
-  n.waitUntil(caches.open("an-4").then(function (n) {
-    return n.addAll([
+const addResourcesToCache = async (resources) => {
+  const cache = await caches.open("an-v5");
+  await cache.addAll(resources);
+};
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    addResourcesToCache([
       "/",
       "/index.html",
       "/js/main.js",
@@ -18,6 +23,7 @@ self.addEventListener("install", function (n) {
       "/icon_x384.png",
       "/icon_x512.png",
       "/AntiNaziTwitter.png",
-      "/manifest.webmanifest"])
-  }))
+      "/manifest.webmanifest",
+    ])
+  );
 });
