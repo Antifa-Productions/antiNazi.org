@@ -1,6 +1,6 @@
-var CACHE_NAME = 'file-cache';
+var CACHE_NAME = 'an-cache-1';
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', function (event) {
   // Perform the install step:
   // * Load a JSON file from server
   // * Parse as JSON
@@ -11,18 +11,18 @@ self.addEventListener('install', function(event) {
 
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
+      .then(function (cache) {
         // With the cache opened, load a JSON file containing an array of files to be cached
-        return fetch('files-to-cache.json').then(function(response) {
+        return fetch('files-to-cache.json').then(function (response) {
           // Once the contents are loaded, convert the raw text to a JavaScript object
           return response.json();
-        }).then(function(files) {
+        }).then(function (files) {
           // Use cache.addAll just as you would a hardcoded array of items
           console.log('[install] Adding files from JSON file: ', files);
           return cache.addAll(files);
         });
       })
-      .then(function() {
+      .then(function () {
         // Message to simply show the lifecycle flow
         console.log(
           '[install] All required resources have been cached;',
@@ -35,10 +35,10 @@ self.addEventListener('install', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
+      .then(function (response) {
         // Cache hit - return the response from the cached version
         if (response) {
           console.log(
@@ -53,11 +53,11 @@ self.addEventListener('fetch', function(event) {
         console.log('[fetch] Returning from server: ', event.request.url);
         return fetch(event.request);
       }
-    )
+      )
   );
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', function (event) {
   // Message to simply show the lifecycle flow
   console.log('[activate] Activating service worker!');
 
