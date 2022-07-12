@@ -1,5 +1,5 @@
 const addResourcesToCache = async (resources) => {
-  const cache = await caches.open("an-v5");
+  const cache = await caches.open("an-v6");
   await cache.addAll(resources);
 };
 
@@ -8,6 +8,8 @@ self.addEventListener("install", (event) => {
     addResourcesToCache([
       "/",
       "/index.html",
+      "/css/style_1.css",
+      "/css/style_2.css",
       "/js/main.js",
       "/touch-icon-ipad-retina.png",
       "/touch-icon-iphone-retina.png",
