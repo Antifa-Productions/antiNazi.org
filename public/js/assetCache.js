@@ -62,10 +62,12 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("install", (event) => {
     event.waitUntil(addResourcesToCache([
-        ".",
         "/",
         "/index.html",
-        "/lit/index.html",
+        "/css/style_3.css",
+        "/css/style_2.css",
+        "/css/style_1.css",
+        "/js/main.js",
         "/js/index.js",
         "/touch-icon-ipad-retina.png",
         "/touch-icon-iphone-retina.png",
