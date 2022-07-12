@@ -1,4 +1,4 @@
-var CACHE_NAME = 'an-cache-1';
+var CACHE_NAME = 'an-5';
 
 self.addEventListener('install', function (event) {
   // Perform the install step:
