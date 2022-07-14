@@ -1,5 +1,5 @@
 const addResourcesToCache = async(resources) => {
-    const cache = await caches.open("an-v7");
+    const cache = await caches.open("an-v8");
     await cache.addAll(resources);
 };
 
