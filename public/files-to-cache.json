@@ -1,8 +1,6 @@
 [
    "/",
    "/index.html",
-   "/css/style_3.css",
-   "/css/style_2.css",
    "/css/style_1.css",
    "/js/main.js",
    "/touch-icon-ipad-retina.png",
@@ -10,7 +8,6 @@
    "/apple-touch-icon.png",
    "/favicon.png",
    "/favicon.svg",
-   "/favicon.ico",
    "/maskable_icon.png",
    "/icon_x72.png",
    "/icon_x96.png",
