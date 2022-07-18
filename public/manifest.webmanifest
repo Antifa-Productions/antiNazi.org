@@ -1,6 +1,7 @@
 {
   "@type": "WebSite",
   "name": "anti-Nazi",
+  "editor": "intr0",
   "short_name": "antiNazi",
   "start_url": "https://antinazi.org",
   "display": "standalone",
@@ -14,7 +15,7 @@
   ],
   "lang": "en",
   "orientation": "natural",
-  "scope": ".",
+  "scope": "/",
   "theme_color": "#900",
   "icons": [
     {
