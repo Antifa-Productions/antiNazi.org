@@ -1,4 +1,4 @@
-const addResourcesToCache = async (resources) => {
+const addResourcesToCache = async(resources) => {
     const cache = await caches.open("an-11");
     await cache.addAll(resources);
 };
@@ -10,6 +10,8 @@ self.addEventListener("install", (event) => {
             "index.html",
             "css/style_2.css",
             "js/main.js",
+            "js/app.js",
+            "files-to-cache.json",
             "apple-touch-icon.png",
             "favicon.png",
             "favicon.svg",
