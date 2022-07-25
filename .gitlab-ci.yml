@@ -1,3 +1,4 @@
+######
 include:
   template: Jobs/Secret-Detection.latest.gitlab-ci.yml
 ######
