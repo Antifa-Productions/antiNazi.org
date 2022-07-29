@@ -4,11 +4,11 @@
    "editor": "intr0",
    "short_name": "antiNazi",
    "start_url": "https://antinazi.org",
+   "display": "standalone",
    "display_override": [
       "fullscreen",
       "minimal-ui"
    ],
-   "display": "standalone",
    "background_color": "#2f2f2f",
    "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
    "dir": "ltr",
