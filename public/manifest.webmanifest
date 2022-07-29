@@ -4,6 +4,10 @@
 	"editor": "intr0",
 	"short_name": "antiNazi",
 	"start_url": "https://antinazi.org",
+	"display_override": [
+		"fullscreen",
+		"minimal-ui"
+	],
 	"display": "standalone",
 	"background_color": "#2f2f2f",
 	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
@@ -11,11 +15,24 @@
 	"categories": [
 		"books",
 		"education",
-		"politics"
+		"entertainment",
+		"government",
+		"lifestyle",
+		"politics",
+		"social"
+	],
+	"screenshots": [
+		{
+			"src": "screenshot.webp",
+			"sizes": "2048x968",
+			"type": "image/webp",
+			"platform": "wide",
+			"label": "Partial screenshot of homescreen"
+		}
 	],
 	"lang": "en",
 	"orientation": "natural",
-	"scope": "/",
+	"scope": ".",
 	"theme_color": "#900",
 	"icons": [
 		{
