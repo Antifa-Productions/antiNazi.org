@@ -23,7 +23,7 @@
 	],
 	"screenshots": [
 		{
-			"src": "screenshot.webp",
+			"src": "images/screenshot.webp",
 			"sizes": "2048x968",
 			"type": "image/webp",
 			"platform": "wide",
