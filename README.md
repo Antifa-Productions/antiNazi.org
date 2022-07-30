@@ -1,6 +1,6 @@
 [![Latest Release](https://gitlab.com/antinazi/org/-/badges/release.svg)](https://gitlab.com/antinazi/org/-/releases)
 
-### https://antinazi.org/ | antiNazi PWA
+#### https://antinazi.org/ | antiNazi PWA
 - **antiNazi** is offline capable;
 
 ### • How to read offline on iOS & within a Chromium App on desktop (Chromium requires a network connection):
@@ -26,4 +26,6 @@ For Chromium:
 
 ## Please donate to help keep the project continue, grow, & become more.
 
-### https://www.paypal.me/bashthefash
+#### https://www.paypal.me/bashthefash
+
+![](https://raw.githubusercontent.com/FuckNazis/antiNazi.org/main/res/1024.png?token=GHSAT0AAAAAABXEEQ7T3XKQ3R5V5BJYKIRAYXEWIFQ)
