@@ -1,7 +1,8 @@
 [![Latest Release](https://gitlab.com/antinazi/org/-/badges/release.svg)](https://gitlab.com/antinazi/org/-/releases)
 
 #### https://antinazi.org/ | antiNazi PWA
-- **antiNazi** is offline capable;
+
+- **antiNazi** is 100% offline capable;
 
 ### • How to read offline on iOS & within a Chromium App on desktop (Chromium requires a network connection):
 
