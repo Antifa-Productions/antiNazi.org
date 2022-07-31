@@ -29,4 +29,4 @@ For Chromium:
 
 #### https://www.paypal.me/bashthefash
 
-![](https://raw.githubusercontent.com/FuckNazis/antiNazi.org/main/res/1024.png?token=GHSAT0AAAAAABXE5Z5YL3JEE6RF65B3FQEEYXGH7SA)
+![](https://raw.githubusercontent.com/FuckNazis/fucknazis/master/social/1024.png)
