@@ -1,81 +1,85 @@
 {
-   "@type": "WebSite",
-   "name": "anti-Nazi",
-   "editor": "intr0",
-   "short_name": "antiNazi",
-   "start_url": "https://antinazi.org",
-   "display": "standalone",
-   "display_override": [
-      "fullscreen",
-      "minimal-ui"
-   ],
-   "background_color": "#2f2f2f",
-   "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
-   "dir": "ltr",
-   "categories": [
-      "books",
-      "education",
-      "entertainment",
-      "government",
-      "lifestyle",
-      "politics",
-      "social"
-   ],
-   "screenshots": [
-      {
-         "src": "images/screenshot.webp",
-         "sizes": "2048x968",
-         "type": "image/webp",
-         "platform": "wide",
-         "label": "Partial screenshot of homescreen"
-      }
-   ],
-   "lang": "en",
-   "orientation": "natural",
-   "scope": ".",
-   "theme_color": "#900",
-   "icons": [
-      {
-         "type": "image/png",
-         "src": "images/72x72.png",
-         "sizes": "72x72",
-         "purpose": "any"
-      },
-      {
-         "type": "image/png",
-         "src": "images/96x96.png",
-         "sizes": "96x96",
-         "purpose": "any"
-      },
-      {
-         "type": "image/png",
-         "src": "images/128x128.png",
-         "sizes": "128x128",
-         "purpose": "any"
-      },
-      {
-         "type": "image/png",
-         "src": "images/192x192.png",
-         "sizes": "192x192",
-         "purpose": "any"
-      },
-      {
-         "type": "image/png",
-         "src": "images/384x384.png",
-         "sizes": "384x384",
-         "purpose": "any"
-      },
-      {
-         "type": "image/png",
-         "src": "images/512x512.png",
-         "sizes": "512x512",
-         "purpose": "any"
-      },
-      {
-         "type": "image/png",
-         "src": "images/512x512.png",
-         "sizes": "512x512",
-         "purpose": "maskable"
-      }
-   ]
+	"@type": "WebSite",
+	"name": "anti-Nazi",
+	"editor": "intr0",
+	"short_name": "antiNazi",
+	"start_url": "https://antinazi.org",
+	"display": "standalone",
+	"display_override": [
+		"fullscreen",
+		"minimal-ui"
+	],
+	"background_color": "#2f2f2f",
+	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+	"dir": "ltr",
+	"categories": [
+		"books",
+		"education",
+		"entertainment",
+		"government",
+		"lifestyle",
+		"politics",
+		"social"
+	],
+	"screenshots": [
+		{
+			"src": "images/screenshot.webp",
+			"sizes": "2048x968",
+			"type": "image/webp",
+			"platform": "wide",
+			"label": "Partial screenshot of homescreen"
+		}
+	],
+	"shortcuts": {
+		"name": "Homepage",
+		"url": "/"
+	},
+	"lang": "en",
+	"orientation": "natural",
+	"scope": ".",
+	"theme_color": "#900",
+	"icons": [
+		{
+			"type": "image/png",
+			"src": "images/72x72.png",
+			"sizes": "72x72",
+			"purpose": "any"
+		},
+		{
+			"type": "image/png",
+			"src": "images/96x96.png",
+			"sizes": "96x96",
+			"purpose": "any"
+		},
+		{
+			"type": "image/png",
+			"src": "images/128x128.png",
+			"sizes": "128x128",
+			"purpose": "any"
+		},
+		{
+			"type": "image/png",
+			"src": "images/192x192.png",
+			"sizes": "192x192",
+			"purpose": "any"
+		},
+		{
+			"type": "image/png",
+			"src": "images/384x384.png",
+			"sizes": "384x384",
+			"purpose": "any"
+		},
+		{
+			"type": "image/png",
+			"src": "images/512x512.png",
+			"sizes": "512x512",
+			"purpose": "any"
+		},
+		{
+			"type": "image/png",
+			"src": "images/512x512.png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	]
 }
