@@ -1,4 +1,4 @@
-![GitHub Release Date](https://img.shields.io/github/release-date/FuckNazis/antiNazi.org)
+![GitHub Release Date](https://img.shields.io/github/release-date/FuckNazis/antiNazi.org) ![GitHub repo size](https://img.shields.io/github/repo-size/FuckNazis/antiNazi.org) ![GitHub Sponsors](https://img.shields.io/github/sponsors/FuckNazis)
 
 #### https://antinazi.org/ | antiNazi PWA
 
