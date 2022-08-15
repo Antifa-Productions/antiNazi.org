@@ -6,8 +6,8 @@
 	"start_url": "https://antinazi.org",
 	"display": "standalone",
 	"display_override": [
-		"fullscreen",
-		"minimal-ui"
+		"minimal-ui",
+		"fullscreen"
 	],
 	"background_color": "#2f2f2f",
 	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
