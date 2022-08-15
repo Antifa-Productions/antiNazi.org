@@ -1,29 +1,51 @@
-[![Latest Release](https://gitlab.com/antinazi/org/-/badges/release.svg)](https://gitlab.com/antinazi/org/-/releases)
+![GitHub Release Date](https://img.shields.io/github/release-date/FuckNazis/antiNazi.org)
 
 #### https://antinazi.org/ | antiNazi PWA
 
 - **antiNazi** is 100% offline capable;
 
-### • How to read offline on iOS & within a Chromium App on desktop (Chromium requires a network connection):
+### • How to read offline on mobile & desktop:
 
 ***
 
- - 1) Open `https://antinazi.org` in Safari iOS / iPadOS / macOS (unsure about MacOS as I don't have a Mac - $$$$$$)
- - 2) Using the share function (the arrrow in the center of the address bar), add `antiNazi.org` to the homescreen.
- - 3) The PWA that was just "installed" via Safari is, of course, antiNazi. It's 100% offline capable, so one may read the included literature without a network connection whenever one feels like so doing.
+ - 1) Open `https://antinazi.org` in Safari iOS / iPadOS;
+ - 2) Using the share function (the arrrow in the center of the address bar), add `antiNazi.org` to the homescreen;
+ - 3) The PWA that was just "installed" via Safari is, of course, antiNazi. It's 100% offline capable, so one may read the included literature without a network connection whenever one feels like so doing;
 
  - 4) Thank-you for choosing to read "antiNazi"! ♥️
 
 ***
 
-For Chromium:
+#### [For Chrom/e/ium on Android:=>](https://support.google.com/chrome/answer/9658361)
 
-- 1) Open `https://antinazi.org` in a browser tab.
-- 2) Open the tools (currently Chromium has them on the right of the browser), specifically the developer tools.
-- 3) Verify the registration of the service worker by inspecting the tool named "application". It will show the webmanifest & the registration of 'sw.js', the service worker that caches vital website resources to be included in the PWA.
-- 4) Open antiNazi.org as its own standalone application via Chromium. One may add the app icon to any app dock using the XFCE DE for Linux as an example. Or one may add it to the desktop. And one may also add it to the "favorites" section of the XFCE Start Menu (Whisker). It will be added by Chromium to a section also created by Chromium titled "Chromium Apps" - the capital A icon (Anarchism) with antiNazi in type beneath it.
+- Install a PWA
+
+    On your Android device, open Chrome Chrome.
+    Go to a website with a PWA that you want to install.
+    Tap Install.
+    Follow the on-screen instructions.
+
+- Uninstall a PWA
+
+    From your app drawer or home screen, open Settings .
+    Tap Apps & Notifications and then See all apps.
+    Find the PWA you want to remove and tap the icon.
+    Tap Uninstall.
+
+#### Desktop Chrom/e/ium:
+
+- Install a PWA
+
+    On your computer, open Chrome.
+    Go to a website you want to install.
+    At the top right of the address bar, click Install .
+    Follow the onscreen instructions to install the PWA.
+    
+- NOTE: Chromium-based browsers on desktop let you see all the installed PWAs with that browser using `about:apps`.
 
 ***
+
+Tip: Some apps offer shortcuts to features. To find a list of app shortcuts, right-click the PWA on the taskbar.
 
 ## Please donate to help keep the project continue, grow, & become more.
 
