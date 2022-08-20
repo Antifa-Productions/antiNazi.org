@@ -1,4 +1,4 @@
-# ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/FuckNazis/antiNazi.org?color=%23990000&label=code&logo=git&logoColor=%23990000&style=flat-square)  ![Security Headers (Don't follow redirects)](https://img.shields.io/hsts/preload/antinazi.org?color=purple&label=HSTS&logo=google&logoColor=purple&style=flat-square)  ![GitHub top language](https://img.shields.io/github/languages/top/FuckNazis/antiNazi.org?color=white&style=plastic)  ![Website](https://img.shields.io/website?color=hotpink&label=site%20is&logo=debian&logoColor=hotpink&url=https%3A%2F%2Fantinazi.org)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/FuckNazis/antiNazi.org?color=orange&logo=github&logoColor=orange&style=plastic)  ![Security Headers](https://img.shields.io/security-headers?style=flat-square&url=https%3A%2F%2Fantinazi.org)  ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?color=white&logo=mozilla&publish&style=plastic)  ![GitHub](https://img.shields.io/github/license/FuckNazis/antiNazi.org?color=darkblue&label=%20&logo=gnu&logoColor=white&style=plastic)
+# ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/FuckNazis/antiNazi.org?color=%23990000&label=code&logo=git&logoColor=%23990000&style=flat-square)  ![Security Headers (Don't follow redirects)](https://img.shields.io/hsts/preload/antinazi.org?color=purple&label=HSTS&logo=google&logoColor=purple&style=flat-square)  ![GitHub top language](https://img.shields.io/github/languages/top/FuckNazis/antiNazi.org?color=white&style=plastic)  ![Website](https://img.shields.io/website?color=hotpink&label=site%20is&logo=debian&logoColor=hotpink&url=https%3A%2F%2Fantinazi.org)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/FuckNazis/antiNazi.org?color=orange&logo=github&logoColor=orange&style=plastic)  ![Security Headers](https://img.shields.io/security-headers?style=flat-square&url=https%3A%2F%2Fantinazi.org) ![GitHub](https://img.shields.io/github/license/FuckNazis/antiNazi.org?color=darkblue&label=%20&logo=gnu&logoColor=white&style=plastic) ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?color=white&logo=mozilla&publish&style=plastic)
 
 # https://antinazi.org | antiNazi PWA
 
@@ -16,7 +16,7 @@
 
 - 4. Thank-you for choosing to read "antiNazi"!
 
-## 💓 💓 💓 🏴 🏴 🏴 💓 💓 💓 🏴 🏴 🏴 💓 💓 💓 🏴 🏴 🏴 💓 💓 💓 🏴 🏴 🏴
+ 🏴 🏴 🏴 🏴 🏴 🏴 🏴 🏴 🏴 🏴
 
 #### [For Chrom/e/ium on Android:=>](https://support.google.com/chrome/answer/9658361)
 
