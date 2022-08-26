@@ -40,7 +40,7 @@
 
 Tip: Some apps offer shortcuts to features. To find a list of app shortcuts, right-click the PWA on the taskbar.
 
-## Please donate to help keep the project continue to grow in order to spread digital anti right-wing propaganda.
+## Please donate to help keep the project growing in order to spread digital anti right-wing propaganda.
 
 #### https://www.paypal.me/bashthefash
 
