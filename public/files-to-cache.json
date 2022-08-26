@@ -12,9 +12,12 @@
 	"icon_x72.png",
 	"icon_x96.png",
 	"index.html",
+	"files-to-cache.json",
 	"js/files-to-cache.json",
 	"js/index.js",
 	"manifest.webmanifest",
 	"maskable_icon.png",
-	"secreenshot.webp"
+	"secreenshot.webp",
+	"res/antiNazi.org_main_res_1024.png",
+	"res/1024.png"
 ]
