@@ -40,8 +40,8 @@
 
 Tip: Some apps offer shortcuts to features. To find a list of app shortcuts, right-click the PWA on the taskbar.
 
-## Please donate to help keep the project continue, grow, & become more.
+## Please donate to help keep the project continue to grow in order to spread digital anti right-wing propaganda.
 
 #### https://www.paypal.me/bashthefash
 
-![](https://raw.githubusercontent.com/FuckNazis/fucknazis/master/social/1024.png)
+![](https://raw.githubusercontent.com/Voltairine-de-Cleyre/antiNazi.org/main/public/res/antiNazi.org_main_res_1024.png)
