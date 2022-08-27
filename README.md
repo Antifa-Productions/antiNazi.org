@@ -1,8 +1,11 @@
-# ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Voltairine-de-Cleyre/antiNazi.org?color=%23990000&label=code&logo=git&logoColor=%23990000&style=flat-square)  ![Security Headers (Don't follow redirects)](https://img.shields.io/hsts/preload/antinazi.org?color=purple&label=HSTS&logo=google&logoColor=purple&style=flat-square)  ![GitHub top language](https://img.shields.io/github/languages/top/Voltairine-de-Cleyre/antiNazi.org?color=white&style=plastic)  ![Website](https://img.shields.io/website?color=hotpink&label=site%20is&logo=debian&logoColor=hotpink&url=https%3A%2F%2Fantinazi.org)  ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Voltairine-de-Cleyre/antiNazi.org?color=orange&logo=github&logoColor=orange&style=plastic)  ![Security Headers](https://img.shields.io/security-headers?style=flat-square&url=https%3A%2F%2Fantinazi.org) ![GitHub](https://img.shields.io/github/license/Voltairine-de-Cleyre/antiNazi.org?color=darkblue&label=%20&logo=gnu&logoColor=white&style=plastic)  ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?color=white&logo=mozilla&publish&style=plastic)
+### [antiNazi.org](https://antinazi.org) | antiNazi PWA
 
-# https://antinazi.org | antiNazi PWA
+#### ![Security Headers (Follow redirects)](https://img.shields.io/hsts/preload/antinazi.org?color=darkblue&label=HSTS&logo=google&logoColor=darkblue&style=flat-square)
+#### ![Website](https://img.shields.io/website?color=blue&label=site%20is&logo=debian&logoColor=blue&url=https%3A%2F%2Fantinazi.org)
+#### ![Security Headers](https://img.shields.io/security-headers?style=flat-square&color=darkgreen&url=https%3A%2F%2Fantinazi.org)
+#### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?color=black&logo=mozilla&style=social)
 
-## **antiNazi** is 100% offline capable!
+#### **antiNazi** is 100% offline capable!
 
 ### • How to read offline on mobile & desktop:
 
