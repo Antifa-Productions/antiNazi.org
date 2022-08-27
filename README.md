@@ -47,4 +47,4 @@ Tip: Some apps offer shortcuts to features. To find a list of app shortcuts, rig
 
 #### https://www.paypal.me/bashthefash
 
-![](https://raw.githubusercontent.com/Voltairine-de-Cleyre/antiNazi.org/main/public/res/antiNazi.org_main_res_1024.png)
+![](https://gitlab.com/antinazi/antiNazi.org/raw/main/public/res/antiNazi.org_main_res_1024.png)
