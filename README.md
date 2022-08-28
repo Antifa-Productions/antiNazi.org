@@ -1,11 +1,11 @@
-### [antiNazi.org](https://antinazi.org) | antiNazi PWA
+# [antiNazi.org](https://antinazi.org) | antiNazi PWA
+#### ![Twitter Follow](https://img.shields.io/twitter/follow/DeVoltairine?&style=social)
+#### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=social)
+#### ![Website](https://img.shields.io/website?&logo=debian&url=https%3A%2F%2Fantinazi.org&style=social)
+#### ![Security Headers](https://img.shields.io/security-headers?style=social&url=https%3A%2F%2Fantinazi.org)
+#### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?&logo=mozilla&style=social)
 
-#### ![Security Headers (Follow redirects)](https://img.shields.io/hsts/preload/antinazi.org?color=darkblue&label=HSTS&logo=google&logoColor=darkblue&style=flat-square)
-#### ![Website](https://img.shields.io/website?color=blue&label=site%20is&logo=debian&logoColor=blue&url=https%3A%2F%2Fantinazi.org)
-#### ![Security Headers](https://img.shields.io/security-headers?style=flat-square&color=darkgreen&url=https%3A%2F%2Fantinazi.org)
-#### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?color=black&logo=mozilla&style=social)
-
-#### **antiNazi** is 100% offline capable!
+#### **antiNazi** is 100% offline capable! The PWA can be opened and read without a network connection after connecting one time via a network connection. After that point, its service worker handles fetching all necessary files.
 
 ### • How to read offline on mobile & desktop:
 
