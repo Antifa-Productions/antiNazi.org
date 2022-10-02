@@ -1,5 +1,5 @@
 [
-	".",
+	"/",
 	"AntiNaziTwitter.png",
 	"apple-touch-icon.png",
 	"css/style_4.css",
@@ -13,7 +13,6 @@
 	"icon_x96.png",
 	"index.html",
 	"files-to-cache.json",
-	"js/files-to-cache.json",
 	"js/index.js",
 	"manifest.webmanifest",
 	"maskable_icon.png",
