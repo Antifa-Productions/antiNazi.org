@@ -36,7 +36,11 @@
 			"description": "antiNazi homepage",
 			"url": "https://antinazi.org",
 			"icons": [
-				"images/96x96.png"
+				{
+					"src": "images/96x96.png",
+					"type": "image/png",
+					"sizes": "96x96"
+				}
 			]
 		}
 	],
