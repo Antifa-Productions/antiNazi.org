@@ -33,8 +33,10 @@
   "shortcuts": [
     {
       "name": "Homepage",
+      "description": "antiNazi homepage",
       "url": "https://antinazi.org",
-      "icon": "images/96x96.png"
+      "icons": [
+      "images/96x96.png"
     }
   ],
   "lang": "en",
