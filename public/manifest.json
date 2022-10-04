@@ -1,0 +1,78 @@
+{
+	"@type": "WebSite",
+	"name": "AntiNazi | AntiFascist | Black Rose | Rosa Negra",
+	"short_name": "antiNazi",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#2a2a2a",
+	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+	"dir": "ltr",
+	"categories": [
+		"education",
+		"productivity",
+		"politics"
+	],
+	"lang": "en",
+	"orientation": "natural",
+	"theme_color": "#900",
+	"shortcuts": [
+		{
+			"name": "antiNazi Homepage",
+			"url": "https://antinazi.org",
+			"description": "Open antiNazi",
+			"icons": [
+				{
+					"src": "/icon_96x96.png",
+					"sizes": "96x96",
+					"type": "image/png",
+					"purpose": "any"
+				}
+			]
+		}
+	],
+	"icons": [
+		{
+			"src": "/icon_x72.png",
+			"sizes": "72x72",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x96.png",
+			"sizes": "96x96",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x144.png",
+			"sizes": "144x144",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x168.png",
+			"sizes": "168x168",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/maskable_icon.png",
+			"type": "image/png",
+            "sizes": "512x512",
+			"purpose": "maskable"
+		}
+	]
+}
