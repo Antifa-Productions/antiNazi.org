@@ -23,7 +23,7 @@
 			"description": "Open antiNazi",
 			"icons": [
 				{
-					"src": "/icon_96x96.png",
+					"src": "/icon_x96.png",
 					"sizes": "96x96",
 					"type": "image/png",
 					"purpose": "any"
@@ -45,18 +45,6 @@
 			"purpose": "any"
 		},
 		{
-			"src": "/icon_x144.png",
-			"sizes": "144x144",
-			"type": "image/png",
-			"purpose": "any"
-		},
-		{
-			"src": "/icon_x168.png",
-			"sizes": "168x168",
-			"type": "image/png",
-			"purpose": "any"
-		},
-		{
 			"src": "/icon_x192.png",
 			"sizes": "192x192",
 			"type": "image/png",
@@ -71,7 +59,7 @@
 		{
 			"src": "/maskable_icon.png",
 			"type": "image/png",
-            "sizes": "512x512",
+			"sizes": "512x512",
 			"purpose": "maskable"
 		}
 	]
