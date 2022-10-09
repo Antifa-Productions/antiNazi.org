@@ -1,1 +1,1 @@
-if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("fetch.js")})}
+if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("worker.js") }) }
