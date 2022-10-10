@@ -65,6 +65,24 @@
 			"type": "image/png",
 			"sizes": "512x512",
 			"purpose": "maskable"
+		},
+		{
+			"screenshots": [
+				{
+					"src": "/light.webp",
+					"sizes": "1334×750",
+					"type": "image/webp",
+					"platform": "narrow",
+					"label": "Homescreen of antiNazi in light mode"
+				},
+				{
+					"src": "/dark.webp",
+					"sizes": "1334x750",
+					"type": "image/webp",
+					"platform": "narrow",
+					"label": "Homescreen of antiNazi in dark mode"
+				}
+			]
 		}
 	]
 }
