@@ -1,93 +1,93 @@
 {
-  "@type": "WebSite",
-  "name": "AntiNazi | AntiFascist | Black Rose | Rosa Negra",
-  "short_name": "antiNazi",
-  "start_url": "https://antinazi.org/",
-  "scope": ".",
-  "display": "standalone",
-  "display_override": [
-    "fullscreen",
-    "minimal-ui"
-  ],
-  "background_color": "#2a2a2a",
-  "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM.",
-  "dir": "ltr",
-  "categories": [
-    "books",
-    "education",
-    "entertainment",
-    "lifestyle",
-    "politics",
-    "productivity",
-    "social"
-  ],
-  "lang": "en",
-  "orientation": "natural",
-  "theme_color": "#900",
-  "shortcuts": [
-    {
-      "name": "antiNazi Homepage",
-      "url": "https://antinazi.org",
-      "description": "Open antiNazi",
-      "icons": [
-        {
-          "src": "/icon_x96.png",
-          "sizes": "96x96",
-          "type": "image/png",
-          "purpose": "any"
-        }
-      ]
-    }
-  ],
-  "icons": [
-    {
-      "src": "/icon_x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon_x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon_x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon_x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/maskable_icon.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
-    },
-    {
-      "screenshots": [
-        {
-          "src": "/iOS-light.webp",
-          "sizes": "1334×750",
-          "type": "image/webp",
-          "platform": "narrow",
-          "label": "Homescreen of antiNazi in light mode on an iPhone SE 2020"
-        },
-        {
-          "src": "/iOS-dark.webp",
-          "sizes": "1334x750",
-          "type": "image/webp",
-          "platform": "narrow",
-          "label": "Homescreen of antiNazi in dark mode on an iPhone SE 2020"
-        }
-      ]
-    }
-  ],
-  "prefer_related_applications": false
+	"@type": "WebSite",
+	"name": "AntiNazi | AntiFascist | Black Rose | Rosa Negra",
+	"short_name": "antiNazi",
+	"start_url": "https://antinazi.org/",
+	"scope": ".",
+	"display": "standalone",
+	"display_override": [
+		"fullscreen",
+		"minimal-ui"
+	],
+	"background_color": "#2a2a2a",
+	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM.",
+	"dir": "ltr",
+	"categories": [
+		"books",
+		"education",
+		"entertainment",
+		"lifestyle",
+		"politics",
+		"productivity",
+		"social"
+	],
+	"lang": "en",
+	"orientation": "natural",
+	"theme_color": "#900",
+	"shortcuts": [
+		{
+			"name": "antiNazi Homepage",
+			"url": "https://antinazi.org",
+			"description": "Open antiNazi",
+			"icons": [
+				{
+					"src": "/icon_x96.png",
+					"sizes": "96x96",
+					"type": "image/png",
+					"purpose": "any"
+				}
+			]
+		}
+	],
+	"icons": [
+		{
+			"src": "/icon_x72.png",
+			"sizes": "72x72",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x96.png",
+			"sizes": "96x96",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon_x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/maskable_icon.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		},
+		{
+			"screenshots": [
+				{
+					"src": "/iOS-light.webp",
+					"sizes": "1334×750",
+					"type": "image/webp",
+					"platform": "narrow",
+					"label": "Homescreen of antiNazi in light mode on an iPhone SE 2020"
+				},
+				{
+					"src": "/iOS-dark.webp",
+					"sizes": "1334x750",
+					"type": "image/webp",
+					"platform": "narrow",
+					"label": "Homescreen of antiNazi in dark mode on an iPhone SE 2020"
+				}
+			]
+		}
+	],
+	"prefer_related_applications": false
 }
