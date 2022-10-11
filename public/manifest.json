@@ -69,18 +69,18 @@
 		{
 			"screenshots": [
 				{
-					"src": "/iOS-light.webp",
+					"src": "/light.webp",
 					"sizes": "1334×750",
 					"type": "image/webp",
 					"platform": "narrow",
-					"label": "Homescreen of antiNazi in light mode on an iPhone SE 2020"
+					"label": "Homescreen of antiNazi in light mode"
 				},
 				{
-					"src": "/iOS-dark.webp",
+					"src": "/dark.webp",
 					"sizes": "1334x750",
 					"type": "image/webp",
 					"platform": "narrow",
-					"label": "Homescreen of antiNazi in dark mode on an iPhone SE 2020"
+					"label": "Homescreen of antiNazi in dark mode"
 				}
 			]
 		}
