@@ -1,6 +1,5 @@
 [
 	"/",
-	"AntiNaziTwitter.png",
 	"apple-touch-icon.png",
 	"css/style.min.css",
 	"favicon.png",
@@ -17,7 +16,10 @@
 	"js/fetch.js",
 	"manifest.json",
 	"maskable_icon.png",
-	"dark-desktop-browser.webp",
+	"Linux-dark.webp",
+	"Linux-light.webp",
+	"iOS-dark.webp",
+	"iOS-light.webp",
 	"res/antiNazi.org_main_res_1024.png",
 	"res/1024.png"
 ]
