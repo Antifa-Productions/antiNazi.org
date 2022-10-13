@@ -1,4 +1,5 @@
 [
+	".",
 	"/",
 	"/index.html",
 	"apple-touch-icon.png",
@@ -12,8 +13,8 @@
 	"icon_x72.png",
 	"icon_x96.png",
 	"files-to-cache.json",
-	"js/fetch.js",
-	"manifest.webmanifest",
+	"js/index.js",
+	"manifest.json",
 	"maskable_icon.png",
 	"Linux-dark.webp",
 	"Linux-light.webp",
