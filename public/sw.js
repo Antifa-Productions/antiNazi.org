@@ -1,3 +1,5 @@
+importScripts("https://progressier.com/client/sw.js?id=ks7ZXTYEtNDWPp5954Gf");
+
 const fileListURL = 'file-list.json';
 // we're controlling the lifecycle outself
 self.skipWaiting();
