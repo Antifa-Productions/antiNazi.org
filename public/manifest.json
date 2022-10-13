@@ -1,94 +1,106 @@
 {
-	"@type": "WebSite",
-	"name": "AntiNazi | AntiFascist | Black Rose | Rosa Negra",
-	"short_name": "antiNazi",
-	"start_url": "/",
-	"scope": "/",
-	"display": "standalone",
-	"display_override": [
-		"fullscreen",
-		"minimal-ui",
-		"browser"
-	],
-	"background_color": "#2a2a2a",
-	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM.",
-	"dir": "ltr",
-	"categories": [
-		"books",
-		"education",
-		"entertainment",
-		"lifestyle",
-		"politics",
-		"productivity",
-		"social"
-	],
-	"lang": "en",
-	"orientation": "natural",
-	"theme_color": "#900",
-	"shortcuts": [
-		{
-			"name": "antiNazi Homepage",
-			"url": "https://antinazi.org",
-			"description": "Open antiNazi",
-			"icons": [
-				{
-					"src": "/icon_x96.png",
-					"sizes": "96x96",
-					"type": "image/png",
-					"purpose": "any"
-				}
-			]
-		}
-	],
-	"icons": [
-		{
-			"src": "/icon_x72.png",
-			"sizes": "72x72",
-			"type": "image/png",
-			"purpose": "any"
-		},
-		{
-			"src": "/icon_x96.png",
-			"sizes": "96x96",
-			"type": "image/png",
-			"purpose": "any"
-		},
-		{
-			"src": "/icon_x192.png",
-			"sizes": "192x192",
-			"type": "image/png",
-			"purpose": "any"
-		},
-		{
-			"src": "/icon_x512.png",
-			"sizes": "512x512",
-			"type": "image/png",
-			"purpose": "any"
-		},
-		{
-			"src": "/maskable_icon.png",
-			"type": "image/png",
-			"sizes": "512x512",
-			"purpose": "maskable"
-		},
-		{
-			"screenshots": [
-				{
-					"src": "/iOS-light.webp",
-					"sizes": "1334×750",
-					"type": "image/webp",
-					"platform": "narrow",
-					"label": "Homescreen of antiNazi in light mode on an iPhone SE 2020"
-				},
-				{
-					"src": "/iOS-dark.webp",
-					"sizes": "1334x750",
-					"type": "image/webp",
-					"platform": "narrow",
-					"label": "Homescreen of antiNazi in dark mode on an iPhone SE 2020"
-				}
-			]
-		}
-	],
-	"prefer_related_applications": false
+  "short_name": "antiNazi",
+  "name": "antiNazi",
+  "background_color": "#1c1c1c",
+  "theme_color": "#990606",
+  "display": "standalone",
+  "orientation": "any",
+  "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+  "screenshots": [
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FmgAWsldzxMIpgDO.jpg?alt=media&amp;token=2404aa01-a5bf-4467-9010-13f9958fa198",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "🖱️ Select - Click to select screenshot"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FdKNVJaNFsYRBPkf.jpg?alt=media&amp;token=5c5ce1ef-763f-45d5-abea-d0f65010dbe6",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "✒️ Modify content - Double click to screenshot URL or change text"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FJluswKWqKfGrejw.jpg?alt=media&amp;token=91e5ac06-4dab-45b5-ba70-4facb17268ba",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "📃️ Select layout - Click to select, then CTRL + L to choose layout"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FDGGOhluhPgWQito.jpg?alt=media&amp;token=ab98e620-1537-4615-a71e-1fc3abde12dd",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "🎨 Apply to all - Change colors &amp; press Tab to propagate"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FsNBHSTvxeCXQyJY.jpg?alt=media&amp;token=fcb8aa0d-7b73-4b6e-aac5-32b110c4df05",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "🖐️ Select multiple  - CTRL + click to select multiple screenshots"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FjKQFQTsnrhBhAGz.jpg?alt=media&amp;token=c1b369f2-9adc-4713-8184-6da01aa5a4b5",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "➕ New screenshot - CTRL + A to add new screenshot"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FWFxbqScskgmfloR.jpg?alt=media&amp;token=d33904da-97b7-4526-8725-a6db3a6c87dd",
+      "type": "image/jpeg",
+      "sizes": "900x1600",
+      "label": "🗑️ Delete  - Select screenshot and press Delete to remove"
+    }
+  ],
+  "start_url": "https://antinazi.org",
+  "scope": "https://antinazi.org",
+  "id": "https://antinazi.org/ks7ZXTYEtNDWPp5954Gf",
+  "related_applications": [],
+  "icons": [
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FfJFyJiWCiVrJcNM.png?alt=media&amp;token=887bbf0a-a6db-4ff0-bfb6-9baf4a3b121e",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FfJFyJiWCiVrJcNM.png?alt=media&amp;token=887bbf0a-a6db-4ff0-bfb6-9baf4a3b121e",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "books",
+    "education",
+    "entertainment",
+    "lifestyle",
+    "politics",
+    "government",
+    "social",
+    "security",
+    "utilities"
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+pwa",
+      "url": "https://antinazi.org/?pwaprotocolredirect=%s"
+    },
+    {
+      "protocol": "web+antinazi",
+      "url": "https://antinazi.org/?pwaprotocolredirect=%s"
+    }
+  ],
+  "lang": "en",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "antiNazi Homepage",
+      "url": "https://antinazi.org",
+      "icons": [
+        {
+          "src": "https://antinazi.org/favicon.png"
+        }
+      ],
+      "description": "Open antiNazi"
+    }
+  ]
 }
