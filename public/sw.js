@@ -1,3 +1,9 @@
+window.addEventListener('pusheligible', function () {
+
+    //Show your own push prompt UI
+
+});
+
 window.addEventListener('installready', function (e) {
 
     //Show your own installation UI
