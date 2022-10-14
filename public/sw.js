@@ -1,3 +1,5 @@
+importScripts("https://progressier.com/client/sw.js?id=EdkOggl7R7k5tjW3SrrM");
+
 window.addEventListener('pusheligible', function () {
 
     //Show your own push prompt UI
