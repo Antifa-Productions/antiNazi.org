@@ -12,7 +12,7 @@
 	"icon_x512.png",
 	"icon_x72.png",
 	"icon_x96.png",
-	"files-to-cache.json",
+	"file-list.json",
 	"js/index.js",
 	"manifest.json",
 	"maskable_icon.png",
