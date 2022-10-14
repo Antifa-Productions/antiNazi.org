@@ -1,28 +1,10 @@
-importScripts("https://progressier.com/client/sw.js?id=EdkOggl7R7k5tjW3SrrM");
-
-window.addEventListener('pusheligible', function () {
-
-    //Show your own push prompt UI
-
-});
-
-window.addEventListener('installready', function (e) {
-
-    //Show your own installation UI
-    //Include our Install Button code for best results
-    //e.detail.ios is true if the user is on Safari/iOS. 
-    //Or false if it's a native prompt (all other platforms)
-    console.log(e.detail.ios);
-
-});
-
-importScripts("https://progressier.com/client/sw.js?id=ks7ZXTYEtNDWPp5954Gf");
+importScripts("https://progressier.com/client/sw.js?id=F1qyuAXUQ6r83mnqmVIE");
 
 const fileListURL = 'file-list.json';
+
 // we're controlling the lifecycle outself
 self.skipWaiting();
 
-// A little hack for cache busting until the `cache` option is supported
 function fetchAndBust(request) {
     if (typeof request == 'string')
         request = new Request(request);
