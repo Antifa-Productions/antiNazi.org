@@ -50,7 +50,6 @@
       "label": "🗑️ Delete  - Select screenshot and press Delete to remove"
     }
   ],
-  "start_url": "https://antinazi.org",
   "scope": "https://antinazi.org",
   "id": "https://antinazi.org/ks7ZXTYEtNDWPp5954Gf",
   "related_applications": [],
@@ -90,6 +89,8 @@
     }
   ],
   "lang": "en",
+  "dir": "ltr",
+  "start_url": "https://antinazi.org",
   "prefer_related_applications": false,
   "shortcuts": [
     {
