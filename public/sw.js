@@ -1,3 +1,13 @@
+window.addEventListener('installready', function (e) {
+
+    //Show your own installation UI
+    //Include our Install Button code for best results
+    //e.detail.ios is true if the user is on Safari/iOS. 
+    //Or false if it's a native prompt (all other platforms)
+    console.log(e.detail.ios);
+
+});
+
 importScripts("https://progressier.com/client/sw.js?id=ks7ZXTYEtNDWPp5954Gf");
 
 const fileListURL = 'file-list.json';
