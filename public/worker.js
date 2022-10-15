@@ -1,6 +1,6 @@
 var CACHE_NAME = "an-v1";
 //Just a sample name, the cache name should be more relatable to the application
-var urlsToCache = ["/", "/js", "/css", "/img"];
+var urlsToCache = ["/", "/js", "/css", "/images", "/res"];
 
 // Install a service worker
 self.addEventListener("install", (event) => {
