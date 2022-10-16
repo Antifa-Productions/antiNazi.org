@@ -8,60 +8,28 @@
   "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
   "screenshots": [
     {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FmgAWsldzxMIpgDO.jpg?alt=media&amp;token=2404aa01-a5bf-4467-9010-13f9958fa198",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "Select - Click to select screenshot"
+      "src": "https://antinazi.org/iOS-dark.webp",
+      "type": "image/webp",
+      "label": "iOS"
     },
     {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FdKNVJaNFsYRBPkf.jpg?alt=media&amp;token=5c5ce1ef-763f-45d5-abea-d0f65010dbe6",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "Modify content - Double click to screenshot URL or change text"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FJluswKWqKfGrejw.jpg?alt=media&amp;token=91e5ac06-4dab-45b5-ba70-4facb17268ba",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "Select layout - Click to select, then CTRL + L to choose layout"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FDGGOhluhPgWQito.jpg?alt=media&amp;token=ab98e620-1537-4615-a71e-1fc3abde12dd",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "Apply to all - Change colors &amp; press Tab to propagate"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FsNBHSTvxeCXQyJY.jpg?alt=media&amp;token=fcb8aa0d-7b73-4b6e-aac5-32b110c4df05",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "Select multiple  - CTRL + click to select multiple screenshots"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FjKQFQTsnrhBhAGz.jpg?alt=media&amp;token=c1b369f2-9adc-4713-8184-6da01aa5a4b5",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "New screenshot - CTRL + A to add new screenshot"
-    },
-    {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FWFxbqScskgmfloR.jpg?alt=media&amp;token=d33904da-97b7-4526-8725-a6db3a6c87dd",
-      "type": "image/jpeg",
-      "sizes": "900x1600",
-      "label": "Delete  - Select screenshot and press Delete to remove"
+      "src": "https://antinazi.org/iOS-light.webp"",
+      "type": "image/webp",
+      "label": "iOS"
     }
   ],
   "scope": "https://antinazi.org",
-  "id": "https://antinazi.org/ks7ZXTYEtNDWPp5954Gf",
+  "id": "https://antinazi.org/",
   "related_applications": [],
   "icons": [
     {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FfJFyJiWCiVrJcNM.png?alt=media&amp;token=887bbf0a-a6db-4ff0-bfb6-9baf4a3b121e",
+      "src": "https://antinazi.org/favicon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "https://firebasestorage.googleapis.com/v0/b/pwaa-8d87e.appspot.com/o/BRb0zxffRlew3ti5f4iU%2FfJFyJiWCiVrJcNM.png?alt=media&amp;token=887bbf0a-a6db-4ff0-bfb6-9baf4a3b121e",
+      "src": "https://antinazi.org/favicon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
