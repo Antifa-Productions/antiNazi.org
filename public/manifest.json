@@ -1,75 +1,80 @@
 {
-  "short_name": "antiNazi",
-  "name": "antiNazi",
-  "background_color": "#1c1c1c",
-  "theme_color": "#990606",
-  "display": "standalone",
-  "orientation": "any",
-  "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
-  "screenshots": [
-    {
-      "src": "https://antinazi.org/iOS-dark.webp",
-      "type": "image/webp",
-      "label": "iOS"
-    },
-    {
-      "src": "https://antinazi.org/iOS-light.webp",
-      "type": "image/webp",
-      "label": "iOS"
-    }
-  ],
-  "scope": "https://antinazi.org",
-  "id": "https://antinazi.org/",
-  "related_applications": [],
-  "icons": [
-    {
-      "src": "https://antinazi.org/favicon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "https://antinazi.org/favicon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ],
-  "categories": [
-    "books",
-    "education",
-    "entertainment",
-    "lifestyle",
-    "politics",
-    "government",
-    "social",
-    "security",
-    "utilities"
-  ],
-  "protocol_handlers": [
-    {
-      "protocol": "web+pwa",
-      "url": "https://antinazi.org/?pwaprotocolredirect=%s"
-    },
-    {
-      "protocol": "web+antinazi",
-      "url": "https://antinazi.org/?pwaprotocolredirect=%s"
-    }
-  ],
-  "lang": "en",
-  "dir": "ltr",
-  "start_url": "https://antinazi.org",
-  "prefer_related_applications": false,
-  "shortcuts": [
-    {
-      "name": "antiNazi Homepage",
-      "url": "https://antinazi.org",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open antiNazi"
-    }
-  ]
+	"short_name": "antiNazi",
+	"name": "antiNazi",
+	"background_color": "#1c1c1c",
+	"theme_color": "#990606",
+	"display_override": [
+		"fullscreen",
+		"minimal-ui",
+		"window-controls-overlay"
+	],
+	"display": "standalone",
+	"orientation": "any",
+	"description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+	"screenshots": [
+		{
+			"src": "https://antinazi.org/iOS-dark.webp",
+			"type": "image/webp",
+			"label": "iOS"
+		},
+		{
+			"src": "https://antinazi.org/iOS-light.webp",
+			"type": "image/webp",
+			"label": "iOS"
+		}
+	],
+	"scope": "https://antinazi.org",
+	"id": "https://antinazi.org/",
+	"related_applications": [],
+	"icons": [
+		{
+			"src": "https://antinazi.org/favicon.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "https://antinazi.org/favicon.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		}
+	],
+	"categories": [
+		"books",
+		"education",
+		"entertainment",
+		"lifestyle",
+		"politics",
+		"government",
+		"social",
+		"security",
+		"utilities"
+	],
+	"protocol_handlers": [
+		{
+			"protocol": "web+pwa",
+			"url": "https://antinazi.org/?pwaprotocolredirect=%s"
+		},
+		{
+			"protocol": "web+antinazi",
+			"url": "https://antinazi.org/?pwaprotocolredirect=%s"
+		}
+	],
+	"lang": "en",
+	"dir": "ltr",
+	"start_url": "https://antinazi.org",
+	"prefer_related_applications": false,
+	"shortcuts": [
+		{
+			"name": "antiNazi Homepage",
+			"url": "https://antinazi.org",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open antiNazi"
+		}
+	]
 }
