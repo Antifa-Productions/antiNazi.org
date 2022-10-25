@@ -35,7 +35,7 @@ self.addEventListener("fetch", (event) => {
             }
 
             // Clone the response before putting into cache so that response to browser and
-            // response to cache happens in two difference streams
+            // response to cache happen in two separate streams
             var responseForCache = response.clone();
             caches
                 .open(CACHE_NAME)
@@ -47,7 +47,7 @@ self.addEventListener("fetch", (event) => {
     }));
 });
 
-// Update a service worker
+// Update service worker
 self.addEventListener("activate", (event) => {
     var cacheWhitelist = ["an-v2"];
     event.waitUntil(caches.keys().then((cacheNames) => {
