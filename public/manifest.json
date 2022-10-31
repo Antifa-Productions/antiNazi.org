@@ -15,12 +15,22 @@
 		{
 			"src": "https://antinazi.org/iOS-dark.webp",
 			"type": "image/webp",
-			"label": "iOS"
+			"label": "iOS darkmode"
 		},
 		{
 			"src": "https://antinazi.org/iOS-light.webp",
 			"type": "image/webp",
-			"label": "iOS"
+			"label": "iOS lightmode"
+		},
+		{
+			"src": "https://antinazi.org/Linux-dark.webp",
+			"type": "image/webp",
+			"label": "Linux desktop darkmode"
+		},
+		{
+			"src": "https://antinazi.org/Linux-light.webp",
+			"type": "image/webp",
+			"label": "Linux desktop lightmode"
 		}
 	],
 	"scope": "https://antinazi.org",
