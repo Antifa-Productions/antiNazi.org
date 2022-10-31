@@ -1,103 +1,77 @@
 const fileListURL = 'file-list.json';
-
 self.skipWaiting();
-
 function fetchAndBust(request) {
-    if (typeof request == 'string')
-        request = new Request(request);
+    if (typeof request == 'string') {
+        request = new Request(request)
+    }
     const url = new URL(request.url);
     url.search += Math.random();
-
     return fetch(url, {
         headers: request.headers,
         mode: request.mode,
         credentials: request.credentials,
         redirect: request.redirect
-    });
+    })
 }
-
 async function updateCheck() {
     const r = await fetch(fileListURL);
     const fileList = await r.json();
     const staticCacheName = `file-list-v${fileList.version}`;
-    const cacheExists = await caches
-        .has(staticCacheName);
-    // don't recache if the version number hasn't changed
-    if (cacheExists)
-        return;
+    const cacheExists = await caches.has(staticCacheName);
+    if (cacheExists) {
+        return
+    }
     try {
-        const responses = await Promise
-            .all(fileList.files.map(fetchAndBust));
-        const cache = await caches
-            .open(staticCacheName);
+        const responses = await Promise.all(fileList.files.map(fetchAndBust));
+        const cache = await caches.open(staticCacheName);
         return await Promise.all(responses.map((response, i) => {
-            // throw if 404 etc
-            if (!response.ok)
-                throw Error('Not ok');
-
-            // store the responses under their original url
-            return cache.put(fileList.files[i], response);
-        }));
+            if (!response.ok) {
+                throw Error('Not ok')
+            }
+            return cache.put(fileList.files[i], response)
+        }))
     } catch (err) {
-        // it went wrong, ditch the cache
         caches.delete(staticCacheName);
-        throw err;
+        throw err
     }
 }
-
 self.addEventListener('install', event => {
-    event.waitUntil(
-        // do an update check on install, but we don't really care if it fails, as it'll
-        // try again at the next navigate
-        updateCheck().catch(() => null));
+    event.waitUntil(updateCheck().catch(() => null))
 });
-
 self.addEventListener('fetch', event => {
     const responsePromise = caches
         .keys()
         .then(cacheNames => {
             const staticCacheNames = cacheNames.filter(n => n.startsWith('static-separate-list-v'));
-
-            // no caches, go to network
-            if (!staticCacheNames[0])
-                return fetch(event.request);
-
+            if (!staticCacheNames[0]) {
+                return fetch(event.request)
+            }
             let staticCacheName = staticCacheNames[0];
-
             return Promise
                 .resolve()
                 .then(() => {
-                    if (staticCacheNames.length == 1 || event.request.mode != 'navigate')
-                        return;
-
-                    // more than one static cache? Can we expire the old one?
+                    if (staticCacheNames.length == 1 || event.request.mode != 'navigate') {
+                        return
+                    }
                     return clients
                         .matchAll()
                         .then(clients => {
-                            // TODO: I would have expected zero clients for initial navigation, but seems
-                            // like it's 1 I need to investigate this & find out if it's a spec or Chrome
-                            // issue
-                            if (clients.length > 1)
-                                return;
-
-                            // Ohh, we can use the new cache!
+                            if (clients.length > 1) {
+                                return
+                            }
                             staticCacheName = staticCacheNames[staticCacheNames.length - 1];
-                            // delete the others
-                            return Promise.all(staticCacheNames.slice(0, -1).map(c => caches.delete(c)));
+                            return Promise.all(staticCacheNames.slice(0, -1).map(c => caches.delete(c)))
                         })
                 })
                 .then(() => {
                     return caches
                         .open(staticCacheName)
                         .then(c => c.match(event.request))
-                        .then(response => response || fetch(event.request));
-                });
+                        .then(response => response || fetch(event.request))
+                })
         });
-
     if (event.request.mode == 'navigate') {
-        // allow the main request to complete, then check for updates
-        event.waitUntil(responsePromise.then(updateCheck));
+        event.waitUntil(responsePromise.then(updateCheck))
     }
-
-    event.respondWith(responsePromise);
+    event.respondWith(responsePromise)
 });
