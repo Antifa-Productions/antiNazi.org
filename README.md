@@ -6,6 +6,7 @@
 #### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?&logo=mozilla&style=social)
 #### ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Antifa-Productions/antiNazi.org)
 #### ![GitHub repo file count](https://img.shields.io/github/directory-file-count/Antifa-Productions/antiNazi.org)
+#### ![Top Language](https://img.shields.io/github/languages/top/Antifa-Productions/antiNazi.org?style=flat)
 #### **antiNazi** is 100% offline capable! The PWA can be opened and read without a network connection after connecting one time via a network connection. After that point, its service worker handles fetching all necessary files.
 
 ### • How to read offline on mobile & desktop:
