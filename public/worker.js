@@ -1,4 +1,4 @@
-var CACHE_NAME = "an-v2";
+var CACHE_NAME = "an-v3";
 
 var urlsToCache = [
     ".",
@@ -49,7 +49,7 @@ self.addEventListener("fetch", (event) => {
 
 // Update service worker
 self.addEventListener("activate", (event) => {
-    var cacheWhitelist = ["an-v2"];
+    var cacheWhitelist = ["an-v3"];
     event.waitUntil(caches.keys().then((cacheNames) => {
         return Promise.all(cacheNames.map((cacheName) => {
             if (cacheWhitelist.indexOf(cacheName) === -1) {
