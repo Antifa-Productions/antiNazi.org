@@ -1,4 +1,5 @@
 # [antiNazi.org](https://antinazi.org) | antiNazi [PWA](https://support.google.com/chrome/answer/9658361)
+###  [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 #### ![Twitter Follow](https://img.shields.io/twitter/follow/DeVoltairine?&style=social)
 #### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=social)
 #### ![Website](https://img.shields.io/website?&logo=debian&url=https%3A%2F%2Fantinazi.org&style=social)
