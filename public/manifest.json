@@ -85,6 +85,16 @@
 				}
 			],
 			"description": "Open antiNazi"
+		},
+		{
+			"name": "Anarchist Literature",
+			"url": "https://antinazi.org/anarchist-literature",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Anarchist Literature"
 		}
 	]
 }
