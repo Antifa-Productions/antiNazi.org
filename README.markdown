@@ -4,11 +4,10 @@
 #### ![Website](https://img.shields.io/website?color=black&label=web%20app&logo=linux&logoColor=black&style=flat-square&url=https%3A%2F%2Fantinazi.org)
 #### ![GitHub language count](https://img.shields.io/github/languages/count/Antifa-Productions/antiNazi.org?color=black&logo=git&logoColor=black&style=flat-square)
 #### ![Twitter Follow](https://img.shields.io/twitter/follow/DeVoltairine?&style=flat-square&color=black&logo=twitter&logoColor=black)
-#### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=flat-square&color=darkblue&logoColor=darkblue)
-#### ![Security Headers](https://img.shields.io/security-headers?style=flat-square&color=darkblue&url=https%3A%2F%2Fantinazi.org)
-#### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?&logo=mozilla&style=flat-square&color=darkred&logoColor=darkred)
-#### ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Antifa-Productions/antiNazi.org?style=flat-square&color=darkred&logo=debian&logoColor=darkred)
-#### ![GitHub repo file count](https://img.shields.io/github/directory-file-count/Antifa-Productions/antiNazi.org?style=flat-square&color=black&logo=atom&logoColor=black)
+#### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=flat-square&color=black&logoColor=black)
+#### ![Security Headers](https://img.shields.io/security-headers?style=flat-square&color=black&url=https%3A%2F%2Fantinazi.org)
+#### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?&logo=mozilla&style=flat-square&color=black&logoColor=black)
+#### ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Antifa-Productions/antiNazi.org?style=flat-square&color=black&logo=debian&logoColor=black)
 #### ![Top Language](https://img.shields.io/github/languages/top/Antifa-Productions/antiNazi.org?style=flat-square&color=black&logo=html5&logoColor=black)
 #### **antiNazi** is 100% offline capable! The PWA can be opened and read without a network connection after connecting one time via a network connection. After that point, its service worker handles fetching all necessary files.
 
