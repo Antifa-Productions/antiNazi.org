@@ -1,0 +1,27 @@
+{
+  "name": "antiNazi",
+  "version": "2.22.12.3",
+  "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "PWA, progressive web app, anarchism, anarchy, peace"
+  ],
+  "homepage": "https://antinazi.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Antifa-Productions/antiNazi.org"
+  },
+  "author": {
+    "name": "@Voltairine-de-Cleyre"
+  },
+  "funding": [
+    {
+      "type": "Ko-fi",
+      "url": "https://ko-fi.com/intr0"
+    },
+    {
+      "type": "ETH",
+      "url": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
+    }
+  ]
+}
