@@ -1,6 +1,6 @@
 {
 	"short_name": "antiNazi",
-	"name": "antiNazi",
+	"name": "antiNazi.org",
 	"background_color": "#1c1c1c",
 	"theme_color": "#990606",
 	"display_override": [
@@ -57,9 +57,7 @@
 		"lifestyle",
 		"politics",
 		"government",
-		"social",
-		"security",
-		"utilities"
+		"social"
 	],
 	"protocol_handlers": [
 		{
@@ -87,14 +85,64 @@
 			"description": "Open antiNazi"
 		},
 		{
-			"name": "Anarchist Literature",
-			"url": "https://antinazi.org/anarchist-literature",
+			"name": "Selected Works of Voltairine de Cleyre",
+			"url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre",
 			"icons": [
 				{
 					"src": "https://antinazi.org/favicon.png"
 				}
 			],
-			"description": "Open Anarchist Literature"
+			"description": "Open Selected Works of Voltairine de Cleyre"
+		},
+		{
+			"name": "Prison Memoirs of an Anarchist",
+			"url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Prison Memoirs of an Anarchist"
+		},
+		{
+			"name": "Anarchism and Other Essays",
+			"url": "https://antinazi.org/Anarchism-and-Other-Essays",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Anarchism and Other Essays"
+		},
+		{
+			"name": "The Conquest of Bread",
+			"url": "https://antinazi.org/The-Conquest-of-Bread",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open The Conquest of Bread"
+		},
+		{
+			"name": "Deportation its meaning and menace",
+			"url": "https://antinazi.org/Deportation-its-meaning-and-menace",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Deportation its meaning and menace"
+		},
+		{
+			"name": "Anarchy",
+			"url": "https://antinazi.org/Anarchy",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Anarchy"
 		}
 	]
 }
