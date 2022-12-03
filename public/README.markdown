@@ -1,5 +1,7 @@
-# [antiNazi.org](https://antinazi.org)
-# antiNazi [PWA](https://support.google.com/chrome/answer/9658361)
+# [antiNazi.org](https://antinazi.org) ↗
+## antiNazi [PWA](https://support.google.com/chrome/answer/9658361) ↗
+**TIPS: ETH:**
+**0x4BC93A72518dFB9CC830BcC7BE03616a0298E019**
 ###  [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 #### ![Website](https://img.shields.io/website?color=black&label=web%20app&logo=linux&logoColor=black&style=flat-square&url=https%3A%2F%2Fantinazi.org)
 #### ![GitHub language count](https://img.shields.io/github/languages/count/Antifa-Productions/antiNazi.org?color=black&logo=git&logoColor=black&style=flat-square)
@@ -25,7 +27,7 @@
 
  🏴 🏴 🏴 🏴 🏴 🏴 🏴 🏴 🏴 🏴
 
-#### [For Chrom/e/ium on Android:=>](https://support.google.com/chrome/answer/9658361)
+#### [For Chrom/e/ium on Android:=>](https://support.google.com/chrome/answer/9658361) ↗
 
 - Install a PWA
 
@@ -41,4 +43,4 @@
 
   On your computer, open Chrome. Go to a website you want to install. At the top right of the address bar, click Install . Follow the onscreen instructions to install the PWA.
 
-- NOTE: Chromium-based browsers on desktop let you see all the installed PWAs with that browser using `about:apps`.
+- NOTE: Chromium-based browsers on desktop let you see all the installed PWAs with that browser using **`about:apps`**.
