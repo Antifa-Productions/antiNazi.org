@@ -26,7 +26,7 @@
 	"icon_x72.png",
 	"icon_x96.png",
 	"file-list.json",
-	"js/index.js",
+	"/js/index.js",
 	"manifest.json",
 	"maskable_icon.png",
 	"Linux-dark.webp",
