@@ -1,6 +1,6 @@
 {
   "name": "antiNazi",
-  "version": "2.22.12.7",
+  "version": "2.23.1.1",
   "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
   "license": "AGPL-3.0",
   "keywords": [
@@ -20,7 +20,7 @@
       "url": "https://ko-fi.com/intr0"
     },
     {
-      "type": "ETH",
+      "type": "Ethereum",
       "url": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
     }
   ]
