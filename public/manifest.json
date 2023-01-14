@@ -2,7 +2,7 @@
 	"short_name": "antiNazi",
 	"name": "antiNazi.org",
 	"background_color": "#1c1c1c",
-	"theme_color": "#990606",
+	"theme_color": "#990000",
 	"display_override": [
 		"fullscreen",
 		"minimal-ui",
@@ -85,14 +85,14 @@
 			"description": "Open antiNazi"
 		},
 		{
-			"name": "Selected Works of Voltairine de Cleyre",
-			"url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre",
+			"name": "A fragment of the prison experiences of Emma Goldman and Alexander Berkman",
+			"url": "https://antinazi.org/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
 			"icons": [
 				{
 					"src": "https://antinazi.org/favicon.png"
 				}
 			],
-			"description": "Open Selected Works of Voltairine de Cleyre"
+			"description": "Open A fragment of the prison experiences of Emma Goldman and Alexander Berkman"
 		},
 		{
 			"name": "Prison Memoirs of an Anarchist",
@@ -105,6 +105,16 @@
 			"description": "Open Prison Memoirs of an Anarchist"
 		},
 		{
+			"name": "An Anarchist Woman",
+			"url": "https://antinazi.org/An-Anarchist-Woman",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open An Anarchist Woman"
+		},
+		{
 			"name": "Anarchism and Other Essays",
 			"url": "https://antinazi.org/Anarchism-and-Other-Essays",
 			"icons": [
@@ -113,6 +123,66 @@
 				}
 			],
 			"description": "Open Anarchism and Other Essays"
+		},
+		{
+			"name": "Anarchy",
+			"url": "https://antinazi.org/Anarchy",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Anarchy"
+		},
+		{
+			"name": "Deportation its meaning and menace",
+			"url": "https://antinazi.org//Deportation-its-meaning-and-menace",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Deportation its meaning and menace"
+		},
+		{
+			"name": "God and the State",
+			"url": "https://antinazi.org/God-and-the-State",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open God and the State"
+		},
+		{
+			"name": "Prison Memoirs of an Anarchist",
+			"url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Prison Memoirs of an Anarchist"
+		},
+		{
+			"name": "Proposed Roads To Freedom",
+			"url": "https://antinazi.org/Proposed-Roads-To-Freedom",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Proposed Roads To Freedom"
+		},
+		{
+			"name": "Selected Works of Voltairine de Cleyre",
+			"url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre",
+			"icons": [
+				{
+					"src": "https://antinazi.org/favicon.png"
+				}
+			],
+			"description": "Open Selected Works of Voltairine de Cleyre"
 		},
 		{
 			"name": "The Conquest of Bread",
@@ -125,24 +195,24 @@
 			"description": "Open The Conquest of Bread"
 		},
 		{
-			"name": "Deportation its meaning and menace",
-			"url": "https://antinazi.org/Deportation-its-meaning-and-menace",
+			"name": "The Place of Anarchism in Socialistic Evolution",
+			"url": "https://antinazi.org/The-Place-of-Anarchism-in-Socialistic-Evolution",
 			"icons": [
 				{
 					"src": "https://antinazi.org/favicon.png"
 				}
 			],
-			"description": "Open Deportation its meaning and menace"
+			"description": "Open The Place of Anarchism in Socialistic Evolution"
 		},
 		{
-			"name": "Anarchy",
-			"url": "https://antinazi.org/Anarchy",
+			"name": "The Right To Ignore The State",
+			"url": "https://antinazi.org/The-Right-To-Ignore-The-State",
 			"icons": [
 				{
 					"src": "https://antinazi.org/favicon.png"
 				}
 			],
-			"description": "Open Anarchy"
+			"description": "Open The Right To Ignore The State"
 		}
 	]
 }
