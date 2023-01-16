@@ -1,4 +1,4 @@
-importScripts('https://pep.dev/pep-sw-core.js')
+importScripts('https://pep.dev/pep-sw-core.js');
 const CACHE = "pwabuilder-offline-page";
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 const offlineFallbackPage = "/offline/index.html";
