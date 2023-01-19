@@ -1,38 +1,78 @@
 importScripts('https://pep.dev/pep-sw-core.js');
-const CACHE = "pwabuilder-offline-page";
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-const offlineFallbackPage = "/offline/index.html";
-self.addEventListener("message", (event) => {
-    if (event.data && event.data.type === "SKIP_WAITING") {
-        self.skipWaiting()
+const fileListURL = 'file-list.json';
+self.skipWaiting();
+function fetchAndBust(request) {
+    if (typeof request == 'string') {
+        request = new Request(request)
     }
-});
-self.addEventListener('install', async(event) => {
-    event.waitUntil(caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage)))
-});
-if (workbox.navigationPreload.isSupported()) {
-    workbox
-        .navigationPreload
-        .enable()
+    const url = new URL(request.url);
+    url.search += Math.random();
+    return fetch(url, {
+        headers: request.headers,
+        mode: request.mode,
+        credentials: request.credentials,
+        redirect: request.redirect
+    })
 }
-workbox
-    .routing
-    .registerRoute(new RegExp('/*'), new workbox.strategies.StaleWhileRevalidate({cacheName: CACHE}));
-self.addEventListener('fetch', (event) => {
-    if (event.request.mode === 'navigate') {
-        event.respondWith((async() => {
-            try {
-                const preloadResp = await event.preloadResponse;
-                if (preloadResp) {
-                    return preloadResp
-                }
-                const networkResp = await fetch(event.request);
-                return networkResp
-            } catch (error) {
-                const cache = await caches.open(CACHE);
-                const cachedResp = await cache.match(offlineFallbackPage);
-                return cachedResp
-            }
-        })())
+async function updateCheck() {
+    const r = await fetch(fileListURL);
+    const fileList = await r.json();
+    const staticCacheName = `file-list-v${fileList.version}`;
+    const cacheExists = await caches.has(staticCacheName);
+    if (cacheExists) {
+        return
     }
+    try {
+        const responses = await Promise.all(fileList.files.map(fetchAndBust));
+        const cache = await caches.open(staticCacheName);
+        return await Promise.all(responses.map((response, i) => {
+            if (!response.ok) {
+                throw Error('Not ok')
+            }
+            return cache.put(fileList.files[i], response)
+        }))
+    } catch (err) {
+        caches.delete(staticCacheName);
+        throw err
+    }
+}
+self.addEventListener('install', event => {
+    event.waitUntil(updateCheck().catch(() => null))
+});
+self.addEventListener('fetch', event => {
+    const responsePromise = caches
+        .keys()
+        .then(cacheNames => {
+            const staticCacheNames = cacheNames.filter(n => n.startsWith('static-separate-list-v'));
+            if (!staticCacheNames[0]) {
+                return fetch(event.request)
+            }
+            let staticCacheName = staticCacheNames[0];
+            return Promise
+                .resolve()
+                .then(() => {
+                    if (staticCacheNames.length == 1 || event.request.mode != 'navigate') {
+                        return
+                    }
+                    return clients
+                        .matchAll()
+                        .then(clients => {
+                            if (clients.length > 1) {
+                                return
+                            }
+                            staticCacheName = staticCacheNames[staticCacheNames.length - 1];
+                            return Promise.all(staticCacheNames.slice(0, -1).map(c => caches.delete(c)))
+                        })
+                })
+                .then(() => {
+                    return caches
+                        .open(staticCacheName)
+                        .then(c => c.match(event.request))
+                        .then(response => response || fetch(event.request))
+                })
+        });
+    if (event.request.mode == 'navigate') {
+        event.waitUntil(responsePromise.then(updateCheck))
+    }
+    event.respondWith(responsePromise)
 });
