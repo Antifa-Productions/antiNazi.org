@@ -26,6 +26,7 @@
 	"icon_x72.png",
 	"icon_x96.png",
 	"file-list.json",
+        "css/style_2.min.css",
 	"js/app.js",
 	"manifest.json",
 	"maskable_icon.png",
