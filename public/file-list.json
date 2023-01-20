@@ -1,5 +1,4 @@
 [
-	".",
 	"/",
 	"index.html",
 	"Selected-Works-of-Voltairine-de-Cleyre",
@@ -25,6 +24,7 @@
 	"icon_x512.png",
 	"icon_x72.png",
 	"icon_x96.png",
+        "logo.svg",
 	"file-list.json",
         "css/style_2.min.css",
 	"js/app.js",
