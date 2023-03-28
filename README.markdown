@@ -1,6 +1,6 @@
 # [antiNazi.org](https://antinazi.org) ↗
 ## antiNazi [PWA](https://support.google.com/chrome/answer/9658361) ↗
-**TIPS: ETH:**
+**TIPS: ETHEREUM:**
 **0x4BC93A72518dFB9CC830BcC7BE03616a0298E019**
 
 # [![CodeQL](https://github.com/Antifa-Productions/antiNazi.org/actions/workflows/codeql.yml/badge.svg)](https://github.com/Antifa-Productions/antiNazi.org/actions/workflows/codeql.yml)
