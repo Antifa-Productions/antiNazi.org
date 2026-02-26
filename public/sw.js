@@ -1,4 +1,3 @@
-importScripts('https://pep.dev/pep-sw-core.js');
 const fileListURL = 'file-list.json';
 self.skipWaiting();
 function fetchAndBust(request) {
