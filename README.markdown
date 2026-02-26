@@ -1,15 +1,11 @@
 # [antiNazi.org](https://antinazi.org) ↗
 ## antiNazi [PWA](https://support.google.com/chrome/answer/9658361) ↗
-**TIPS: ETHEREUM:**
-**0x4BC93A72518dFB9CC830BcC7BE03616a0298E019**
+***TIPS: ETHEREUM:***
+***0x4BC93A72518dFB9CC830BcC7BE03616a0298E019***
 
-# [![CodeQL](https://github.com/Antifa-Productions/antiNazi.org/actions/workflows/codeql.yml/badge.svg)](https://github.com/Antifa-Productions/antiNazi.org/actions/workflows/codeql.yml)
-###  [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-#### ![Website](https://img.shields.io/website?color=black&label=web%20app&logo=linux&logoColor=black&style=flat-square&url=https%3A%2F%2Fantinazi.org)
+#### [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 #### ![GitHub language count](https://img.shields.io/github/languages/count/Antifa-Productions/antiNazi.org?color=black&logo=git&logoColor=black&style=flat-square)
-#### ![Twitter Follow](https://img.shields.io/twitter/follow/DeVoltairine?&style=flat-square&color=black&logo=twitter&logoColor=black)
 #### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=flat-square&color=black&logoColor=black)
-#### ![Security Headers](https://img.shields.io/security-headers?style=flat-square&color=black&url=https%3A%2F%2Fantinazi.org)
 #### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?&logo=mozilla&style=flat-square&color=black&logoColor=black)
 #### ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Antifa-Productions/antiNazi.org?style=flat-square&color=black&logo=debian&logoColor=black)
 #### ![Top Language](https://img.shields.io/github/languages/top/Antifa-Productions/antiNazi.org?style=flat-square&color=black&logo=html5&logoColor=black)
