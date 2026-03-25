@@ -1,52 +1,28 @@
-[
-    "/",
-    "index.html",
-    "Selected-Works-of-Voltairine-de-Cleyre",
-    "Selected-Anarchist-Literature",
-    "An-Anarchist-Woman",
-    "The-Right-To-Ignore-The-State",
-    "The-Place-of-Anarchism-in-Socialistic-Evolution",
-    "God-and-the-State",
-    "A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
-    "Proposed-Roads-To-Freedom",
-    "Prison-Memoirs-of-an-Anarchist",
-    "Anarchism-and-Other-Essays",
-    "The-Conquest-of-Bread",
-    "Deportation-its-meaning-and-menace",
-    "Anarchy",
-    "apple-touch-icon.png",
-    "favicon.png",
-    "favicon.svg",
-    "favicon.ico",
-    "icon_x128.png",
-    "icon_x192.png",
-    "icon_x1024.png",
-    "icon_x32.png",
-    "icon_x64.png",
-    "icon_x256.png",
-    "icon_x384.png",
-    "icon_x512.png",
-    "icon_x72.png",
-    "icon_x96.png",
-    "logo.svg",
-    "monochrome.png",
-    "file-list.json",
-    "css/style_2.min.css",
-    "css/style_2.css",
-    "css/style.min.css",
-    "css/style.css",
-    "js/app.js",
-    "js/app.antinazi.js",
-    "js/app.antinazi.min.js",
-    "service-worker.js",
-    "service-worker.min.js",
-    "sw.js",
-    "manifest.json",
-    "maskable_icon.png",
-    "Linux-dark.webp",
-    "Linux-light.webp",
-    "iOS-dark.webp",
-    "iOS-light.webp",
-    "res/antiNazi.org_main_res_1024.png",
-    "res/1024.png"
-]
+var CACHE_NAME = 'dependencies-cache';
+self.addEventListener('install', function (event) {
+    console.log('[install] Kicking off service worker registration!');
+    event.waitUntil(caches.open(CACHE_NAME).then(async function (cache) {
+        const response = await fetch('file-list.json');
+        const files = await response.json();
+        console.log('[install] Adding files from JSON file: ', files);
+        return await cache.put(files);
+    }).then(function () {
+        console.log('[install] All required resources have been cached;', 'the Service Worker was successfully installed!');
+        return self.skipWaiting();
+    }));
+});
+self.addEventListener('fetch', function (event) {
+    event.respondWith(caches.match(event.request).then(function (response) {
+        if (response) {
+            console.log('[fetch] Returning from Service Worker cache: ', event.request.url);
+            return response;
+        }
+        console.log('[fetch] Returning from server: ', event.request.url);
+        return fetch(event.request);
+    }));
+});
+self.addEventListener('activate', function (event) {
+    console.log('[activate] Activating service worker!');
+    console.log('[activate] Claiming this service worker!');
+    event.waitUntil(self.clients.claim());
+});
