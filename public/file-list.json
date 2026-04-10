@@ -37,6 +37,7 @@
     "css/style.min.css",
     "css/style.css",
     "js/app.js",
+    "js/app.min.js",
     "js/app.antinazi.js",
     "js/app.antinazi.min.js",
     "service-worker.js",
