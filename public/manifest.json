@@ -42,7 +42,7 @@
   "related_applications": [],
   "icons": [
     {
-      "src": "https://antinazi.org/maskable.png",
+      "src": "https://antinazi.org/maskable_icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
