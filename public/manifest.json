@@ -6,7 +6,7 @@
   "display_override": [
     "window-controls-overlay",
     "fullscreen",
-    "standalone",
+    "standalone"
   ],
   "display": "minimal-ui",
   "orientation": "any",
@@ -37,7 +37,7 @@
       "label": "Linux desktop lightmode"
     }
   ],
-  "scope": "./",
+  "scope": "/",
   "id": "anti-Nazi",
   "related_applications": [],
   "icons": [
@@ -74,7 +74,7 @@
     }
   ],
   "lang": "en",
-  "dir": "ltr",
+  "dir": "auto",
   "start_url": "https://antinazi.org",
   "prefer_related_applications": false,
   "shortcuts": [
