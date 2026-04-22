@@ -4,8 +4,9 @@
   "background_color": "#ffffff",
   "theme_color": "#990000",
   "display_override": [
+    "window-controls-overlay",
     "fullscreen",
-    "window-controls-overlay"
+    "standalone",
   ],
   "display": "minimal-ui",
   "orientation": "any",
@@ -13,27 +14,31 @@
   "screenshots": [
     {
       "src": "https://antinazi.org/iOS-dark.webp",
+      "form_factor": "narrow",
       "type": "image/webp",
       "label": "iOS darkmode"
     },
     {
       "src": "https://antinazi.org/iOS-light.webp",
+      "form_factor": "narrow",
       "type": "image/webp",
       "label": "iOS lightmode"
     },
     {
       "src": "https://antinazi.org/Linux-dark.webp",
+      "form_factor": "wide",
       "type": "image/webp",
       "label": "Linux desktop darkmode"
     },
     {
       "src": "https://antinazi.org/Linux-light.webp",
+      "form_factor": "wide",
       "type": "image/webp",
       "label": "Linux desktop lightmode"
     }
   ],
-  "scope": "/",
-  "id": "/",
+  "scope": "./",
+  "id": "anti-Nazi",
   "related_applications": [],
   "icons": [
     {
