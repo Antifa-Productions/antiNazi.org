@@ -1,14 +1,14 @@
 {
   "short_name": "antiNazi",
   "name": "antiNazi",
-  "background_color": "#ffffff",
+  "background_color": "#990000",
   "theme_color": "#990000",
   "display_override": [
+    "minimal-ui",
     "window-controls-overlay",
-    "fullscreen",
-    "standalone"
+    "tabbed"
   ],
-  "display": "minimal-ui",
+  "display": "standalone",
   "orientation": "any",
   "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
   "screenshots": [
@@ -37,7 +37,7 @@
       "label": "Linux desktop lightmode"
     }
   ],
-  "scope": "/",
+  "scope": "https://antinazi.org",
   "id": "anti-Nazi",
   "related_applications": [],
   "icons": [
