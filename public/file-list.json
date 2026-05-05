@@ -17,7 +17,6 @@
     "apple-touch-icon.png",
     "favicon.png",
     "favicon.svg",
-    "favicon.ico",
     "icon_x128.png",
     "icon_x192.png",
     "icon_144.png",
@@ -44,6 +43,7 @@
     "service-worker.js",
     "service-worker.min.js",
     "sw.js",
+    "sw.min.js",
     "manifest.json",
     "maskable_icon.png",
     "Linux-dark.webp",
@@ -53,4 +53,3 @@
     "res/antiNazi.org_main_res_1024.png",
     "res/1024.png",
     "brrn.pdf"
-]
