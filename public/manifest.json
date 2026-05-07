@@ -1,222 +1,105 @@
 {
-  "short_name": "antiNazi",
-  "name": "antiNazi",
-  "background_color": "#990000",
-  "theme_color": "#990000",
-  "display_override": [
-    "minimal-ui",
-    "window-controls-overlay",
-    "tabbed"
-  ],
-  "display": "standalone",
-  "orientation": "any",
-  "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
-  "screenshots": [
-    {
-      "src": "https://antinazi.org/iOS-dark.webp",
-      "form_factor": "narrow",
-      "type": "image/webp",
-      "label": "iOS darkmode"
-    },
-    {
-      "src": "https://antinazi.org/iOS-light.webp",
-      "form_factor": "narrow",
-      "type": "image/webp",
-      "label": "iOS lightmode"
-    },
-    {
-      "src": "https://antinazi.org/Linux-dark.webp",
-      "form_factor": "wide",
-      "type": "image/webp",
-      "label": "Linux desktop darkmode"
-    },
-    {
-      "src": "https://antinazi.org/Linux-light.webp",
-      "form_factor": "wide",
-      "type": "image/webp",
-      "label": "Linux desktop lightmode"
-    }
-  ],
-  "scope": "https://antinazi.org",
-  "id": "anti-Nazi",
-  "related_applications": [],
-  "icons": [
-    {
-      "src": "https://antinazi.org/maskable_icon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "https://antinazi.org/favicon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
-  ],
-  "categories": [
-    "books",
-    "education",
-    "entertainment",
-    "lifestyle",
-    "politics",
-    "government",
-    "social"
-  ],
-  "protocol_handlers": [
-    {
-      "protocol": "web+pwa",
-      "url": "https://antinazi.org/?pwaprotocolredirect=%s"
-    },
-    {
-      "protocol": "web+antinazi",
-      "url": "https://antinazi.org/?pwaprotocolredirect=%s"
-    }
-  ],
-  "lang": "en",
-  "dir": "auto",
-  "start_url": "/",
-  "prefer_related_applications": false,
-  "shortcuts": [
-    {
-      "name": "antiNazi Homepage",
-      "url": "https://antinazi.org",
-      "icons": [
+    "name": "antiNazi",
+    "short_name": "antiNazi",
+    "start_url": "https://antinazi.org/",
+    "id": "anti-Nazi",
+    "description": "Towards the revolutionary NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+    "theme_color": "#990000",
+    "display": "standalone",
+    "scope": "https://antinazi.org/",
+    "shortcuts": [
         {
-          "src": "https://antinazi.org/favicon.png"
+            "name": "antiNazi Homepage",
+            "url": "https://antinazi.org/"
+        }, {
+            "name": "A fragment of the prison experiences of Emma Goldman and Alexander Berkman",
+            "url": "https://antinazi.org/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman"
+        }, {
+            "name": "Prison Memoirs of an Anarchist",
+            "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist"
+        }, {
+            "name": "An Anarchist Woman",
+            "url": "https://antinazi.org/An-Anarchist-Woman"
+        }, {
+            "name": "Anarchism and Other Essays",
+            "url": "https://antinazi.org/Anarchism-and-Other-Essays"
+        }, {
+            "name": "Anarchy",
+            "url": "https://antinazi.org/Anarchy"
+        }, {
+            "name": "Deportation its meaning and menace",
+            "url": "https://antinazi.org//Deportation-its-meaning-and-menace"
+        }, {
+            "name": "God and the State",
+            "url": "https://antinazi.org/God-and-the-State"
+        }, {
+            "name": "Prison Memoirs of an Anarchist",
+            "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist"
+        }, {
+            "name": "Proposed Roads To Freedom",
+            "url": "https://antinazi.org/Proposed-Roads-To-Freedom"
+        }, {
+            "name": "Selected Works of Voltairine de Cleyre",
+            "url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre"
+        }, {
+            "name": "The Conquest of Bread",
+            "url": "https://antinazi.org/The-Conquest-of-Bread"
+        }, {
+            "name": "The Place of Anarchism in Socialistic Evolution",
+            "url": "https://antinazi.org/The-Place-of-Anarchism-in-Socialistic-Evolution"
+        }, {
+            "name": "The Right To Ignore The State",
+            "url": "https://antinazi.org/The-Right-To-Ignore-The-State"
         }
-      ],
-      "description": "Open antiNazi"
-    },
-    {
-      "name": "A fragment of the prison experiences of Emma Goldman and Alexander Berkman",
-      "url": "https://antinazi.org/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
-      "icons": [
+    ],
+    "background_color": "#990000",
+    "display_override": [
+        "minimal-ui", "window-controls-overlay", "tabbed"
+    ],
+    "orientation": "any",
+    "screenshots": [
         {
-          "src": "https://antinazi.org/favicon.png"
+            "src": "https://antinazi.org/iOS-dark.webp",
+            "form_factor": "narrow",
+            "type": "image/webp",
+            "label": "iOS darkmode"
+        }, {
+            "src": "https://antinazi.org/iOS-light.webp",
+            "form_factor": "narrow",
+            "type": "image/webp",
+            "label": "iOS lightmode"
+        }, {
+            "src": "https://antinazi.org/Linux-dark.webp",
+            "form_factor": "wide",
+            "type": "image/webp",
+            "label": "Linux desktop darkmode"
+        }, {
+            "src": "https://antinazi.org/Linux-light.webp",
+            "form_factor": "wide",
+            "type": "image/webp",
+            "label": "Linux desktop lightmode"
         }
-      ],
-      "description": "Open A fragment of the prison experiences of Emma Goldman and Alexander Berkman"
-    },
-    {
-      "name": "Prison Memoirs of an Anarchist",
-      "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist",
-      "icons": [
+    ],
+    "related_applications": [],
+    "categories": [
+        "books",
+        "education",
+        "entertainment",
+        "lifestyle",
+        "politics",
+        "government",
+        "social"
+    ],
+    "protocol_handlers": [
         {
-          "src": "https://antinazi.org/favicon.png"
+            "protocol": "web+pwa",
+            "url": "https://antinazi.org/?pwaprotocolredirect=%s"
+        }, {
+            "protocol": "web+antinazi",
+            "url": "https://antinazi.org/?pwaprotocolredirect=%s"
         }
-      ],
-      "description": "Open Prison Memoirs of an Anarchist"
-    },
-    {
-      "name": "An Anarchist Woman",
-      "url": "https://antinazi.org/An-Anarchist-Woman",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open An Anarchist Woman"
-    },
-    {
-      "name": "Anarchism and Other Essays",
-      "url": "https://antinazi.org/Anarchism-and-Other-Essays",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open Anarchism and Other Essays"
-    },
-    {
-      "name": "Anarchy",
-      "url": "https://antinazi.org/Anarchy",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open Anarchy"
-    },
-    {
-      "name": "Deportation its meaning and menace",
-      "url": "https://antinazi.org//Deportation-its-meaning-and-menace",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open Deportation its meaning and menace"
-    },
-    {
-      "name": "God and the State",
-      "url": "https://antinazi.org/God-and-the-State",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open God and the State"
-    },
-    {
-      "name": "Prison Memoirs of an Anarchist",
-      "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open Prison Memoirs of an Anarchist"
-    },
-    {
-      "name": "Proposed Roads To Freedom",
-      "url": "https://antinazi.org/Proposed-Roads-To-Freedom",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open Proposed Roads To Freedom"
-    },
-    {
-      "name": "Selected Works of Voltairine de Cleyre",
-      "url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open Selected Works of Voltairine de Cleyre"
-    },
-    {
-      "name": "The Conquest of Bread",
-      "url": "https://antinazi.org/The-Conquest-of-Bread",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open The Conquest of Bread"
-    },
-    {
-      "name": "The Place of Anarchism in Socialistic Evolution",
-      "url": "https://antinazi.org/The-Place-of-Anarchism-in-Socialistic-Evolution",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open The Place of Anarchism in Socialistic Evolution"
-    },
-    {
-      "name": "The Right To Ignore The State",
-      "url": "https://antinazi.org/The-Right-To-Ignore-The-State",
-      "icons": [
-        {
-          "src": "https://antinazi.org/favicon.png"
-        }
-      ],
-      "description": "Open The Right To Ignore The State"
-    }
-  ]
+    ],
+    "lang": "en",
+    "dir": "auto",
+    "prefer_related_applications": false
 }
