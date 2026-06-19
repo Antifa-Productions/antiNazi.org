@@ -1,50 +1,53 @@
-{
-  "name": "antiNazi",
-  "version": "4.26.0.22",
-  "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
-  "license": "AGPL-3.0",
-  "keywords": [
-    "literature, anarchy, anarchism, pwa, service-worker, progressive-web-app"
-  ],
-  "homepage": "https://antinazi.org/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Antifa-Productions/antiNazi.org"
-  },
-  "author": {
-    "name": "@Voltairine-de-Cleyre"
-  },
-  "funding": [
-    {
-      "type": "Venmo",
-      "url": "https://venmo.com/u/bashthefash"
+[
+  {
+    "name": "antiNazi",
+    "version": "4.26.0.22",
+    "description": "TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+    "license": "AGPL-3.0",
+    "keywords": [
+      "literature, anarchy, anarchism, pwa, service-worker, progressive-web-app"
+    ],
+    "homepage": "https://antinazi.org/",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Antifa-Productions/antiNazi.org"
     },
-    {
-      "type": "Ethereum",
-      "url": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
+    "author": {
+      "name": "@Voltairine-de-Cleyre"
+    },
+    "funding": [
+      {
+        "type": "Venmo",
+        "url": "https://venmo.com/u/bashthefash"
+      },
+      {
+        "type": "Ethereum",
+        "url": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
+      }
+    ],
+    "scripts": {
+      "build:css": "postcss public/css/style_2.css --output public/css/style_2.min.css",
+      "watch:css": "postcss public/css/style_2.css --output public/css/style_2.min.css --watch",
+      "build": "npm run build:css"
+    },
+    "devDependencies": {
+      "postcss": "^8.4.45",
+      "postcss-cli": "^10.1.0",
+      "cssnano": "^7.0.6"
     }
-  ],
-  "scripts": {
-    "build:css": "postcss public/css/style_2.css --output public/css/style_2.min.css",
-    "watch:css": "postcss public/css/style_2.css --output public/css/style_2.min.css --watch",
-    "build": "npm run build:css"
   },
-  "devDependencies": {
-    "postcss": "^8.4.45",
-    "postcss-cli": "^10.1.0",
-    "cssnano": "^7.0.6"
+  {
+    "name": "antinazi-app",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+      "dev": "vite dev",
+      "build": "vite build && node generate-manifest.js",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      "react": "^18.x",
+      "react-dom": "^18.x"
+    }
   }
-{
-  "name": "antinazi-app",
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build && node generate-manifest.js",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.x",
-    "react-dom": "^18.x"
-  }
-}
+]
