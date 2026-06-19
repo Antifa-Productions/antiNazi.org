@@ -23,5 +23,15 @@
       "type": "Ethereum",
       "url": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
     }
-  ]
+  ],
+  "scripts": {
+    "build:css": "postcss public/css/style_2.css --output public/css/style_2.min.css",
+    "watch:css": "postcss public/css/style_2.css --output public/css/style_2.min.css --watch",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.45",
+    "postcss-cli": "^10.1.0",
+    "cssnano": "^7.0.6"
+  }
 }
