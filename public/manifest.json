@@ -97,11 +97,13 @@
     "related_applications": [],
     "categories": [
         "books",
+        "books &amp; reference",
         "education",
         "entertainment",
+        "government",
         "lifestyle",
         "politics",
-        "government",
+        "reference",
         "social"
     ],
     "protocol_handlers": [
