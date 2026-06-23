@@ -1,54 +1,68 @@
 {
     "name": "antiNazi",
     "short_name": "antiNazi",
-    "start_url": "https://antinazi.org/",
+    "start_url": "https://antinazi.org",
     "id": "anti-Nazi",
-    "description": "Towards the revolutionary NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM",
+    "description": "Towards the Revolutionary Necessity for Aboloshing the Police along with Capitalism",
     "theme_color": "#990000",
     "display": "standalone",
-    "scope": "https://antinazi.org/",
+    "scope": "https://antinazi.org",
     "shortcuts": [
         {
             "name": "antiNazi Homepage",
-            "url": "https://antinazi.org/"
+            "short_name": "homepage",
+            "url": "https://antinazi.org"
         }, {
             "name": "A fragment of the prison experiences of Emma Goldman and Alexander Berkman",
+            "short_name": "Goldman",
             "url": "https://antinazi.org/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman"
         }, {
             "name": "Prison Memoirs of an Anarchist",
+            "short_name": "Berkman",
             "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist"
         }, {
             "name": "An Anarchist Woman",
+            "short_name": "Hapgood",
             "url": "https://antinazi.org/An-Anarchist-Woman"
         }, {
             "name": "Anarchism and Other Essays",
+            "short_name": "Goldman",
             "url": "https://antinazi.org/Anarchism-and-Other-Essays"
         }, {
             "name": "Anarchy",
+            "short_name": "Malatesta",
             "url": "https://antinazi.org/Anarchy"
         }, {
             "name": "Deportation its meaning and menace",
-            "url": "https://antinazi.org//Deportation-its-meaning-and-menace"
+            "short_name": "Berkman",
+            "url": "https://antinazi.org/Deportation-its-meaning-and-menace"
         }, {
             "name": "God and the State",
+            "short_name": "Bakunin",
             "url": "https://antinazi.org/God-and-the-State"
         }, {
             "name": "Prison Memoirs of an Anarchist",
+            "short_name": "Berkman",
             "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist"
         }, {
             "name": "Proposed Roads To Freedom",
+            "short_name": "Russell",
             "url": "https://antinazi.org/Proposed-Roads-To-Freedom"
         }, {
             "name": "Selected Works of Voltairine de Cleyre",
+            "short_name": "de Cleyre",
             "url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre"
         }, {
             "name": "The Conquest of Bread",
+            "short_name": "Kropotkin",
             "url": "https://antinazi.org/The-Conquest-of-Bread"
         }, {
             "name": "The Place of Anarchism in Socialistic Evolution",
+            "short_name": "Kropotkin",
             "url": "https://antinazi.org/The-Place-of-Anarchism-in-Socialistic-Evolution"
         }, {
             "name": "The Right To Ignore The State",
+            "short_name": "Spencer",
             "url": "https://antinazi.org/The-Right-To-Ignore-The-State"
         }
     ],
