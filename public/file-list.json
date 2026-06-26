@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "defaultRevision": "v6",
+  "version": 7,
+  "defaultRevision": "v7"
   "groups": [
     {
       "strategy": "precache",
