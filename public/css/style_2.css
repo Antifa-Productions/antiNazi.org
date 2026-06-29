@@ -1,25 +1,14 @@
 /* ============================================================================
    ROOT & CUSTOM PROPERTIES
    ========================================================================== */
-
-/* ❶ Light theme defined as the default in :root so that custom properties
-      are always available, even if prefers-color-scheme is unsupported.   */
 :root {
     /* Font stacks */
-    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono",
-                 "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
-    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto,
-                 "Liberation Sans", "Noto Sans", sans-serif;
-    --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif",
-                  "Roboto Slab", serif;
+    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
 
     /* Light theme (default fallback) */
     --bg-body: #f2f2f2;
     --color-body: #000;
-    --border-blockquote: #111;
-    --border-button: #fff;
-    --bg-code: #fff;
-    --color-code: #000;
     --bg-strong: #f1f1f1;
     --color-strong: #000;
     --border-fullscreen: #000;
@@ -32,25 +21,21 @@
     :root {
         --bg-body: #2f2f2f;
         --color-body: #fdfdfd;
-        --border-blockquote: #eee;
-        --border-button: #000;
-        --bg-code: #000;
-        --color-code: #fff;
         --bg-strong: #1f1f1f;
         --color-strong: #fdfdfd;
         --border-fullscreen: #fff;
     }
 }
 
-/* ❷ Universal box-sizing reset — html declares border-box but child
-      elements must inherit it for the reset to take effect globally.     */
-*, *::before, *::after {
+/* ============================================================================
+   RESET
+   ========================================================================== */
+
+*,
+*::after,
+*::before {
     box-sizing: inherit;
 }
-
-/* ============================================================================
-   BASE
-   ========================================================================== */
 
 html {
     box-sizing: border-box;
@@ -58,20 +43,12 @@ html {
     text-rendering: optimizeLegibility;
 }
 
-/* ❸ Added margin: 0 — without it the UA stylesheet adds ~8px margin,
-      causing the 100dvh body to overflow and produce a scroll bar.       */
 body {
     background: var(--bg-body);
     color: var(--color-body);
     font: 300 1.3rem/2.6 var(--sans-font);
     height: 100dvh;
     margin: 0;
-}
-
-/* ❹ Standard responsive image rule prevents layout overflow.             */
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 /* ============================================================================
@@ -96,8 +73,8 @@ h2 {
 }
 
 h3 {
-    font-size: calc(1rem + 3vmin);
-    margin: 3vmin 0 1vmin;
+    font-size: calc(1rem + 2vmin);
+    margin: 2vmin 0 1vmin;
 }
 
 p {
@@ -106,38 +83,8 @@ p {
     text-indent: 0.125rem;
 }
 
-.content p,
-article p,
 main p {
     white-space: pre-line;
-}
-
-blockquote {
-    border-left: 0.25rem solid var(--border-blockquote);
-    font: 400 1.3rem/2.6 var(--serif-font);
-    margin: 1rem 0;
-    padding-left: 1rem;
-}
-
-code {
-    background: var(--bg-code);
-    color: var(--color-code);
-    font: 400 1.15rem/2.6 var(--mono-font);
-    white-space: pre-wrap;
-}
-
-/* ❺ pre now uses theme variables instead of hardcoded #000/#fff so it
-      respects the active colour scheme, consistent with the code rule.    */
-pre {
-    background: var(--bg-code);
-    border: 1px solid #333;                /* ❻ was 0.02rem — sub-pixel, invisible */
-    border-radius: 0.25rem;               /*       was 0.02rem — effectively zero  */
-    color: var(--color-code);
-    font: 400 1.1rem/1.6 var(--mono-font);
-    overflow: auto;
-    padding: 0.5rem;
-    position: relative;
-    word-break: normal;
 }
 
 .demand-title {
@@ -148,8 +95,6 @@ pre {
    LINKS
    ========================================================================== */
 
-/* ❼ Simplified — bare `a` already matches all descendant link selectors;
-      listing them separately added no extra specificity.                  */
 a {
     color: #900;
     text-decoration: none;
@@ -170,12 +115,6 @@ strong {
     position: relative;
 }
 
-/* ❽ Removed conflicting right/bottom declarations. The original set
-      left+right+width (and top+bottom+height) simultaneously. In the CSS
-      spec, when an absolutely-positioned element has left, right, AND
-      width, the right value is ignored (in LTR). This silently discarded
-      the intended overflow. Using only left/top with explicit width/height
-      makes the 102% sizing actually work as intended.                    */
 strong::before {
     background: #6a6a6a;
     content: "";
@@ -189,55 +128,36 @@ strong::before {
     width: 102%;
     z-index: -1;
 }
-
 strong:last-of-type {
     transform: skewX(-1.25deg) rotate(1.45deg);
-}
-
-/* ============================================================================
-   BUTTONS
-   ========================================================================== */
-
-button {
-    background: #900;
-    border: 1px solid var(--border-button);   /* ❻ was 0.02rem */
-    border-radius: 0.25rem;                    /*       was 0.075rem */
-    box-shadow: 3px 3px 12px -6px #000;
-    color: #fff;
-    cursor: pointer;                           /* ➓ UX: show pointer on buttons */
-    display: inline-block;
-    font: 400 1.15rem/1.4 var(--sans-font);
-    margin: 0 0.1rem;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
 }
 
 /* ============================================================================
    NAVIGATION
    ========================================================================== */
 
-nav ol {
+nav ol,
+nav ul {
     display: flex;
     gap: 0.25rem;
     overflow-x: auto;
     padding: 0.5rem 0;
+    margin: 0;
+    padding-inline-start: 0;
+    list-style: none;
 }
 
-nav ol li {
+nav ol li,
+nav ul li {
     display: inline-flex;
     line-height: 2.6;
-    list-style: none;
     white-space: nowrap;
 }
 
-/* ❾ Reordered for logical cascade: shared properties for both list types
-      are grouped, then type-specific overrides follow.                    */
 nav ol li a,
 nav ul li a {
     background: #3a3a3a;
-    border: 1px outset #333;                   /* ❻ was 0.02rem */
+    border: 1px outset #333;
     border-radius: 0.2rem;
     font: 300 1.2rem var(--sans-font);
     overflow: hidden;
@@ -246,14 +166,7 @@ nav ul li a {
     white-space: nowrap;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-}
-
 nav ul li {
-    line-height: 2.6;
-    list-style: none;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
@@ -262,22 +175,8 @@ nav ul li a {
     display: block;
 }
 
-nav ul li p {
-    overflow: hidden;
-    overflow-wrap: break-word;
-    white-space: normal;
-}
-
 /* ============================================================================
-   MISC
-   ========================================================================== */
-
-hr {
-    border: 1px solid #ccc;                    /* ❻ was 0.02rem */
-}
-
-/* ============================================================================
-   SPACING (replaces removed <br> tags)
+   SPACING
    ========================================================================== */
 
 section {
@@ -308,9 +207,6 @@ footer {
    ========================================================================== */
 @supports (padding: max(0px)) {
     body {
-        padding: max(env(safe-area-inset-top), 1rem)
-                 max(env(safe-area-inset-right), 1rem)
-                 max(env(safe-area-inset-bottom), 1rem)
-                 max(env(safe-area-inset-left), 1rem);
+        padding: max(env(safe-area-inset-top), 1rem) max(env(safe-area-inset-right), 1rem) max(env(safe-area-inset-bottom), 1rem) max(env(safe-area-inset-left), 1rem);
     }
 }
