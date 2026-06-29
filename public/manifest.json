@@ -51,7 +51,7 @@
     "screenshots": [
         {
             "src": "/images/webp/iOS-dark.webp",
-            "sizes": "1125x2436",
+            "sizes": "730x1334",
             "type": "image/webp",
             "platform": "ios",
             "form_factor": "narrow",
