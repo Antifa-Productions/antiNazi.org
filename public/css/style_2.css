@@ -166,6 +166,7 @@ strong::before {
     width: 102%;
     z-index: -1;
 }
+
 strong:last-of-type {
     transform: skewX(-1.25deg) rotate(1.45deg);
 }
@@ -247,6 +248,22 @@ nav ul li p {
 
 hr {
     border: 0.02rem solid #ccc;
+}
+
+/* ============================================================================
+   SPACING (replaces removed <br> tags)
+   ========================================================================== */
+
+section {
+    margin-bottom: 1.5rem;
+}
+
+.download-section {
+    margin-block: 1.5rem;
+}
+
+footer {
+    margin-top: 1.5rem;
 }
 
 /* ============================================================================
