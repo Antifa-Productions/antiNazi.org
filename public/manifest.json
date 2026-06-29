@@ -51,7 +51,7 @@
     "screenshots": [
         {
             "src": "/images/webp/iOS-dark.webp",
-            "sizes": "750x1334",
+            "sizes": "730x1334",
             "type": "image/webp",
             "platform": "ios",
             "form_factor": "narrow",
@@ -67,7 +67,7 @@
         },
         {
             "src": "/images/webp/Linux-dark.webp",
-            "sizes": "1920x1080",
+            "sizes": "2048x968",
             "type": "image/webp",
             "platform": "chromeos",
             "form_factor": "wide",
@@ -75,7 +75,7 @@
         },
         {
             "src": "/images/webp/Linux-light.webp",
-            "sizes": "1920x1080",
+            "sizes": "1884x947",
             "type": "image/webp",
             "platform": "chromeos",
             "form_factor": "wide",
