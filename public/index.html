@@ -20,19 +20,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Stylesheets & Scripts -->
-    <link rel="stylesheet" href="/css/style_2.css" integrity="sha512-oY9Q0SooAFT2/Xf+YbqKIwn8HSlXl4E9q8GMuWJsqFLQyxrPwQs/RGaEZ1Pmusab43bM4Ol+jbir0UYWHt+7Pw==" crossorigin="anonymous">
-    <script defer src="/scripts/init-service-worker.js" integrity="sha512-UE69PNs+uUmkiL2eXBWv4kIxQzpDr5dBPTt8yENTSPp/svvrt1vloe7ldbdKC2itTfOqPRJX7uNbZPtE2luQEQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style_2.css" crossorigin="anonymous">
+    <script defer src="/scripts/init-service-worker.js" crossorigin="anonymous"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "antiNazi | Anarchist Literature",
-            "alternateName": "antiNazi",
-            "url": "https://antinazi.org",
-            "image": "https://antinazi.org/res/antiNazi.org_main_res_1024.png"
-        }
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "antiNazi | Anarchist Literature",
+        "alternateName": "antiNazi",
+        "url": "https://antinazi.org",
+        "image": "https://antinazi.org/res/antiNazi.org_main_res_1024.png"
+    }
     </script>
 
     <!-- Open Graph -->
@@ -57,16 +57,16 @@
     <link rel="apple-touch-icon" href="/images/png/apple-touch-icon-120x120.png" sizes="120x120">
 </head>
 
-<body>
+<body class="safe-area-padding">
     <header>
         <p class="tagline">TOWARDS THE REVOLUTIONARY NECESSITY FOR ABOLISHING THE POLICE ALONG WITH CAPITALISM.</p>
+        
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="/Selected-Anarchist-Literature/" class="toc-link">📚 Selected Anarchist Literature | Table of Contents</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="/Selected-Anarchist-Literature/">Selected Anarchist Literature | Table of Contents</a></li>
-        </ul>
-    </nav>
 
     <main>
         <h1>ROSA NEGRA</h1>
@@ -113,9 +113,16 @@
     </main>
 
     <footer>
-        <nav aria-label="Secondary navigation">
+        <hr>
+        <nav aria-label="Table of Contents">
             <ul>
-                <li><a href="/Selected-Anarchist-Literature/">Selected Anarchist Literature | Table of Contents</a></li>
+                <li><a href="/Selected-Anarchist-Literature/" class="toc-link">📑 Selected Anarchist Literature | Full Table of Contents</a></li>
+            </ul>
+        </nav>
+        
+        <nav aria-label="Related sections">
+            <ul>
+                <li><a href="/">Back to Main Page</a></li>
             </ul>
         </nav>
     </footer>
