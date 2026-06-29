@@ -56,7 +56,9 @@ body {
 /* ============================================================================
    TYPOGRAPHY
    ========================================================================== */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--sans-font);
     font-weight: 200;
 }
@@ -103,7 +105,7 @@ a:hover {
 }
 
 a:focus-visible {
-    outline: 2px solid #900;
+    outline: 2px solid #c00;
     outline-offset: 2px;
 }
 
@@ -133,6 +135,10 @@ strong::before {
     transform: skewX(1.65deg) rotate(-1.15deg);
     width: 102%;
     z-index: -1;
+}
+
+strong:last-of-type {
+    transform: skewX(-1.25deg) rotate(1.45deg);
 }
 
 /* ============================================================================
@@ -165,15 +171,25 @@ nav li a {
     border: 1px outset #333;
     border-radius: 0.2rem;
     font: 300 1.2rem var(--sans-font);
+    overflow: hidden;
     padding: 0.25rem 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     display: block;
 }
 
-nav header-links {
+/* Center header nav */
+header nav ul {
     justify-content: center;
 }
 
-/* Ensure TOC links are clearly visible */
+/* Center footer nav(s) */
+footer nav ul {
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* ── Visible TOC links ─────────────────────────────────────────────── */
 nav a.toc-link {
     color: var(--nav-link-text);
     background: #900;
@@ -184,17 +200,22 @@ nav a.toc-link {
 
 nav a.toc-link:hover {
     background: #b00;
+    text-decoration: none;
 }
 
-/* Header navigation specifically */
-header nav ul {
-    justify-content: center;
+/* ── Distinct "Back to Main Page" link ──────────────────────────────── */
+nav a.back-link {
+    color: var(--nav-link-text);
+    background: #222;
+    border: 1px solid #555;
+    font-weight: 400;
+    min-width: fit-content;
 }
 
-/* Footer navigation specifically */
-footer nav ul {
-    justify-content: center;
-    margin-top: 2rem;
+nav a.back-link:hover {
+    background: #333;
+    border-color: #777;
+    text-decoration: none;
 }
 
 /* ============================================================================
@@ -214,10 +235,10 @@ main {
     padding: 0 1rem;
 }
 
-/* Fixed footer spacing - increased for better visibility */
 footer {
     margin-top: 3rem;
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
+    padding-top: 2rem;
     padding-bottom: 2rem;
     border-top: 1px solid #ccc;
 }
@@ -233,12 +254,8 @@ footer {
    ========================================================================== */
 @media all and (display-mode: fullscreen) {
     body {
-        border: 0.3rem solid var(--border-fullsecure);
+        border: 0.3rem solid var(--border-fullscreen);
         margin: 0;
-    }
-    
-    .safe-area-padding {
-        padding: 0 !important;
     }
 }
 
@@ -246,10 +263,10 @@ footer {
    MOBILE SAFE AREA
    ========================================================================== */
 @supports (padding: max(0px)) {
-    body.safe-area-padding {
-        padding: max(env(safe-area-inset-top), 1rem) 
-                 max(env(safe-area-inset-right), 1rem) 
-                 max(env(safe-area-inset-bottom), 1rem) 
-                 max(env(safe-area-inset-left), 1rem);
+    body {
+        padding: max(env(safe-area-inset-top), 1rem)
+                max(env(safe-area-inset-right), 1rem)
+                max(env(safe-area-inset-bottom), 1rem)
+                max(env(safe-area-inset-left), 1rem);
     }
 }
