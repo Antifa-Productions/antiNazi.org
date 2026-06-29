@@ -1,6 +1,6 @@
 {
-  "version": 9,
-  "defaultRevision": "v9",
+  "version": 10,
+  "defaultRevision": "v10",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -10,6 +10,7 @@
         "/offline.html",
         "/manifest.json",
         "/css/style_2.min.css",
+        "/css/style_2.css",
         "/scripts/init-service-worker.js"
       ]
     },
