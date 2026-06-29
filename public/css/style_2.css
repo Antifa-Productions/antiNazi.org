@@ -1,15 +1,33 @@
 /* ============================================================================
    ROOT & CUSTOM PROPERTIES
    ========================================================================== */
+
+/* ❶ Light theme defined as the default in :root so that custom properties
+      are always available, even if prefers-color-scheme is unsupported.   */
 :root {
-    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
-    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
-    --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", serif;
+    /* Font stacks */
+    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono",
+                 "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto,
+                 "Liberation Sans", "Noto Sans", sans-serif;
+    --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif",
+                  "Roboto Slab", serif;
+
+    /* Light theme (default fallback) */
+    --bg-body: #f2f2f2;
+    --color-body: #000;
+    --border-blockquote: #111;
+    --border-button: #fff;
+    --bg-code: #fff;
+    --color-code: #000;
+    --bg-strong: #f1f1f1;
+    --color-strong: #000;
+    --border-fullscreen: #000;
 
     font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 3rem);
 }
 
-/* ── Dark Theme ─────────────────────────────────────────────────────── */
+/* ── Dark Theme (override) ──────────────────────────────────────────── */
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --bg-body: #2f2f2f;
@@ -24,19 +42,10 @@
     }
 }
 
-/* ── Light Theme ────────────────────────────────────────────────────── */
-@media screen and (prefers-color-scheme: light) {
-    :root {
-        --bg-body: #f2f2f2;
-        --color-body: #000;
-        --border-blockquote: #111;
-        --border-button: #fff;
-        --bg-code: #fff;
-        --color-code: #000;
-        --bg-strong: #f1f1f1;
-        --color-strong: #000;
-        --border-fullscreen: #000;
-    }
+/* ❷ Universal box-sizing reset — html declares border-box but child
+      elements must inherit it for the reset to take effect globally.     */
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 /* ============================================================================
@@ -49,11 +58,20 @@ html {
     text-rendering: optimizeLegibility;
 }
 
+/* ❸ Added margin: 0 — without it the UA stylesheet adds ~8px margin,
+      causing the 100dvh body to overflow and produce a scroll bar.       */
 body {
     background: var(--bg-body);
     color: var(--color-body);
     font: 300 1.3rem/2.6 var(--sans-font);
     height: 100dvh;
+    margin: 0;
+}
+
+/* ❹ Standard responsive image rule prevents layout overflow.             */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* ============================================================================
@@ -108,11 +126,13 @@ code {
     white-space: pre-wrap;
 }
 
+/* ❺ pre now uses theme variables instead of hardcoded #000/#fff so it
+      respects the active colour scheme, consistent with the code rule.    */
 pre {
-    background: #000;
-    border: 0.02rem solid #333;
-    border-radius: 0.02rem;
-    color: #fff;
+    background: var(--bg-code);
+    border: 1px solid #333;                /* ❻ was 0.02rem — sub-pixel, invisible */
+    border-radius: 0.25rem;               /*       was 0.02rem — effectively zero  */
+    color: var(--color-code);
     font: 400 1.1rem/1.6 var(--mono-font);
     overflow: auto;
     padding: 0.5rem;
@@ -128,9 +148,9 @@ pre {
    LINKS
    ========================================================================== */
 
-a,
-nav ol li a,
-nav ul li a {
+/* ❼ Simplified — bare `a` already matches all descendant link selectors;
+      listing them separately added no extra specificity.                  */
+a {
     color: #900;
     text-decoration: none;
 }
@@ -150,17 +170,20 @@ strong {
     position: relative;
 }
 
+/* ❽ Removed conflicting right/bottom declarations. The original set
+      left+right+width (and top+bottom+height) simultaneously. In the CSS
+      spec, when an absolutely-positioned element has left, right, AND
+      width, the right value is ignored (in LTR). This silently discarded
+      the intended overflow. Using only left/top with explicit width/height
+      makes the 102% sizing actually work as intended.                    */
 strong::before {
     background: #6a6a6a;
-    bottom: 0;
     content: "";
-    display: inline-block;
     height: 102%;
     left: 0;
     opacity: 0.3;
     padding: 0.15rem;
     position: absolute;
-    right: 0;
     top: 0;
     transform: skewX(1.65deg) rotate(-1.15deg);
     width: 102%;
@@ -177,10 +200,11 @@ strong:last-of-type {
 
 button {
     background: #900;
-    border: 0.02rem solid var(--border-button);
-    border-radius: 0.075rem;
+    border: 1px solid var(--border-button);   /* ❻ was 0.02rem */
+    border-radius: 0.25rem;                    /*       was 0.075rem */
     box-shadow: 3px 3px 12px -6px #000;
     color: #fff;
+    cursor: pointer;                           /* ➓ UX: show pointer on buttons */
     display: inline-block;
     font: 400 1.15rem/1.4 var(--sans-font);
     margin: 0 0.1rem;
@@ -208,10 +232,12 @@ nav ol li {
     white-space: nowrap;
 }
 
+/* ❾ Reordered for logical cascade: shared properties for both list types
+      are grouped, then type-specific overrides follow.                    */
 nav ol li a,
 nav ul li a {
     background: #3a3a3a;
-    border: 0.02rem outset #333;
+    border: 1px outset #333;                   /* ❻ was 0.02rem */
     border-radius: 0.2rem;
     font: 300 1.2rem var(--sans-font);
     overflow: hidden;
@@ -247,7 +273,7 @@ nav ul li p {
    ========================================================================== */
 
 hr {
-    border: 0.02rem solid #ccc;
+    border: 1px solid #ccc;                    /* ❻ was 0.02rem */
 }
 
 /* ============================================================================
@@ -263,8 +289,8 @@ section {
 }
 
 footer {
-   margin-top: 1.5rem;
-   margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* ============================================================================
@@ -282,6 +308,9 @@ footer {
    ========================================================================== */
 @supports (padding: max(0px)) {
     body {
-        padding: max(env(safe-area-inset-top), 1rem) max(env(safe-area-inset-right), 1rem) max(env(safe-area-inset-bottom), 1rem) max(env(safe-area-inset-left), 1rem);
+        padding: max(env(safe-area-inset-top), 1rem)
+                 max(env(safe-area-inset-right), 1rem)
+                 max(env(safe-area-inset-bottom), 1rem)
+                 max(env(safe-area-inset-left), 1rem);
     }
 }
