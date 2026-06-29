@@ -59,7 +59,7 @@
         },
         {
             "src": "/images/webp/iOS-light.webp",
-            "sizes": "1125x2436",
+            "sizes": "750x1334",
             "type": "image/webp",
             "platform": "ios",
             "form_factor": "narrow",
