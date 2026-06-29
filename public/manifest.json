@@ -85,25 +85,25 @@
     ],
     "screenshots": [
         {
-            "src": "https://antinazi.org/images/screenshots/iOS-dark.webp",
+            "src": "https://antinazi.org/images/webp/iOS-dark.webp",
             "form_factor": "narrow",
             "type": "image/webp",
             "label": "iOS darkmode"
         },
         {
-            "src": "https://antinazi.org/images/screenshots/iOS-light.webp",
+            "src": "https://antinazi.org/images/webp/iOS-light.webp",
             "form_factor": "narrow",
             "type": "image/webp",
             "label": "iOS lightmode"
         },
         {
-            "src": "https://antinazi.org/images/screenshots/Linux-dark.webp",
+            "src": "https://antinazi.org/images/webp/Linux-dark.webp",
             "form_factor": "wide",
             "type": "image/webp",
             "label": "Linux desktop darkmode"
         },
         {
-            "src": "https://antinazi.org/images/screenshots/Linux-light.webp",
+            "src": "https://antinazi.org/images/webp/Linux-light.webp",
             "form_factor": "wide",
             "type": "image/webp",
             "label": "Linux desktop lightmode"
