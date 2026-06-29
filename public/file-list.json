@@ -1,6 +1,6 @@
 {
-  "version": 11,
-  "defaultRevision": "v11",
+  "version": 12,
+  "defaultRevision": "v12",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -18,7 +18,7 @@
       "label": "literature",
       "files": [
         "/Selected-Anarchist-Literature",
-        "/brrn.pdf",
+        "/pdf/black-rose-pamphlet.pdf",
         "/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
         "/An-Anarchist-Woman",
         "/Anarchism-and-Other-Essays",
@@ -82,6 +82,7 @@
   "warmUp": [
     "/",
     "/css/style_2.min.css",
+    "/css/style_2.css",
     "/scripts/init-service-worker.js"
   ]
 }
