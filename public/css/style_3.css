@@ -195,10 +195,14 @@ header nav ul {
 
 .toc-nav li {
     width: 100%;
+    white-space: normal;
 }
 
 .toc-nav li a {
     width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
 }
 
 /* Center footer nav(s) */
