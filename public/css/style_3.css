@@ -1,0 +1,289 @@
+/* ============================================================================
+   ROOT & CUSTOM PROPERTIES
+   ========================================================================== */
+:root {
+    /* Font stacks */
+    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
+
+    /* Light theme (default fallback) */
+    --bg-body: #f2f2f2;
+    --color-body: #000;
+    --bg-strong: #f1f1f1;
+    --color-strong: #000;
+    --border-fullscreen: #000;
+    --nav-link-bg: #3a3a3a;
+    --nav-link-text: #fdfdfd;
+
+    font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 3rem);
+}
+
+/* ── Dark Theme (override) ──────────────────────────────────────────── */
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #2f2f2f;
+        --color-body: #fdfdfd;
+        --bg-strong: #1f1f1f;
+        --color-strong: #fdfdfd;
+        --border-fullscreen: #fff;
+        --nav-link-bg: #4a4a4a;
+    }
+}
+
+/* ============================================================================
+   RESET
+   ========================================================================== */
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    overscroll-behavior: none;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    background: var(--bg-body);
+    color: var(--color-body);
+    font: 300 1.3rem/2.6 var(--sans-font);
+    min-height: 100dvh;
+    margin: 0;
+}
+
+/* ============================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1,
+h2,
+h3 {
+    font-family: var(--sans-font);
+    font-weight: 200;
+}
+
+h1 {
+    font-size: calc(1rem + 5vmin);
+    margin: 5vmin 0 2vmin;
+}
+
+h2 {
+    font-size: calc(1rem + 4vmin);
+    margin: 4vmin 0 1.5vmin;
+}
+
+h3 {
+    font-size: calc(1rem + 2vmin);
+    margin: 2vmin 0 1vmin;
+}
+
+p {
+    clear: both;
+    text-align: left;
+    text-indent: 0.125rem;
+}
+
+main p {
+    white-space: pre-line;
+}
+
+.tagline {
+    font-family: var(--mono-font);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin: 1rem 0;
+}
+
+/* ============================================================================
+   LINKS
+   ========================================================================== */
+a {
+    color: #900;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid #c00;
+    outline-offset: 2px;
+}
+
+a strong {
+    color: inherit;
+}
+
+/* ============================================================================
+   STRONG (HIGHLIGHT EFFECT)
+   ========================================================================== */
+strong {
+    background: var(--bg-strong);
+    color: var(--color-strong);
+    font-weight: 600;
+    position: relative;
+}
+
+strong::before {
+    background: #6a6a6a;
+    content: "";
+    height: 102%;
+    left: 0;
+    opacity: 0.3;
+    padding: 0.15rem;
+    position: absolute;
+    top: 0;
+    transform: skewX(1.65deg) rotate(-1.15deg);
+    width: 102%;
+    z-index: -1;
+}
+
+strong:last-of-type {
+    transform: skewX(-1.25deg) rotate(1.45deg);
+}
+
+/* ============================================================================
+   NAVIGATION
+   ========================================================================== */
+nav {
+    margin: 1rem 0;
+}
+
+nav ol,
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    margin: 0;
+    padding-inline-start: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-flex;
+    line-height: 2.6;
+    white-space: nowrap;
+}
+
+nav li a {
+    background: var(--nav-link-bg);
+    border: 1px outset #333;
+    border-radius: 0.2rem;
+    font: 300 1.2rem var(--sans-font);
+    overflow: hidden;
+    padding: 0.25rem 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+/* Center header nav */
+header nav ul {
+    justify-content: center;
+}
+
+/* TOC nav (inside main) — stack vertically as a reading list */
+.toc-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.toc-nav li {
+    width: 100%;
+}
+
+.toc-nav li a {
+    width: 100%;
+}
+
+/* Center footer nav(s) */
+footer nav ul {
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* ── Visible TOC links ─────────────────────────────────────────────── */
+nav a.toc-link {
+    color: var(--nav-link-text);
+    background: #900;
+    border: none;
+    font-weight: 500;
+    min-width: fit-content;
+}
+
+nav a.toc-link:hover {
+    background: #b00;
+    text-decoration: none;
+}
+
+/* ── Distinct "Back to Top" link ───────────────────────────────────── */
+nav a.back-link {
+    color: var(--nav-link-text);
+    background: #222;
+    border: 1px solid #555;
+    font-weight: 400;
+    min-width: fit-content;
+}
+
+nav a.back-link:hover {
+    background: #333;
+    border-color: #777;
+    text-decoration: none;
+}
+
+/* ── Literature links (monospace book titles) ──────────────────────── */
+nav a.literature-link {
+    font-family: var(--mono-font);
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+/* ============================================================================
+   SPACING
+   ========================================================================== */
+main {
+    max-width: 80ch;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+footer {
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    footer {
+        border-top-color: #444;
+    }
+}
+
+/* ============================================================================
+   FULLSCREEN MODE
+   ========================================================================== */
+@media all and (display-mode: fullscreen) {
+    body {
+        border: 0.3rem solid var(--border-fullscreen);
+        margin: 0;
+    }
+}
+
+/* ============================================================================
+   MOBILE SAFE AREA
+   ========================================================================== */
+@supports (padding: max(0px)) {
+    body {
+        padding: max(env(safe-area-inset-top), 1rem)
+                max(env(safe-area-inset-right), 1rem)
+                max(env(safe-area-inset-bottom), 1rem)
+                max(env(safe-area-inset-left), 1rem);
+    }
+}
