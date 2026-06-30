@@ -1,6 +1,6 @@
 {
-  "version": 14,
-  "defaultRevision": "v14",
+  "version": 15,
+  "defaultRevision": "v15",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -11,6 +11,7 @@
         "/manifest.json",
         "/css/style_2.min.css",
         "/css/style_2.css",
+        "/style_3.css",
         "/scripts/init-service-worker.js"
       ]
     },
@@ -83,6 +84,7 @@
     "/",
     "/css/style_2.min.css",
     "/css/style_2.css",
+    "/css/style_3.css",
     "/scripts/init-service-worker.js"
   ]
 }
