@@ -12,8 +12,7 @@
                  "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
     --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto,
                  "Liberation Sans", "Noto Sans", sans-serif;
-    --serif-font: ui-serif, "Iowan Old Style", "Apple Garamond", Baskerville,
-                  "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif;
+    --serif-font: ui-serif,"New York","Liberation Serif","Noto Serif","Roboto Slab",serif;
 
     /* Light theme (default fallback) */
     --bg-body: #f2f2f2;
