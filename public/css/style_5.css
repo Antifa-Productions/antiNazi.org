@@ -1,0 +1,523 @@
+/* =============================================
+   style_5.css — Modernized literature stylesheet
+   For: An Anarchist Woman
+   Based on style_4.css structure, fully modernized
+   ============================================= */
+
+/* ---------- CSS Reset / Normalize ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Design Tokens (CSS Custom Properties) ---------- */
+:root {
+    /* Typography */
+    --font-body: Georgia, "Times New Roman", Times, serif;
+    --font-mono: "Courier New", Courier, monospace;
+    --font-size-base: clamp(1rem, 1vw + 0.8rem, 1.25rem);
+    --line-height-body: 1.8;
+
+    /* Colors */
+    --text-color: #1a1a1a;
+    --bg-color: #fdfdf7;
+    --accent-color: #4a3a6a;
+    --link-color: #5b4a8a;
+    --link-hover: #3a2a6a;
+    --link-visited: #6a5a8a;
+    --border-color: #ccc;
+    --pre-bg: #f4f3ee;
+    --annotation-bg: #f8f6f0;
+
+    /* Layout */
+    --max-width: 40rem;
+    --measure-wide: 45rem;
+}
+
+/* ---------- Dark Mode ---------- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #d4d4d4;
+        --bg-color: #1a1a1e;
+        --accent-color: #a99cd6;
+        --link-color: #b3a5e0;
+        --link-hover: #c9baf0;
+        --link-visited: #9a8cb5;
+        --border-color: #444;
+        --pre-bg: #2a2a2e;
+        --annotation-bg: #252529;
+    }
+}
+
+/* ---------- Base Styles ---------- */
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphenate-limit-lines: 3;
+}
+
+/* ---------- Accessibility Utilities ---------- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    font-size: 0.9rem;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    color: #fff;
+}
+
+/* ---------- Focus Visible ---------- */
+a:focus-visible,
+[tabindex]:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* ---------- Header ---------- */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    font-weight: normal;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-style: italic;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.byline {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* ---------- Table of Contents ---------- */
+.toc {
+    margin-bottom: 3rem;
+    padding: 1.5rem 2rem;
+    background: var(--pre-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.toc h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+}
+
+.toc li {
+    counter-increment: toc-counter;
+    margin-bottom: 0.6rem;
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.toc li::before {
+    content: counter(toc-counter) ".";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.toc a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--link-color);
+}
+
+.toc a:hover,
+.toc a:focus {
+    color: var(--link-hover);
+    border-bottom-style: solid;
+}
+
+/* ---------- Main Content ---------- */
+main {
+    min-height: 50vh;
+}
+
+article {
+    margin-bottom: 2rem;
+}
+
+/* ---------- Section Styling ---------- */
+section {
+    margin-bottom: 3.5rem;
+    padding-top: 1rem;
+}
+
+section > h2 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section > h3 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 1.5rem 0 1.5rem;
+    color: var(--accent-color);
+}
+
+/* ---------- Paragraphs ---------- */
+p {
+    margin-bottom: 1.5rem;
+    text-indent: 1.5em;
+    text-align: justify;
+    -webkit-hyphenate-after: 3;
+}
+
+/* First paragraph after a heading: no indent, drop cap */
+.first-paragraph {
+    text-indent: 0;
+}
+
+.first-paragraph::first-letter {
+    font-size: 3.5em;
+    float: left;
+    line-height: 0.82;
+    padding-right: 0.08em;
+    padding-top: 0.04em;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Reset indent after non-paragraph elements */
+pre + p,
+details + p,
+h2 + p,
+h3 + p {
+    text-indent: 0;
+}
+
+pre + p::first-letter,
+details + p::first-letter,
+h2 + p::first-letter,
+h3 + p::first-letter {
+    font-size: inherit;
+    float: none;
+    line-height: inherit;
+    padding: 0;
+    color: inherit;
+    font-weight: inherit;
+}
+
+/* ---------- Preformatted Text (no <code> tags) ---------- */
+pre {
+    font-family: var(--font-mono);
+    background-color: var(--pre-bg);
+    padding: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 2rem 0;
+    text-indent: 0;
+    text-align: left;
+}
+
+/* Verse / literary preformatted blocks */
+pre.verse {
+    white-space: pre;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 1rem 0;
+    margin: 2rem auto;
+    max-width: 80%;
+    overflow-x: auto;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ---------- Blockquotes ---------- */
+blockquote {
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--accent-color);
+    font-style: italic;
+    color: var(--accent-color);
+    text-indent: 0;
+}
+
+blockquote p {
+    text-indent: 0;
+    text-align: left;
+}
+
+blockquote p::first-letter {
+    font-size: inherit;
+    float: none;
+    padding: 0;
+    color: inherit;
+    font-weight: inherit;
+}
+
+/* ---------- Collapsible Annotations (<details>/<summary>) ---------- */
+details.annotation {
+    margin: 2rem 0;
+    padding: 0;
+    background: var(--annotation-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+details.annotation > summary {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    list-style: none;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+details.annotation > summary::-webkit-details-marker {
+    display: none;
+}
+
+details.annotation > summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 0.6rem;
+    transition: transform 0.2s ease;
+    font-size: 0.85em;
+}
+
+details.annotation[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+details.annotation > summary:hover {
+    background-color: var(--pre-bg);
+}
+
+details.annotation[open] > *:not(summary) {
+    padding: 0 1.5rem;
+}
+
+details.annotation p {
+    text-indent: 0;
+    text-align: left;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+}
+
+/* ---------- Links ---------- */
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+a:hover,
+a:focus {
+    color: var(--link-hover);
+}
+
+/* Back-to-top and footer links */
+.back-to-top {
+    font-size: 0.9rem;
+    text-align: center;
+    display: inline-block;
+}
+
+/* ---------- Section Dividers ---------- */
+.section-divider {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin: 3rem 0;
+    user-select: none;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+footer p {
+    text-indent: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.75rem 3rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    section > h2 {
+        font-size: 1.3rem;
+    }
+
+    .first-paragraph::first-letter {
+        font-size: 2.8em;
+    }
+
+    pre {
+        padding: 1rem;
+        font-size: 0.82rem;
+    }
+
+    .toc {
+        padding: 1rem;
+    }
+
+    details.annotation > summary {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    details.annotation[open] > *:not(summary) {
+        padding: 0 1rem;
+    }
+}
+
+/* ---------- Print Stylesheet ---------- */
+@media print {
+    body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+        max-width: none;
+        padding: 0;
+        hyphens: auto;
+    }
+
+    .skip-link,
+    .toc,
+    .back-to-top {
+        display: none;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    a[href]::after {
+        content: "";
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    .section-divider {
+        page-break-before: always;
+    }
+
+    .section-divider:first-of-type {
+        page-break-before: avoid;
+    }
+
+    pre {
+        border: 1px solid #999;
+        background: #f5f5f5;
+        white-space: pre-wrap;
+        font-size: 10pt;
+    }
+
+    details.annotation {
+        border: 1px solid #999;
+        background: #f5f5f5;
+    }
+
+    details.annotation > summary {
+        list-style: default;
+    }
+
+    details.annotation > summary::before {
+        display: none;
+    }
+
+    details.annotation > *:not(summary) {
+        padding: 0 1rem;
+    }
+}
