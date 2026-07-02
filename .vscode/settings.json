@@ -12,5 +12,6 @@
     "editor.autoIndentOnPaste": true,
     "editor.codeActions.triggerOnFocusChange": true,
     "editor.codeLensFontFamily": "ui-monospace",
-    "editor.experimental.asyncTokenizationLogging": true
+    "editor.experimental.asyncTokenizationLogging": true,
+    "github-actions.workflows.pinned.refresh.enabled": true
 }
