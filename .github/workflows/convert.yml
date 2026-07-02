@@ -3,7 +3,7 @@ name: Convert HTML
 on:
   push:
     paths:
-      - 'An-Anarchist-Woman.html'
+      - '/public/An-Anarchist-Woman.html'
       - 'convert.py'
 
 jobs:
