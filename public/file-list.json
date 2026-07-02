@@ -1,6 +1,6 @@
 {
-  "version": 17,
-  "defaultRevision": "v17",
+  "version": 18,
+  "defaultRevision": "v18",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -21,6 +21,7 @@
       "files": [
         "/Selected-Anarchist-Literature",
         "/pdf/black-rose-pamphlet.pdf",
+        "/pdf/d-h-lewis-emma-goldman-nearly-complete.pdf",
         "/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
         "/An-Anarchist-Woman",
         "/Anarchism-and-Other-Essays",
