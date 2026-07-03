@@ -1,6 +1,7 @@
 /* ============================================================================
    STYLE_5.CSS — Literature page for "An Anarchist Woman"
-   Based on style_4.css, adds epigraph cite styling.
+   Based on style_4.css, adds epigraph cite styling, chapter heading spans
+   to replace <br>, and .line-break utility class.
    ========================================================================== */
 
 /* ============================================================================
@@ -159,6 +160,25 @@ main p {
     margin: 1rem 0;
     font-size: 0.85rem;
     text-transform: uppercase;
+}
+
+/* ── Chapter heading spans (replaces <br>) ─────────────────────────── */
+.chapter-number {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.3rem;
+    color: var(--accent);
+}
+
+.chapter-title {
+    display: block;
+}
+
+/* ── Generic line-break utility (replaces <br>) ────────────────────── */
+.line-break {
+    display: block;
 }
 
 /* ============================================================================
@@ -772,7 +792,7 @@ footer {
 }
 
 /* ============================================================================
-   READING PROGRESS INDICATOR (optional enhancement)
+   REDUCED MOTION
    ========================================================================== */
 @media screen and (prefers-reduced-motion: no-preference) {
     html {
