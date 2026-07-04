@@ -2,7 +2,7 @@
 ## antiNazi [PWA](https://support.google.com/chrome/answer/9658361) ↗
 **TIPS: ETHEREUM:**
 **0x4BC93A72518dFB9CC830BcC7BE03616a0298E019**
-
+**Venmo: https://venmo.com/u/bashthefash**
 #### [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 #### ![GitHub language count](https://img.shields.io/github/languages/count/Antifa-Productions/antiNazi.org?color=black&logo=git&logoColor=black&style=flat-square)
 #### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=flat-square&color=black&logoColor=black)
