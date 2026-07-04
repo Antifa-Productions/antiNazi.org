@@ -1,7 +1,7 @@
 # [antiNazi.org](https://antinazi.org) ↗
 ## antiNazi [PWA](https://support.google.com/chrome/answer/9658361) ↗
-***TIPS: ETHEREUM:***
-***0x4BC93A72518dFB9CC830BcC7BE03616a0298E019***
+**TIPS: ETHEREUM:**
+**0x4BC93A72518dFB9CC830BcC7BE03616a0298E019**
 
 #### [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 #### ![GitHub language count](https://img.shields.io/github/languages/count/Antifa-Productions/antiNazi.org?color=black&logo=git&logoColor=black&style=flat-square)
