@@ -1,6 +1,6 @@
 {
-  "version": 18,
-  "defaultRevision": "v18",
+  "version": 19,
+  "defaultRevision": "v19",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -84,6 +84,8 @@
   ],
   "warmUp": [
     "/",
+    "/offline.html",
+    "/manifest.json",
     "/css/style_2.min.css",
     "/css/style_2.css",
     "/css/style_3.1.css",
