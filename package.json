@@ -28,6 +28,10 @@
     {
       "type": "Ethereum",
       "address": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
+    },
+    {
+      "type": "Etherscan",
+      "url": "https://etherscan.io/address/0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
     }
   ]
 }
