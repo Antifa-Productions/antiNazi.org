@@ -1,6 +1,6 @@
 {
-  "version": 19,
-  "defaultRevision": "v19",
+  "version": 20,
+  "defaultRevision": "v20",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -39,17 +39,12 @@
     {
       "label": "images",
       "files": [
-        // Root-level favicons
         "/favicon.ico",
         "/favicon.png",
         "/favicon.svg",
-        
-        // Image directory favicons
         "/images/ico/favicon.ico",
         "/images/png/favicon-96x96.png",
         "/images/svg/favicon.svg",
-        
-        // App icons by resolution
         "/images/png/icon-128x128.png",
         "/images/png/icon-144x144.png",
         "/images/png/icon-152x152.png",
@@ -59,12 +54,8 @@
         "/images/png/icon-384x384.png",
         "/images/png/icon-512x512.png",
         "/images/png/icon-512x512-maskable.png",
-        
-        // Apple touch icons
         "/images/png/apple-touch-icon-120x120.png",
         "/images/png/apple-touch-icon-180x180.png",
-        
-        // Splash screens sorted by orientation then resolution
         "/images/splash/splash-750x1334.png",
         "/images/splash/splash-1179x2556.png",
         "/images/splash/splash-1290x2796.png",
@@ -78,7 +69,8 @@
         "/images/splash/splash-2388x1668.png",
         "/images/splash/splash-2556x1179.png",
         "/images/splash/splash-2732x2048.png",
-        "/images/splash/splash-2796x1290.png"
+        "/images/splash/splash-2796x1290.png",
+        "/res/antiNazi.org_main_res_1024.png"
       ]
     }
   ],
