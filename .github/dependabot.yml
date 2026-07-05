@@ -1,0 +1,37 @@
+version: 2
+updates:
+  # npm dependencies — balanced cadence for web projects
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
+      - "javascript"
+    ignore:
+      # Prevent major version jumps during stable periods
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    allow:
+      # Only track direct dependencies, skip devDependencies initially
+      - dependency-type: "production"
+
+  # GitHub Actions — lower frequency, focus on security patches
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "dependencies"
+      - "ci"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
