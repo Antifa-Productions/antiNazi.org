@@ -1,6 +1,7 @@
 # [antiNazi.org](https://antinazi.org) ↗
 ## antiNazi [PWA](https://support.google.com/chrome/answer/9658361) ↗
 #### [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+#### [![CodeQL Advanced](https://github.com/Antifa-Productions/antiNazi.org/actions/workflows/codeql.yml/badge.svg)](https://github.com/Antifa-Productions/antiNazi.org/actions/workflows/codeql.yml)
 #### ![GitHub language count](https://img.shields.io/github/languages/count/Antifa-Productions/antiNazi.org?color=black&logo=git&logoColor=black&style=flat-square)
 #### ![Chromium HSTS preload](https://img.shields.io/hsts/preload/antinazi.org?logo=googlechrome&style=flat-square&color=black&logoColor=black)
 #### ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/antinazi.org?&logo=mozilla&style=flat-square&color=black&logoColor=black)
