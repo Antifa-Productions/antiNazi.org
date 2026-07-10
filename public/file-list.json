@@ -1,6 +1,6 @@
 {
-  "version": 23,
-  "defaultRevision": "v23",
+  "version": 24,
+  "defaultRevision": "v24",
   "defaultStrategy": "precache",
   "groups": [
     {
