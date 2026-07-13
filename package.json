@@ -1,9 +1,9 @@
 {
-  "name": "antiNazi",
+  "name": "antinazi",
   "version": "7.26.13",
   "description": "Towards the revolutionary necessity for abolishing the police along with capitalism",
-  "license": "AGPL-3.0",
-  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "private": false,
   "keywords": [
     "literature",
     "anarchy",
@@ -21,10 +21,6 @@
     "name": "@Voltairine-de-Cleyre"
   },
   "funding": [
-    {
-      "type": "Venmo",
-      "url": "https://venmo.com/u/bashthefash"
-    },
     {
       "type": "Ethereum",
       "address": "0x4BC93A72518dFB9CC830BcC7BE03616a0298E019"
