@@ -1,18 +1,11 @@
-### SSH ###
-**/.ssh/id_*
-**/.ssh/*_id_*
-**/.ssh/known_hosts
-
-### GPG ###
-secring.*
-
-### Linux ###
 *~
 .fuse_hidden*
+.directory
 .Trash-*
 .nfs*
-
-### Git ###
+**/.ssh/id_*
+**/.ssh.ssh/known_hosts
+secring.*
 *.orig
 *.BACKUP.*
 *.BASE.*
