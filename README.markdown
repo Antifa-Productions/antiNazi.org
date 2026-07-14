@@ -15,7 +15,7 @@
 
 - 1. Open `https://antinazi.org` in Safari iOS / iPadOS;
 
-- 2. Using the share function (the arrrow in the center of the address bar), add `antiNazi.org` to the homescreen;
+- 2. Using the share function (the arrow in the center of the address bar), add `antiNazi.org` to the homescreen;
 
 - 3. The PWA that was just "installed" via Safari is, of course, antiNazi. It's 100% offline capable, so one may read the included literature without a network connection whenever one feels like so doing;
 
