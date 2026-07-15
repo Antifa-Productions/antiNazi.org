@@ -686,7 +686,6 @@ figure figcaption {
     /* ✓ ADDED: display: flex (safe — no markers to lose) */
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .publications-list li {
