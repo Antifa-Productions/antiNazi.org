@@ -34,6 +34,7 @@
     --toc-active: #900;
     --section-divider: #ccc;
     --metadata-bg: #f5f5f5;
+    --strong-highlight-overlay: #6a6a6a;
 
     /* Layout tokens */
     --max-reading-width: 42rem;
@@ -204,7 +205,7 @@ strong {
 }
 
 strong::before {
-    background: #6a6a6a;
+    background: var(--strong-highlight-overlay);
     content: "";
     height: 102%;
     left: 0;
