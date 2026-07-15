@@ -696,7 +696,7 @@ figure figcaption {
     white-space: normal;
     width: 100%;
     /* ✂️ REMOVED: display: block (redundant when parent is flex container) */
-    flex: 1;
+    flex: none;
 }
 
 .pub-title {
