@@ -695,6 +695,8 @@ figure figcaption {
     line-height: 1.6;
     white-space: normal;
     width: 100%;
+    /* ✂️ REMOVED: display: block (redundant when parent is flex container) */
+    flex: 1;
 }
 
 .pub-title {
