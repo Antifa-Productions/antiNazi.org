@@ -147,10 +147,6 @@ p {
     hyphens: auto;
 }
 
-main p {
-    white-space: pre-line;
-}
-
 .tagline {
     font-family: var(--mono-font);
     text-align: center;
@@ -536,6 +532,7 @@ pre.verse {
     border-left: 3px solid var(--quote-border);
     border-radius: 0 0.4rem 0.4rem 0;
     white-space: pre-wrap;
+    /* ← Kept for verse */
     padding: 1.5rem;
 }
 
