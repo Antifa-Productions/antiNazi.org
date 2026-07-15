@@ -68,6 +68,7 @@
         --section-divider: #444;
         --metadata-bg: #222;
         --strong-highlight-overlay: rgba(255, 255, 255, 0.15);
+        --strong-highlight-opacity: 1;
     }
 }
 
