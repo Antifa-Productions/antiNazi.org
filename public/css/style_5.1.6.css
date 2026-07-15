@@ -458,6 +458,7 @@ article section {
     line-height: 1.5;
 }
 
+/* Footnote return-to-text anchor (distinct from any nav `.back-link` styles). */
 .footnote-list .back-link {
     font-size: 0.85rem;
     margin-left: 0.3em;
