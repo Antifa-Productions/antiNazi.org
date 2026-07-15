@@ -147,7 +147,7 @@ p {
     hyphens: auto;
 }
 
-main p {
+.preserve-lines p {
     white-space: pre-line;
 }
 
