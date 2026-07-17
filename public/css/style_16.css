@@ -1,0 +1,279 @@
+/* style_16.css — Gutenberg License Page */
+/* Minimal stylesheet for standalone license page */
+
+:root {
+    --primary-color: #6d4aff;
+    --text-color: #1a1a1a;
+    --bg-color: #ffffff;
+    --surface-bg: #f5f5f5;
+    --border-color: #ddd;
+    --link-color: #5c3dff;
+    --link-hover: #4a30d9;
+    --heading-font: system-ui, -apple-system, sans-serif;
+    --body-font: Georgia, 'Times New Roman', serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #e0e0e0;
+        --bg-color: #121212;
+        --surface-bg: #1e1e1e;
+        --border-color: #444;
+        --link-color: #b3a3ff;
+        --link-hover: #c4b6ff;
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    max-width: 800px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 100;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.site-header {
+    padding-block: 1.5rem 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5ch;
+    align-items: center;
+    font-family: var(--heading-font);
+    font-size: 0.875rem;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.5ch;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.breadcrumb a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb li[aria-current="page"] {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.license-page {
+    padding-block: 2rem;
+}
+
+.license-page h1 {
+    font-family: var(--heading-font);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.license-page h2 {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.license-page h3 {
+    font-family: var(--heading-font);
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.license-summary {
+    background: var(--surface-bg);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.license-summary p:first-child {
+    margin-top: 0;
+}
+
+.key-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.key-points dt {
+    font-weight: bold;
+    font-family: var(--heading-font);
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.key-points dd {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.full-license {
+    margin-block: 2rem;
+}
+
+details {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--surface-bg);
+}
+
+summary {
+    cursor: pointer;
+    padding: 1rem 1.25rem;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    list-style: none;
+    background: rgba(109, 74, 255, 0.1);
+    border-radius: 3px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::marker {
+    display: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.license-body {
+    padding: 1.5rem;
+    padding-top: 0;
+}
+
+.license-body dl {
+    margin: 1rem 0;
+    padding-inline-start: 0;
+}
+
+.license-body dt {
+    font-weight: bold;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+    font-family: var(--heading-font);
+}
+
+.license-body dd {
+    margin-inline-start: 0;
+    padding-inline-start: 1rem;
+    border-inline-start: 2px solid var(--border-color);
+}
+
+.license-body address {
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.license-body a {
+    color: var(--link-color);
+}
+
+.license-body a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.last-updated {
+    font-size: 0.875rem;
+    opacity: 0.7;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.related-links {
+    background: var(--surface-bg);
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.related-links h2 {
+    margin-top: 0;
+    font-size: 1.125rem;
+}
+
+.related-links nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+}
+
+.related-links nav a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.related-links nav a:hover {
+    text-decoration: underline;
+}
+
+.site-footer {
+    margin-top: 3rem;
+    padding-block: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.875rem;
+    text-align: center;
+    opacity: 0.75;
+}
+
+@media (max-width: 480px) {
+    .key-points {
+        grid-template-columns: 1fr;
+    }
+    
+    .related-links nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
