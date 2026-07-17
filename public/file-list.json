@@ -1,6 +1,6 @@
 {
-  "version": 27,
-  "defaultRevision": "v27",
+  "version": 28,
+  "defaultRevision": "v28",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -73,7 +73,7 @@
         "/images/splash/splash-2556x1179.png",
         "/images/splash/splash-2732x2048.png",
         "/images/splash/splash-2796x1290.png",
-        "/res/antiNazi.org_main_res_1024.png"
+        "/images/png/antiNazi.org_1200x630.png"
       ]
     }
   ],
