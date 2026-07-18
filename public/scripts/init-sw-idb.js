@@ -4,7 +4,7 @@ if ('serviceWorker' in navigator) {
   const initSw = async () => {
     try {
       const registration = await navigator.serviceWorker.register(
-        '/service-worker.js',
+        '/sw-idb.js',
         { scope: '/' }
       );
       console.log('[APP] SW registered:', registration.scope);
