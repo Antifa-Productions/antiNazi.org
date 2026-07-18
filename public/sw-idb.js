@@ -205,6 +205,10 @@ async function idbDeleteFailedRequest(url) {
 async function idbCleanStaleMetadata() {
   if (!dbPromise)
     return;
+  if (!currentCacheName) {
+    warn('activate', 'Skipping stale IDB metadata cleanup: currentCacheName is not initialized.');
+    return;
+  }
   try {
     const db = await dbPromise;
     const allKeys = await db.getAllKeys('prefetch-metadata');
