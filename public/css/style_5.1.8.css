@@ -67,7 +67,7 @@
         --toc-active: #c44;
         --section-divider: #444;
         --metadata-bg: #222;
-        --strong-highlight-overlay: rgba(255, 255, 255, 0.15);
+        --strong-highlight-overlay: #fff;
         --strong-highlight-opacity: 1;
     }
 }
