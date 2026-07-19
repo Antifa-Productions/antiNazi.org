@@ -441,6 +441,7 @@ article section {
    ========================================================================== */
 .footnote-ref {
     font-size: 0.8em;
+    line-height: 1;
     vertical-align: super;
     text-decoration: none;
     margin-left: 0.1em;
