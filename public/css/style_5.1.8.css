@@ -243,7 +243,6 @@ nav ul {
     justify-content: center;
     padding: 0.5rem 0;
     margin: 0;
-    padding-inline-start: 0;
     list-style: none;
 }
 
@@ -441,6 +440,7 @@ article section {
    ========================================================================== */
 .footnote-ref {
     font-size: 0.8em;
+    line-height: 1;
     vertical-align: super;
     text-decoration: none;
     margin-left: 0.1em;
@@ -914,5 +914,6 @@ footer a {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
