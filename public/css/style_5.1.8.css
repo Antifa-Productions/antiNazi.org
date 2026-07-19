@@ -2,918 +2,790 @@
    STYLE_5.1.8.CSS — Literature page for "An Anarchist Woman"
    Based on style_5.css, adds footnote reference and list styling.
    ========================================================================== */
-
 /* ============================================================================
    ROOT & CUSTOM PROPERTIES
    ========================================================================== */
 :root {
-    /* Font stacks */
-    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
-    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
-    --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", serif;
-
-    /* Light theme (default fallback) */
-    --bg-body: #f2f2f2;
-    --color-body: #1a1a1a;
-    --bg-strong: #f1f1f1;
-    --color-strong: #000;
-    --border-fullscreen: #000;
-    --nav-link-bg: #3a3a3a;
-    --nav-link-text: #fdfdfd;
-
-    /* Reading-specific tokens */
-    --reading-bg: #ffffff;
-    --reading-text: #222;
-    --accent: #900;
-    --accent-hover: #b00;
-    --quote-border: #900;
-    --quote-bg: #faf5f5;
-    --pre-bg: #eee;
-    --pre-border: #ccc;
-    --pre-text: #222;
-    --toc-active: #900;
-    --section-divider: #ccc;
-    --metadata-bg: #f5f5f5;
-
-    /* Strong highlight customization */
-    --strong-highlight-overlay: #6a6a6a;
-    --strong-highlight-opacity: 0.3;
-
-    /* Layout tokens */
-    --max-reading-width: 42rem;
-    --side-padding: 1.25rem;
-
-    font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 1.5rem);
+  /* Font stacks */
+  --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+  --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
+  --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", serif;
+  /* Light theme (default fallback) */
+  --bg-body: #f2f2f2;
+  --color-body: #1a1a1a;
+  --bg-strong: #f1f1f1;
+  --color-strong: #000;
+  --border-fullscreen: #000;
+  --nav-link-bg: #3a3a3a;
+  --nav-link-text: #fdfdfd;
+  /* Reading-specific tokens */
+  --reading-bg: #ffffff;
+  --reading-text: #222;
+  --accent: #900;
+  --accent-hover: #b00;
+  --quote-border: #900;
+  --quote-bg: #faf5f5;
+  --pre-bg: #eee;
+  --pre-border: #ccc;
+  --pre-text: #222;
+  --toc-active: #900;
+  --section-divider: #ccc;
+  --metadata-bg: #f5f5f5;
+  /* Strong highlight customization */
+  --strong-highlight-overlay: #6a6a6a;
+  --strong-highlight-opacity: 0.3;
+  /* Layout tokens */
+  --max-reading-width: 42rem;
+  --side-padding: 1.25rem;
+  font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 1.5rem);
 }
-
 /* ── Dark Theme ─────────────────────────────────────────────────────── */
 @media screen and (prefers-color-scheme: dark) {
-    :root {
-        --bg-body: #1a1a1a;
-        --color-body: #e0e0e0;
-        --bg-strong: #1f1f1f;
-        --color-strong: #fdfdfd;
-        --border-fullscreen: #fff;
-        --nav-link-bg: #4a4a4a;
-        --reading-bg: #262626;
-        --reading-text: #ddd;
-        --accent: #c44;
-        --accent-hover: #d66;
-        --quote-border: #c44;
-        --quote-bg: #2a1f1f;
-        --pre-bg: #1f1f1f;
-        --pre-border: #444;
-        --pre-text: #ddd;
-        --toc-active: #c44;
-        --section-divider: #444;
-        --metadata-bg: #222;
-        --strong-highlight-overlay: #fff;
-        --strong-highlight-opacity: 1;
-    }
+  :root {
+    --bg-body: #1a1a1a;
+    --color-body: #e0e0e0;
+    --bg-strong: #1f1f1f;
+    --color-strong: #fdfdfd;
+    --border-fullscreen: #fff;
+    --nav-link-bg: #4a4a4a;
+    --reading-bg: #262626;
+    --reading-text: #ddd;
+    --accent: #c44;
+    --accent-hover: #d66;
+    --quote-border: #c44;
+    --quote-bg: #2a1f1f;
+    --pre-bg: #1f1f1f;
+    --pre-border: #444;
+    --pre-text: #ddd;
+    --toc-active: #c44;
+    --section-divider: #444;
+    --metadata-bg: #222;
+    --strong-highlight-overlay: #fff;
+    --strong-highlight-opacity: 1;
+  }
 }
-
 /* ============================================================================
    RESET & BASE
    ========================================================================== */
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
+*, *::after, *::before {
+  box-sizing: border-box;
 }
-
 html {
-    overscroll-behavior: none;
-    text-rendering: optimizeLegibility;
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(2rem + env(safe-area-inset-top));
+  overscroll-behavior: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(2rem + env(safe-area-inset-top));
 }
-
 body {
-    background: var(--bg-body);
-    color: var(--color-body);
-    font: 400 1.1rem/1.85 var(--serif-font);
-    min-height: 100dvh;
-    margin: 0;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: var(--bg-body);
+  color: var(--color-body);
+  font: 400 1.1rem/1.85 var(--serif-font);
+  min-height: 100dvh;
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
-
 /* ============================================================================
    SKIP LINK
    ========================================================================== */
 .skip-link {
-    position: absolute;
-    top: -3rem;
-    left: 0;
-    background: var(--accent);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    font-family: var(--sans-font);
-    font-size: 0.9rem;
-    font-weight: 500;
-    z-index: 1000;
-    transition: top 0.2s ease-in-out;
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-family: var(--sans-font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 1000;
+  transition: top 0.2s ease-in-out;
 }
 .skip-link:focus {
-    top: 0;
+  top: 0;
 }
-
 /* ============================================================================
    TYPOGRAPHY
    ========================================================================== */
-h1,
-h2,
-h3,
-h4 {
-    font-family: var(--sans-font);
-    font-weight: 300;
-    color: var(--color-strong);
+h1, h2, h3, h4 {
+  font-family: var(--sans-font);
+  font-weight: 300;
+  color: var(--color-strong);
 }
-
 h1 {
-    font-size: clamp(1.5rem, calc(1rem + 3vmin), 2.8rem);
-    margin: 3vmin 0 1vmin;
-    line-height: 1.3;
+  font-size: clamp(1.5rem, calc(1rem + 3vmin), 2.8rem);
+  margin: 3vmin 0 1vmin;
+  line-height: 1.3;
 }
-
 h2 {
-    font-size: clamp(1.3rem, calc(1rem + 2vmin), 2.2rem);
-    margin: 4rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--section-divider);
+  font-size: clamp(1.3rem, calc(1rem + 2vmin), 2.2rem);
+  margin: 4rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--section-divider);
 }
-
 h3 {
-    font-size: calc(1rem + 1.5vmin);
-    margin: 2.5rem 0 0.75rem;
+  font-size: calc(1rem + 1.5vmin);
+  margin: 2.5rem 0 0.75rem;
 }
-
 p {
-    margin: 0 0 1.2rem;
-    text-align: left;
-    hyphens: auto;
+  margin: 0 0 1.2rem;
+  text-align: left;
+  hyphens: auto;
 }
-
 .tagline {
-    font-family: var(--mono-font);
-    text-align: center;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    margin: 1rem 0;
-    font-size: 0.85rem;
-    text-transform: uppercase;
+  font-family: var(--mono-font);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
 }
-
 /* ── Chapter heading spans (replaces <br>) ─────────────────────────── */
 .chapter-number {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 0.3rem;
-    color: var(--accent);
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.3rem;
+  color: var(--accent);
 }
-
 .chapter-title {
-    display: block;
+  display: block;
 }
-
 /* ── Generic line-break utility (replaces <br>) ────────────────────── */
 .line-break {
-    display: block;
+  display: block;
 }
-
 /* ============================================================================
    LINKS
    ========================================================================== */
 a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.15s ease;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
-
 /* ============================================================================
    STRONG (highlight effect from style_3 — preserved)
    ========================================================================== */
 strong {
-    background: var(--bg-strong);
-    color: var(--color-strong);
-    font-weight: 600;
-    position: relative;
+  background: var(--bg-strong);
+  color: var(--color-strong);
+  font-weight: 600;
+  position: relative;
 }
-
 strong::before {
-    background: var(--strong-highlight-overlay);
-    opacity: var(--strong-highlight-opacity, 0.3);
-    content: "";
-    height: 102%;
-    left: 0;
-    padding: 0.15rem;
-    position: absolute;
-    top: 0;
-    transform: skewX(1.65deg) rotate(-1.15deg);
-    width: 102%;
-    z-index: -1;
+  background: var(--strong-highlight-overlay);
+  opacity: var(--strong-highlight-opacity, 0.3);
+  content: "";
+  height: 102%;
+  left: 0;
+  padding: 0.15rem;
+  position: absolute;
+  top: 0;
+  transform: skewX(1.65deg) rotate(-1.15deg);
+  width: 102%;
+  z-index: -1;
 }
-
 /* ============================================================================
    HEADER & NAVIGATION
    ========================================================================== */
 header {
-    text-align: center;
-    padding-top: 1rem;
+  text-align: center;
+  padding-top: 1rem;
 }
-
 nav {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
-
-nav ol,
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    justify-content: center;
-    padding: 0.5rem 0;
-    margin: 0;
-    list-style: none;
+nav ol, nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: center;
+  padding: 0.5rem 0;
+  margin: 0;
+  list-style: none;
 }
-
 nav li {
-    display: inline-flex;
-    line-height: 2.2;
-    white-space: nowrap;
+  display: inline-flex;
+  line-height: 2.2;
+  white-space: nowrap;
 }
-
 nav li a {
-    background: var(--nav-link-bg);
-    border: 1px outset #333;
-    border-radius: 0.2rem;
-    font: 400 0.95rem var(--sans-font);
-    overflow: hidden;
-    padding: 0.25rem 0.6rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
+  background: var(--nav-link-bg);
+  border: 1px outset #333;
+  border-radius: 0.2rem;
+  font: 400 0.95rem var(--sans-font);
+  overflow: hidden;
+  padding: 0.25rem 0.6rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
-
 /* ── Nav link variants ─────────────────────────────────────────────── */
 nav a.back-link {
-    color: var(--nav-link-text);
-    background: #222;
-    border: 1px solid #555;
-    font-weight: 400;
+  color: var(--nav-link-text);
+  background: #222;
+  border: 1px solid #555;
+  font-weight: 400;
 }
 nav a.back-link:hover {
-    background: #333;
-    border-color: #777;
-    text-decoration: none;
+  background: #333;
+  border-color: #777;
+  text-decoration: none;
 }
-
 nav a.literature-link {
-    font-family: var(--mono-font);
-    font-size: 0.95rem;
-    color: inherit;
+  font-family: var(--mono-font);
+  font-size: 0.95rem;
+  color: inherit;
 }
-
 /* ============================================================================
    MAIN / READING AREA
    ========================================================================== */
 main {
-    max-width: var(--max-reading-width);
-    margin: 0 auto;
-    padding: 0 var(--side-padding);
+  max-width: var(--max-reading-width);
+  margin: 0 auto;
+  padding: 0 var(--side-padding);
 }
-
 /* ── Book header ───────────────────────────────────────────────────── */
 .book-header {
-    text-align: center;
-    margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
-
 .book-subtitle {
-    font-style: italic;
-    color: var(--color-body);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
+  font-style: italic;
+  color: var(--color-body);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
 }
-
 /* ── Metadata ──────────────────────────────────────────────────────── */
 .book-metadata {
-    background: var(--metadata-bg);
-    border-radius: 0.5rem;
-    padding: 1rem 1.5rem;
-    margin: 0 auto 1.5rem;
-    max-width: 40rem;
-    font-family: var(--sans-font);
-    font-size: 0.9rem;
-    text-align: left;
+  background: var(--metadata-bg);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin: 0 auto 1.5rem;
+  max-width: 40rem;
+  font-family: var(--sans-font);
+  font-size: 0.9rem;
+  text-align: left;
 }
-
 .book-metadata dt {
-    font-weight: 600;
-    margin-top: 0.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
-
 .book-metadata dd {
-    margin: 0 0 0.25rem;
+  margin: 0 0 0.25rem;
 }
-
 .gutenberg-notice {
-    font-size: 0.85rem;
-    color: var(--color-body);
-    max-width: 40rem;
-    margin: 1rem auto;
-    text-align: justify;
+  font-size: 0.85rem;
+  color: var(--color-body);
+  max-width: 40rem;
+  margin: 1rem auto;
+  text-align: justify;
 }
-
 /* ============================================================================
    TABLE OF CONTENTS (in-page)
    ========================================================================== */
 .toc-nav {
-    background: var(--reading-bg);
-    border: 1px solid var(--section-divider);
-    border-radius: 0.5rem;
-    padding: 1rem 1.5rem;
-    margin: 2rem auto 3rem;
+  background: var(--reading-bg);
+  border: 1px solid var(--section-divider);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin: 2rem auto 3rem;
 }
-
 .toc-nav h2 {
-    margin: 0 0 1rem;
-    border-bottom: 1px solid var(--section-divider);
-    padding-bottom: 0.5rem;
-    font-size: 1.2rem;
+  margin: 0 0 1rem;
+  border-bottom: 1px solid var(--section-divider);
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
-
 .toc-list {
-    list-style: decimal;
-    padding-inline-start: 1.5rem;
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
 }
-
 .toc-list li {
-    line-height: 1.6;
-    white-space: normal;
-    width: 100%;
-    margin-bottom: 0.4rem;
+  line-height: 1.6;
+  white-space: normal;
+  width: 100%;
+  margin-bottom: 0.4rem;
 }
 .toc-list li:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-
 .toc-list li a {
-    background: none;
-    border: none;
-    font-family: var(--sans-font);
-    font-size: 0.95rem;
-    color: var(--accent);
-    padding: 0.2rem 0;
-    display: inline;
+  background: none;
+  border: none;
+  font-family: var(--sans-font);
+  font-size: 0.95rem;
+  color: var(--accent);
+  padding: 0.2rem 0;
+  display: inline;
 }
 .toc-list li a:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
-    background: none;
+  color: var(--accent-hover);
+  text-decoration: underline;
+  background: none;
 }
-
 /* ============================================================================
    SECTIONS & ARTICLES
    ========================================================================== */
 article section {
-    scroll-margin-top: 2rem;
+  scroll-margin-top: 2rem;
 }
-
 .section-author {
-    font-family: var(--sans-font);
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.5rem;
-    color: var(--accent);
+  font-family: var(--sans-font);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+  color: var(--accent);
 }
-
 .source-note {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--color-body);
-    margin-bottom: 2rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-body);
+  margin-bottom: 2rem;
 }
-
 .salutation {
-    font-style: italic;
+  font-style: italic;
 }
-
 .dateline {
-    text-align: right;
-    font-style: italic;
-    margin-top: 1.5rem;
+  text-align: right;
+  font-style: italic;
+  margin-top: 1.5rem;
 }
-
 .signature {
-    text-align: right;
-    font-weight: 600;
-    font-style: italic;
-    margin-top: 2rem;
-    font-size: 1.05rem;
+  text-align: right;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 2rem;
+  font-size: 1.05rem;
 }
-
 /* ── Back-to-top ───────────────────────────────────────────────────── */
 .back-to-top {
-    text-align: center;
-    margin: 2rem 0;
-    font-family: var(--sans-font);
+  text-align: center;
+  margin: 2rem 0;
+  font-family: var(--sans-font);
 }
-
 .back-to-top a {
-    font-size: 0.85rem;
+  font-size: 0.85rem;
 }
-
 /* ============================================================================
    FOOTNOTE REFERENCES & LISTS
    ========================================================================== */
 .footnote-ref {
-    font-size: 0.8em;
-    line-height: 1;
-    vertical-align: super;
-    text-decoration: none;
-    margin-left: 0.1em;
+  font-size: 0.8em;
+  line-height: 1;
+  vertical-align: super;
+  text-decoration: none;
+  margin-left: 0.1em;
 }
-
 .footnote-list {
-    list-style: decimal;
-    padding-inline-start: 1.5rem;
-    font-size: 0.85rem;
-    color: var(--color-body);
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-body);
 }
-
 .footnote-list li {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
 }
-
 .footnote-list .footnote-back {
-    margin-left: 0.3em;
+  margin-left: 0.3em;
 }
-
 /* ============================================================================
    BLOCKQUOTES & STATEMENTS
    ========================================================================== */
 blockquote {
-    border-left: 3px solid var(--quote-border);
-    background: var(--quote-bg);
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 0 0.4rem 0.4rem 0;
-    font-style: italic;
+  border-left: 3px solid var(--quote-border);
+  background: var(--quote-bg);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.4rem 0.4rem 0;
+  font-style: italic;
 }
-
 blockquote p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 blockquote p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-
 /* ── Epigraph citation ─────────────────────────────────────────────── */
 blockquote cite {
-    display: block;
-    font-size: 0.9rem;
-    font-style: normal;
-    text-align: right;
-    margin-top: 0.5rem;
-    color: var(--color-body);
-    opacity: 0.8;
+  display: block;
+  font-size: 0.9rem;
+  font-style: normal;
+  text-align: right;
+  margin-top: 0.5rem;
+  color: var(--color-body);
+  opacity: 0.8;
 }
-
 .statement-block {
-    margin: 1.5rem 0;
-    font-size: 1.05rem;
+  margin: 1.5rem 0;
+  font-size: 1.05rem;
 }
-
 .call-to-action {
-    text-align: center;
-    font-family: var(--sans-font);
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 2rem 0;
-    color: var(--accent);
+  text-align: center;
+  font-family: var(--sans-font);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 2rem 0;
+  color: var(--accent);
 }
-
 /* ============================================================================
    PRE (verse / monospace styled content — replaces <pre><code>)
    ========================================================================== */
 pre {
-    background: var(--pre-bg);
-    border: 1px solid var(--pre-border);
-    border-radius: 0.4rem;
-    color: var(--pre-text);
-    font-family: var(--mono-font);
-    font-size: 0.9rem;
-    line-height: 1.8;
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0;
-    overflow-x: auto;
-    white-space: pre-wrap;
+  background: var(--pre-bg);
+  border: 1px solid var(--pre-border);
+  border-radius: 0.4rem;
+  color: var(--pre-text);
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
 }
-
 pre.verse {
-    font-family: var(--serif-font);
-    font-style: italic;
-    font-size: 1rem;
-    line-height: 1.7;
-    text-align: center;
-    background: var(--quote-bg);
-    border-left: 3px solid var(--quote-border);
-    border-radius: 0 0.4rem 0.4rem 0;
-    white-space: pre-wrap;
-    padding: 1.5rem;
+  font-family: var(--serif-font);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
+  background: var(--quote-bg);
+  border-left: 3px solid var(--quote-border);
+  border-radius: 0 0.4rem 0.4rem 0;
+  white-space: pre-wrap;
+  padding: 1.5rem;
 }
-
 /* ============================================================================
    FIGURE
    ========================================================================== */
 figure {
-    margin: 1.5rem 0;
-    text-align: center;
+  margin: 1.5rem 0;
+  text-align: center;
 }
-
 figure figcaption {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--color-body);
-    opacity: 0.8;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-body);
+  opacity: 0.8;
 }
-
 /* ============================================================================
    PRISONER LIST (definition list)
    ========================================================================== */
 .prisoner-list {
-    margin: 1.5rem 0;
+  margin: 1.5rem 0;
 }
-
 .prisoner-list dt {
-    font-weight: 600;
-    font-family: var(--sans-font);
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    color: var(--accent);
+  font-weight: 600;
+  font-family: var(--sans-font);
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  color: var(--accent);
 }
-
 .prisoner-list dd {
-    margin: 0.5rem 0 0;
-    padding-left: 1rem;
-    border-left: 2px solid var(--section-divider);
+  margin: 0.5rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--section-divider);
 }
-
 /* ============================================================================
    TRANSCRIBER'S CORRECTIONS LIST (definition list)
    ========================================================================== */
 .correction-list {
-    text-align: left;
-    margin: 1.5rem 0;
+  text-align: left;
+  margin: 1.5rem 0;
 }
-
 .correction-list dt {
-    font-family: var(--sans-font);
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-top: 0.75rem;
-    color: var(--accent);
+  font-family: var(--sans-font);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  color: var(--accent);
 }
-
 .correction-list dd {
-    margin: 0.25rem 0 0;
-    padding-left: 1rem;
-    border-left: 2px solid var(--section-divider);
+  margin: 0.25rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--section-divider);
 }
 .correction-list dt:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
-
 /* ============================================================================
    COMMITTEE / CONTACT CARDS
    ========================================================================== */
 .committee-block {
-    text-align: center;
-    background: var(--metadata-bg);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    max-width: 30rem;
+  text-align: center;
+  background: var(--metadata-bg);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 30rem;
 }
-
 .committee-names {
-    font-weight: 600;
-    font-size: 1.05rem;
+  font-weight: 600;
+  font-size: 1.05rem;
 }
-
 .committee-label {
-    font-family: var(--sans-font);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.85rem;
-    color: var(--color-body);
-    margin-bottom: 1rem;
+  font-family: var(--sans-font);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  color: var(--color-body);
+  margin-bottom: 1rem;
 }
-
 .contribution-address {
-    font-family: var(--mono-font);
-    font-size: 0.9rem;
-    white-space: pre-line;
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
+  white-space: pre-line;
 }
-
 .contact-card {
-    text-align: center;
-    background: var(--metadata-bg);
-    border-radius: 0.5rem;
-    padding: 1.25rem;
-    margin: 1.5rem auto;
-    max-width: 28rem;
+  text-align: center;
+  background: var(--metadata-bg);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin: 1.5rem auto;
+  max-width: 28rem;
 }
-
 .contact-org {
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
-
 .contact-info {
-    font-family: var(--mono-font);
-    font-size: 0.88rem;
-    white-space: pre-line;
+  font-family: var(--mono-font);
+  font-size: 0.88rem;
+  white-space: pre-line;
 }
-
 .contact-info-small {
-    font-family: var(--mono-font);
-    font-size: 0.82rem;
-    white-space: pre-line;
-    margin-top: 0.5rem;
+  font-family: var(--mono-font);
+  font-size: 0.82rem;
+  white-space: pre-line;
+  margin-top: 0.5rem;
 }
-
 .contact-note {
-    font-style: italic;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
 }
-
 /* ============================================================================
    PRICE TAG
    ========================================================================== */
 .price {
-    font-family: var(--mono-font);
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--accent);
+  font-family: var(--mono-font);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
 }
-
 /* ============================================================================
    PUBLICATIONS LIST
    ========================================================================== */
 .publications-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
-
 .publications-list li {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--section-divider);
-    line-height: 1.6;
-    white-space: normal;
-    width: 100%;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--section-divider);
+  line-height: 1.6;
+  white-space: normal;
+  width: 100%;
 }
-
 .pub-title {
-    display: block;
-    font-size: 1.05rem;
-    margin-bottom: 0.2rem;
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
 }
-
 .pub-price {
-    font-family: var(--mono-font);
-    font-size: 0.85rem;
-    color: var(--accent);
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  color: var(--accent);
 }
-
 .pub-desc {
-    font-size: 0.92rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+  font-size: 0.92rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
-
 /* ============================================================================
    TRANSCRIBER'S NOTES
    ========================================================================== */
 .transcriber-notes {
-    list-style: decimal;
-    padding-inline-start: 1.5rem;
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
 }
-
 .transcriber-notes li {
-    line-height: 1.6;
-    white-space: normal;
-    width: 100%;
-    margin-bottom: 0.3rem;
+  line-height: 1.6;
+  white-space: normal;
+  width: 100%;
+  margin-bottom: 0.3rem;
 }
 .transcriber-notes li:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-
 /* ============================================================================
    DETAILS / SUMMARY (License section)
    ========================================================================== */
 details {
-    background: var(--reading-bg);
-    border: 1px solid var(--section-divider);
-    border-radius: 0.5rem;
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
+  background: var(--reading-bg);
+  border: 1px solid var(--section-divider);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
 }
-
 details summary {
-    font-family: var(--sans-font);
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.5rem 0;
-    color: var(--accent);
+  font-family: var(--sans-font);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  color: var(--accent);
 }
 details summary:hover {
-    color: var(--accent-hover);
+  color: var(--accent-hover);
 }
-
 details[open] summary {
-    border-bottom: 1px solid var(--section-divider);
-    margin-bottom: 1rem;
+  border-bottom: 1px solid var(--section-divider);
+  margin-bottom: 1rem;
 }
-
 details h3 {
-    font-size: 1.1rem;
-    margin-top: 2rem;
+  font-size: 1.1rem;
+  margin-top: 2rem;
 }
-
 details ul {
-    padding-inline-start: 1.5rem;
+  padding-inline-start: 1.5rem;
 }
-
 details ul li {
-    margin-bottom: 0.75rem;
-    line-height: 1.6;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
 }
-
 /* ============================================================================
    FOOTER
    ========================================================================== */
 footer {
-    margin-top: 4rem;
-    margin-bottom: 6rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-top: 1px solid var(--section-divider);
-    text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--section-divider);
+  text-align: center;
 }
-
 footer p {
-    font-family: var(--sans-font);
-    font-size: 0.85rem;
-    color: var(--color-body);
-    margin-bottom: 0.5rem;
+  font-family: var(--sans-font);
+  font-size: 0.85rem;
+  color: var(--color-body);
+  margin-bottom: 0.5rem;
 }
-
 footer a {
-    font-family: var(--sans-font);
-    font-size: 0.85rem;
+  font-family: var(--sans-font);
+  font-size: 0.85rem;
 }
-
 /* ============================================================================
    UTILITIES
    ========================================================================== */
 .text-center {
-    text-align: center;
+  text-align: center;
 }
-
 .text-right {
-    text-align: right;
+  text-align: right;
 }
-
 /* ── Screen-reader-only ────────────────────────────────────────────── */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-
 /* ============================================================================
    RESPONSIVE ADJUSTMENTS
    ========================================================================== */
 @media (max-width: 40rem) {
-    :root {
-        --side-padding: 1rem;
-    }
-
-    nav li a {
-        font-size: 0.85rem;
-        padding: 0.2rem 0.45rem;
-    }
-
-    .book-metadata {
-        padding: 0.75rem 1rem;
-    }
-
-    blockquote {
-        padding: 0.75rem 1rem;
-    }
-
-    pre {
-        padding: 0.75rem 1rem;
-    }
-
-    pre.verse {
-        padding: 1rem;
-    }
-
-    .committee-block,
-    .contact-card {
-        padding: 1rem;
-    }
+  :root {
+    --side-padding: 1rem;
+  }
+  nav li a {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.45rem;
+  }
+  .book-metadata {
+    padding: 0.75rem 1rem;
+  }
+  blockquote {
+    padding: 0.75rem 1rem;
+  }
+  pre {
+    padding: 0.75rem 1rem;
+  }
+  pre.verse {
+    padding: 1rem;
+  }
+  .committee-block, .contact-card {
+    padding: 1rem;
+  }
 }
-
 /* ============================================================================
    PRINT
    ========================================================================== */
 @media print {
-    .back-to-top,
-    .skip-link,
-    .toc-nav,
-    footer,
-    header,
-    nav {
-        display: none;
-    }
-
-    main {
-        max-width: none;
-        padding: 0;
-    }
-
-    body {
-        font-size: 12pt;
-        line-height: 1.5;
-        background: #fff;
-        color: #000;
-    }
-
-    blockquote {
-        border-left: 3px solid #999;
-        background: none;
-    }
-
-    pre {
-        background: none;
-        border: 1px solid #ccc;
-    }
-
-    a {
-        color: #000;
-        text-decoration: underline;
-    }
-
-    .footnote-ref {
-        color: #000;
-    }
+  .back-to-top, .skip-link, .toc-nav, footer, header, nav {
+    display: none;
+  }
+  main {
+    max-width: none;
+    padding: 0;
+  }
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    background: #fff;
+    color: #000;
+  }
+  blockquote {
+    border-left: 3px solid #999;
+    background: none;
+  }
+  pre {
+    background: none;
+    border: 1px solid #ccc;
+  }
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  .footnote-ref {
+    color: #000;
+  }
 }
-
 /* ============================================================================
    ACCESSIBILITY — REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::after,
-    *::before {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::after, *::before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
