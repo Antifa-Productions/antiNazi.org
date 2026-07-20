@@ -5,89 +5,57 @@
     <!-- Force CSS to load before SW intercepts -->
     <link rel="preload" href="/css/style_12.css" as="style">
     <link rel="stylesheet" href="/css/style_12.css">
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
     <meta name="color-scheme" content="light dark">
+    <link href="/manifest.json" rel="manifest">
 
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://antinazi.org/The-Right-To-Ignore-The-State/">
-
-    <!-- Manifest -->
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- Service Worker -->
-    <script src="/scripts/init-service-worker.js" defer></script>
-
-    <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Book",
+            "@type": "CreativeWork",
             "name": "The Right To Ignore The State",
             "author": {
                 "@type": "Person",
                 "name": "Herbert Spencer"
             },
+            "datePublished": "1850",
+            "dateModified": "1913",
             "publisher": {
                 "@type": "Organization",
-                "name": "Freedom Press"
+                "name": "Freedom Press",
+                "address": "127 Ossulston Street, London, N.W."
             },
-            "datePublished": "1913",
+            "isPartOf": {
+                "@type": "PublicationVolume",
+                "name": "Freedom Pamphlet Series"
+            },
             "inLanguage": "en",
-            "url": "https://antinazi.org/The-Right-To-Ignore-The-State/",
-            "image": "https://antinazi.org/images/png/antiNazi.org_1200x630.png",
-            "description": "Herbert Spencer argues that citizens have a moral right to withdraw from the State entirely, relinquishing its protection and refusing to support it."
+            "sameAs": "https://www.gutenberg.org/ebooks/34649",
+      "image": "https://www.antinazi.org/images/png/antiNazi.org_1200x630.png"
         }
     </script>
 
-    <!-- PWA & Mobile Meta -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="antiNazi">
-    <meta name="apple-mobile-web-app-title" content="antiNazi">
-    <meta name="theme-color" content="#990000" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1a0000" media="(prefers-color-scheme: dark)">
-    <meta name="msapplication-navbutton-color" content="#990000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="msapplication-starturl" content="https://antinazi.org/The-Right-To-Ignore-The-State/">
+    <meta content="antiNazi | Anarchist Literature" name="application-name">
+    <meta content="antiNazi" name="apple-mobile-web-app-title">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="@antinazi.org" name="twitter:site">
+    <meta content="The Right To Ignore The State | Herbert Spencer | antiNazi" property="og:title">
+    <meta content="The Right To Ignore The State by Herbert Spencer - A chapter from Social Statics (1850) exploring voluntary outlawry and the right to withdraw from political corporations." property="og:description">
+    <meta content="https://antinazi.org/The-Right-to-Ignore-the-State" property="og:url">
+    <meta content="https://www.antinazi.org/images/png/antiNazi.org_1200x630.png"" property="og:image">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@antiNazi_org">
-    <meta name="twitter:creator" content="@antiNazi_org">
-    <meta name="twitter:title" content="The Right To Ignore The State by Herbert Spencer — antiNazi">
-    <meta name="twitter:description" content="Herbert Spencer argues that citizens have a moral right to withdraw from the State entirely, relinquishing its protection and refusing to support it.">
-    <meta name="twitter:image" content="https://antinazi.org/images/png/antiNazi.org_1200x630.png">
+    <link href="https://antinazi.org/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://antinazi.org/favicon.png" rel="icon" type="image/png">
+    <link href="https://antinazi.org/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="https://antinazi.org/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="book">
-    <meta property="og:url" content="https://antinazi.org/The-Right-To-Ignore-The-State/">
-    <meta property="og:title" content="The Right To Ignore The State by Herbert Spencer — antiNazi">
-    <meta property="og:description" content="Herbert Spencer argues that citizens have a moral right to withdraw from the State entirely, relinquishing its protection and refusing to support it.">
-    <meta property="og:image" content="https://antinazi.org/images/png/antiNazi.org_1200x630.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="article:published_time" content="1913-01-01">
-    <meta property="article:modified_time" content="2026-07-20">
-    <meta property="og:site_name" content="antiNazi">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Favicons -->
-    <link rel="icon" href="/images/svg/favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="/images/png/favicon-96x96.png" type="image/png" sizes="96x96">
-    <link rel="apple-touch-icon" href="/images/png/apple-touch-icon-180x180.png" sizes="180x180">
-    <link rel="apple-touch-icon" href="/images/png/apple-touch-icon-120x120.png" sizes="120x120">
-
-    <!-- SEO & Metadata -->
-    <meta name="title" content="The Right To Ignore The State by Herbert Spencer — antiNazi">
-    <meta name="description" content="The Right To Ignore The State by Herbert Spencer (1850) — a foundational argument for voluntary association and the moral right to withdraw from political governance.">
-    <meta name="keywords" content="anarchism, Herbert Spencer, Social Statics, political philosophy, state, liberty, voluntary association, anti-fascism, equal freedom, taxation, dissent">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="author" content="Herbert Spencer">
-    <meta name="referrer" content="no-referrer">
-
-    <title>The Right To Ignore The State by Herbert Spencer — antiNazi</title>
+    <title>The Right To Ignore The State | Herbert Spencer | antiNazi</title>
+    <meta content="The Right To Ignore The State by Herbert Spencer - A chapter from Social Statics (1850) exploring voluntary outlawry and the right to withdraw from political corporations." name="description">
+    <meta content="anarchism, herbert spencer, social statics, political philosophy, state, liberty, voluntary association" name="keywords">
+    <meta content="index, follow" name="robots">
+    <meta content="English" name="language">
 </head>
 
 <body>
@@ -97,7 +65,7 @@
         <nav aria-label="Main navigation">
             <ul>
                 <li><a href="/"><strong>🏠 Homepage</strong></a></li>
-                <li><a href="/Selected-Anarchist-Literature/" aria-current="page"><strong>📚 Literature</strong></a></li>
+                <li><a href="/Selected-Anarchist-Literature" aria-current="page"><strong>📚 Literature</strong></a></li>
             </ul>
         </nav>
 
@@ -242,7 +210,7 @@
                 <h2>Related Publications</h2>
 
                 <section class="announcements">
-                    <h3>Anarchist Communism: Its Aims and Principles</h3>
+                    <h3 id="anarchist-communism">Anarchist Communism<a href="#fn2" class="footnote-ref" aria-label="Footnote 2">[2]</a></h3>
                     <p>Anarchism may be briefly defined as the negation of all government and all authority of man over man; Communism as the recognition of the just claim of each to the fullest satisfaction of all his needs—physical, moral, and intellectual. The Anarchist, therefore, whilst resisting as far as possible all forms of coercion and authority, repudiates just as firmly even the suggestion that he should impose himself upon others, realising as he does that this fatal propensity in the majority of mankind has been the cause of nearly all the misery and bloodshed in the world.</p>
                 </section>
 
@@ -272,7 +240,7 @@
                         <p>Mr. Spencer here uses the word "anarchy" in the sense of disorder. <a href="#section-7" class="back-link" aria-label="Return to section 7">↩</a></p>
                     </li>
                     <li id="fn2">
-                        <p>It would be only fair to state that the Individualist school of Anarchism, which includes many eminent writers and thinkers, differs from us mainly on the question of Communism—<em>i.e.</em>, on the holding of property, the remuneration of labour, etc. Anarchism, however, affords the opportunity for experiment in all these matters, and in that sense there is no dispute between us. <a href="#" class="back-link" aria-label="Return to text">↩</a></p>
+                        <p>It would be only fair to state that the Individualist school of Anarchism, which includes many eminent writers and thinkers, differs from us mainly on the question of Communism—<em>i.e.</em>, on the holding of property, the remuneration of labour, etc. Anarchism, however, affords the opportunity for experiment in all these matters, and in that sense there is no dispute between us. <a href="#anarchist-communism" class="back-link" aria-label="Return to Anarchist Communism">↩</a></p>
                     </li>
                 </ol>
             </footer>
@@ -280,7 +248,7 @@
     </main>
 
     <footer role="contentinfo">
-        <p>This work is in the public domain. Original source: <a href="https://www.gutenberg.org/ebooks/34649">Project Gutenberg</a>.</p>
+        <p>This work is in the public domain. Original source: <a href="https://www.gutenberg.org/ebooks/34649">Project Gutenberg</a>. <a href="/Project-Gutenberg-License/">License information</a>.</p>
         <p><a href="/privacy/">Privacy Policy</a> | <a href="/accessibility/">Accessibility Statement</a></p>
     </footer>
 </body>
