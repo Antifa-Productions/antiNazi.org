@@ -19,13 +19,9 @@
     <meta name="theme-color" content="#990000">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <!-- Preload CSS to help with standalone/PWA loading -->
-    <link rel="preload" href="https://antinazi.org/css/style_3.2.css" as="style">
-
-    <!-- Stylesheets & Scripts -->
-    <!-- Simpler, less fragile -->
-    <link rel="stylesheet" href="https://antinazi.org/css/style_3.2.css" crossorigin="anonymous">
-    <script src="https:/antinazi.org/scripts/init-service-worker.js" defer crossorigin="anonymous"></script>
+    <!-- Stylesheets & Scripts (no crossorigin — iOS 27 beta bug) -->
+    <link rel="stylesheet" href="/css/style_3.2.css">
+    <script src="/scripts/init-service-worker.js" defer></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
