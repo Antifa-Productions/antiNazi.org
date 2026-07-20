@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  <!-- Force CSS to load before SW intercepts -->
+    <link rel="preload" href="/css/style_8.css" as="style">
+    <link rel="stylesheet" href="/css/style_8.css">
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
@@ -19,10 +23,8 @@
     <meta name="theme-color" content="#990000">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <link rel="stylesheet" href="/css/style_8.css" integrity="sha512-laZZAcgbZZgGtORUKp95QTEvMO8uYcGTgZEtsaOmggniitk5a9VGcDWCR1MOZCs3tjrdxa0hmnSSV1sz4cDJiw==" crossorigin="anonymous">
-
     <!-- Service Worker -->
-    <script src="/scripts/init-service-worker.js" integrity="sha512-UE69PNs+uUmkiL2eXBWv4kIxQzpDr5dBPTt8yENTSPp/svvrt1vloe7ldbdKC2itTfOqPRJX7uNbZPtE2luQEQ==" crossorigin="anonymous"></script>
+    <script src="/scripts/init-service-worker.js" defer></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
