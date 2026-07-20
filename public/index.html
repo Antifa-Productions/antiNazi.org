@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <!-- Force CSS to load before SW intercepts -->
+    <link rel="preload" href="/css/style_2.1.min.css" as="style">
+    <link rel="stylesheet" href="/css/style_2.1.min.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
@@ -18,10 +22,8 @@
     <meta name="apple-mobile-web-app-title" content="antiNazi | Anarchist Literature">
     <meta name="theme-color" content="#990000">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-    <!-- Stylesheets & Scripts -->
-    <link rel="stylesheet" href="/css/style_2.1.min.css" integrity="sha512-O89kZiKJcStSUfy0vCqD/VnzXV19YHAld01p+RJTqqAN74uPTpRN1hv6PX0ElZ6CEdr5jKWAMRkjGTLE2NV+zw==" crossorigin="anonymous">
-    <script src="/scripts/init-service-worker.js" integrity="sha512-UE69PNs+uUmkiL2eXBWv4kIxQzpDr5dBPTt8yENTSPp/svvrt1vloe7ldbdKC2itTfOqPRJX7uNbZPtE2luQEQ==" crossorigin="anonymous"></script>
+    
+    <script src="/scripts/init-service-worker.js" defer></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
