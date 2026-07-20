@@ -1,0 +1,735 @@
+/* ============================================================================
+   STYLE_7.1.6.CSS — Literature page for "Anarchy" by Errico Malatesta
+   Based on style_7.1.5.css, with responsive navigation fix.
+   
+   CHANGES FROM PREVIOUS VERSION:
+   - Removed flex-direction: column override in @media(max-width: 40rem)
+     that was forcing navigation links to stack vertically on mobile
+   - Navigation links now remain side-by-side (horizontal) at all widths
+   - Added justify-content: center and flex: 1 1 auto for graceful wrapping
+   ========================================================================== */
+
+/* ============================================================================
+   ROOT & CUSTOM PROPERTIES
+   ========================================================================== */
+:root {
+    /* Font stacks */
+    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
+    --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", serif;
+
+    /* Light theme (default fallback) */
+    --bg-body: #f2f2f2;
+    --color-body: #1a1a1a;
+    --bg-strong: #f1f1f1;
+    --color-strong: #000;
+    --border-fullscreen: #000;
+    --nav-link-bg: #3a3a3a;
+    --nav-link-text: #fdfdfd;
+
+    /* Reading-specific tokens */
+    --reading-bg: #ffffff;
+    --reading-text: #222;
+    --accent: #900;
+    --accent-hover: #b00;
+    --quote-border: #900;
+    --quote-bg: #faf5f5;
+    --pre-bg: #eee;
+    --pre-border: #ccc;
+    --pre-text: #222;
+    --section-divider: #ccc;
+    --metadata-bg: #f5f5f5;
+
+    /* Strong highlight customization */
+    --strong-highlight-overlay: #6a6a6a;
+    --strong-highlight-opacity: 0.3;
+
+    /* Layout tokens */
+    --max-reading-width: 42rem;
+    --side-padding: 1.25rem;
+
+    /* Safe area insets */
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+
+    font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 1.5rem);
+}
+
+/* ── Dark Theme ─────────────────────────────────────────────────────── */
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #1a1a1a;
+        --color-body: #e0e0e0;
+        --bg-strong: #1f1f1f;
+        --color-strong: #fdfdfd;
+        --border-fullscreen: #fff;
+        --nav-link-bg: #2a2a2a;
+        --nav-link-text: #ffffff;
+        --reading-bg: #262626;
+        --reading-text: #ddd;
+        --accent: #c44;
+        --accent-hover: #d66;
+        --quote-border: #c44;
+        --quote-bg: #2a1f1f;
+        --pre-bg: #1f1f1f;
+        --pre-border: #444;
+        --pre-text: #ddd;
+        --section-divider: #444;
+        --metadata-bg: #222;
+        --strong-highlight-overlay: rgba(255, 255, 255, 0.15);
+        --strong-highlight-opacity: 1;
+    }
+}
+
+/* ============================================================================
+   RESET & BASE
+   ========================================================================== */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    overscroll-behavior: none;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+body {
+    background: var(--bg-body);
+    color: var(--color-body);
+    font: 400 1.1rem/1.85 var(--serif-font);
+    min-height: 100dvh;
+    margin: 0;
+    padding-top: var(--safe-area-top);
+    padding-bottom: var(--safe-area-bottom);
+}
+
+/* ============================================================================
+   SKIP LINK
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 1000;
+    transition: top 0.2s ease-in-out;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* ============================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--sans-font);
+    font-weight: 300;
+    color: var(--color-strong);
+}
+
+h1 {
+    font-size: clamp(1.5rem, calc(1rem + 3vmin), 2.8rem);
+    margin: 3vmin 0 1vmin;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: clamp(1.3rem, calc(1rem + 2vmin), 2.2rem);
+    margin: 4rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--section-divider);
+}
+
+h3 {
+    font-size: calc(1rem + 1.5vmin);
+    margin: 2.5rem 0 0.75rem;
+}
+
+p {
+    margin: 0 0 1.2rem;
+    text-align: left;
+    hyphens: auto;
+}
+
+/* ============================================================================
+   LINKS
+   ========================================================================== */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ============================================================================
+   MAIN NAVIGATION
+   ========================================================================== */
+nav[aria-label="Main navigation"] {
+    margin: calc(var(--safe-area-top) + 1rem) 0 1.5rem;
+    padding: 0 var(--side-padding);
+    max-width: var(--max-reading-width);
+    margin-inline: auto;
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+nav[aria-label="Main navigation"] ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+nav[aria-label="Main navigation"] li {
+    margin: 0;
+}
+
+/* .back-link button styling */
+.back-link {
+    display: inline-block;
+    background: var(--nav-link-bg);
+    color: var(--nav-link-text);
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    border-radius: 0.25rem;
+    padding: 0.35rem 0.7rem;
+
+    font: 500 0.9rem var(--sans-font);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.back-link:hover {
+    background: var(--accent);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.back-link:active {
+    transform: translateY(0);
+}
+
+.back-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Ensure strong inside back-link inherits link styles */
+.back-link strong {
+    color: inherit;
+    background: transparent;
+    font-weight: inherit;
+}
+.back-link strong::before {
+    display: none;
+}
+
+/* ============================================================================
+   STRONG (highlight effect from style_3 — preserved)
+   ========================================================================== */
+strong {
+    background: var(--bg-strong);
+    color: var(--color-strong);
+    font-weight: 600;
+    position: relative;
+}
+
+strong::before {
+    background: var(--strong-highlight-overlay);
+    opacity: var(--strong-highlight-opacity, 0.3);
+    content: "";
+    height: 102%;
+    left: 0;
+    padding: 0.15rem;
+    position: absolute;
+    top: 0;
+    transform: skewX(1.65deg) rotate(-1.15deg);
+    width: 102%;
+    z-index: -1;
+}
+
+/* ============================================================================
+   BREADCRUMB NAVIGATION
+   ========================================================================== */
+nav[aria-label="Breadcrumb"] {
+    margin: calc(var(--safe-area-top) + 1rem) 0 2rem;
+    padding: 0 var(--side-padding);
+    max-width: var(--max-reading-width);
+    margin-inline: auto;
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+nav[aria-label="Breadcrumb"] a {
+    /* Reset all button-like styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    display: inline-block;
+    background: var(--nav-link-bg);
+    color: var(--nav-link-text);
+
+    /* Remove all borders/outlines */
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    /* Shape and spacing */
+    border-radius: 0.25rem;
+    padding: 0.35rem 0.7rem;
+
+    /* Typography */
+    font: 500 0.9rem var(--sans-font);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+
+    /* Interactions */
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+nav[aria-label="Breadcrumb"] a:hover {
+    background: var(--accent);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+nav[aria-label="Breadcrumb"] a:active {
+    transform: translateY(0);
+}
+nav[aria-label="Breadcrumb"] a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Ensure strong inside breadcrumb link inherits link styles */
+nav[aria-label="Breadcrumb"] a strong {
+    color: inherit;
+    background: transparent;
+    font-weight: inherit;
+}
+nav[aria-label="Breadcrumb"] a strong::before {
+    display: none;
+}
+
+/* ============================================================================
+   BOOK HEADER
+   ========================================================================== */
+.book-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: var(--max-reading-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--side-padding);
+}
+
+.series-credit {
+    font-family: var(--sans-font);
+    font-size: 0.85rem;
+    color: var(--color-body);
+    margin-bottom: 1rem;
+    opacity: 0.85;
+    text-align: center;
+}
+
+.gutenberg-license-summary {
+    font-size: 0.85rem;
+    color: var(--color-body);
+    max-width: 36rem;
+    margin: 1rem auto;
+    text-align: justify;
+    opacity: 0.85;
+}
+
+/* ── Bibliographic info (definition list) ──────────────────────────── */
+.bibliographic-info {
+    background: var(--metadata-bg);
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 36rem;
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.bibliographic-info dt {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+.bibliographic-info dt:first-child {
+    margin-top: 0;
+}
+
+.bibliographic-info dd {
+    margin: 0 0 0.25rem;
+}
+
+.bibliographic-info abbr {
+    text-decoration: none;
+    cursor: help;
+}
+
+/* ── Title & Byline ────────────────────────────────────────────────── */
+.book-header h1 {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.byline {
+    font-family: var(--serif-font);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--color-body);
+    margin: 0.5rem 0 0;
+    text-align: center;
+}
+
+/* ============================================================================
+   MAIN / READING AREA
+   ========================================================================== */
+main {
+    max-width: var(--max-reading-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+}
+
+article section {
+    scroll-margin-top: 2rem;
+}
+
+/* ============================================================================
+   TRANSCRIBER'S NOTE (aside)
+   ========================================================================== */
+.transcribers-note {
+    background: var(--metadata-bg);
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9rem;
+}
+
+.transcribers-note h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--section-divider);
+}
+
+.transcribers-note p {
+    margin-bottom: 0.5rem;
+}
+.transcribers-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================================================
+   SECTION DIVIDERS (hr)
+   ========================================================================== */
+hr {
+    border: none;
+    border-top: 1px solid var(--section-divider);
+    margin: 4rem auto;
+    max-width: 50%;
+}
+
+/* ============================================================================
+   BLOCKQUOTES
+   ========================================================================== */
+blockquote {
+    border-left: 3px solid var(--quote-border);
+    background: var(--quote-bg);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 0.4rem 0.4rem 0;
+    font-style: italic;
+}
+
+blockquote p {
+    margin-bottom: 0.5rem;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote cite {
+    display: block;
+    font-size: 0.9rem;
+    font-style: normal;
+    text-align: right;
+    margin-top: 0.5rem;
+    color: var(--color-body);
+    opacity: 0.8;
+}
+
+/* ============================================================================
+   EMPHASIS & INLINE ELEMENTS
+   ========================================================================== */
+em {
+    font-style: italic;
+}
+
+cite {
+    font-style: italic;
+}
+
+abbr {
+    text-decoration: none;
+    cursor: help;
+}
+
+/* ============================================================================
+   LISTS (inside license details)
+   ========================================================================== */
+ul {
+    padding-inline-start: 1.5rem;
+}
+
+ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   FOOTER (book footer with license details)
+   ========================================================================== */
+.book-footer {
+    max-width: var(--max-reading-width);
+    margin: 4rem auto 6rem;
+    padding: 0 var(--side-padding);
+    border-top: 1px solid var(--section-divider);
+    padding-top: 2rem;
+}
+
+/* ============================================================================
+   DETAILS / SUMMARY (License section)
+   ========================================================================== */
+details {
+    background: var(--reading-bg);
+    border: 1px solid var(--section-divider);
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+}
+
+details summary {
+    font-family: var(--sans-font);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    color: var(--accent);
+}
+details summary:hover {
+    color: var(--accent-hover);
+}
+
+details[open] summary {
+    border-bottom: 1px solid var(--section-divider);
+    margin-bottom: 1rem;
+}
+
+details h3 {
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+details h3:first-child {
+    margin-top: 0;
+}
+
+/* ── License text container ─────────────────────────────────────────── */
+.license-text p {
+    font-family: var(--sans-font);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-body);
+    margin-bottom: 0.75rem;
+}
+
+.license-text strong {
+    display: inline-block;
+}
+
+/* ============================================================================
+   UTILITIES
+   ========================================================================== */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ── Screen-reader-only ────────────────────────────────────────────── */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================================================
+   BACK TO TOP
+   ========================================================================== */
+.back-to-top {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.back-to-top a {
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 40rem) {
+    :root {
+        --side-padding: 1rem;
+    }
+
+    nav[aria-label="Main navigation"] ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    nav[aria-label="Main navigation"] a.back-link {
+        flex: 1 1 auto;
+        min-width: fit-content;
+        text-align: center;
+    }
+
+    nav[aria-label="Breadcrumb"] a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.55rem;
+    }
+
+    .bibliographic-info {
+        padding: 0.75rem 1rem;
+    }
+
+    .transcribers-note {
+        padding: 0.75rem 1rem;
+    }
+
+    blockquote {
+        padding: 0.75rem 1rem;
+    }
+
+    details {
+        padding: 0.75rem 1rem;
+    }
+
+    hr {
+        margin: 3rem auto;
+    }
+}
+
+/* ============================================================================
+   PRINT
+   ========================================================================== */
+@media print {
+    .book-footer,
+    .skip-link,
+    nav[aria-label="Breadcrumb"],
+    nav[aria-label="Main navigation"],
+    .transcribers-note,
+    .back-to-top {
+        display: none;
+    }
+
+    main {
+        max-width: none;
+        padding: 0;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        background: #fff;
+        color: #000;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    blockquote {
+        border-left: 3px solid #999;
+        background: none;
+    }
+
+    hr {
+        border-top: 1px solid #999;
+        max-width: 100%;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    strong {
+        background: none;
+        color: #000;
+    }
+
+    strong::before {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::after,
+    *::before {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
