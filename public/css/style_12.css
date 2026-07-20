@@ -18,7 +18,7 @@
     --bg-strong: #f1f1f1;
     --color-strong: #000;
     --border-fullscreen: #000;
-    --nav-link-bg: #555;
+    --nav-link-bg: #3a3a3a;
     --nav-link-text: #fdfdfd;
 
     /* Reading-specific tokens */
@@ -58,7 +58,7 @@
         --bg-strong: #1f1f1f;
         --color-strong: #fdfdfd;
         --border-fullscreen: #fff;
-        --nav-link-bg: #888;
+        --nav-link-bg: #4a4a4a;
         --reading-bg: #262626;
         --reading-text: #ddd;
         --accent: #c44;
