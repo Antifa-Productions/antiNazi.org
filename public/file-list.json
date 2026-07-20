@@ -1,6 +1,6 @@
 {
-  "version": 33,
-  "defaultRevision": "v33",
+  "version": 34,
+  "defaultRevision": "v34",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -15,6 +15,9 @@
         "/css/style_4.css",
         "/css/style_5.1.8.css",
         "/css/style_7.1.6.css",
+        "/css/style_12.css",
+        "/css/style_16.css",
+        "/css/style_17.css",
         "/scripts/init-service-worker.js"
       ]
     },
@@ -86,6 +89,9 @@
     "/css/style_4.css",
     "/css/style_5.1.8.css",
     "/css/style_7.1.6.css",
+    "/css/style_12.css",
+    "/css/style_16.css",
+    "/css/style_17.css",
     "/scripts/init-service-worker.js"
   ]
 }
