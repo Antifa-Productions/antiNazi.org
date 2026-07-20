@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  
+  <head>
+    <!-- Force CSS to load before SW intercepts -->
+    <link rel="preload" href="/css/style_3.2.css" as="style">
+    <link rel="stylesheet" href="/css/style_3.2.css"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
@@ -19,8 +22,8 @@
     <meta name="theme-color" content="#990000">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-    <!-- Stylesheets & Scripts (no crossorigin — iOS 27 beta bug) -->
-    <link rel="stylesheet" href="/css/style_3.2.css">
+    <!-- Scripts (no crossorigin — iOS 27 beta bug) -->
+    
     <script src="/scripts/init-service-worker.js" defer></script>
 
     <!-- Structured Data -->
