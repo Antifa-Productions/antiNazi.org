@@ -58,8 +58,7 @@
         --bg-strong: #1f1f1f;
         --color-strong: #fdfdfd;
         --border-fullscreen: #fff;
-        --nav-link-bg: #5a5a5a;
-        /* ← Changed from #4a4a4a */
+        --nav-link-bg: #666;
         --reading-bg: #262626;
         --reading-text: #ddd;
         --accent: #c44;
@@ -245,11 +244,6 @@ strong::before {
    ========================================================================== */
 header {
     text-align: center;
-    /*
-     * Extra top padding for fullscreen mobile PWA.
-     * Combined with body padding-top, this ensures the tagline
-     * and nav are always accessible and not stuck behind the notch.
-     */
     padding-top: max(1.5rem, var(--safe-top));
 }
 
@@ -283,18 +277,18 @@ nav li a {
     padding: 0.3rem 0.7rem;
     display: block;
     color: var(--nav-link-text);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 nav li a:hover {
-    background: #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background: var(--nav-link-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
     text-decoration: none;
 }
 nav li a:active {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* ── Neutralize strong highlight inside nav buttons ─────────────────── */
