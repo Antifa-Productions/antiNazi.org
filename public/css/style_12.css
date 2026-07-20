@@ -276,14 +276,24 @@ nav li {
 
 nav li a {
     background: var(--nav-link-bg);
-    border: 1px outset #333;
-    border-radius: 0.2rem;
+    border: none;
+    border-radius: 0.3rem;
     font: 400 0.95rem var(--sans-font);
-    overflow: hidden;
-    padding: 0.25rem 0.6rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 0.3rem 0.7rem;
     display: block;
+    color: var(--nav-link-text);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+nav li a:hover {
+    background: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+nav li a:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* ── Nav link variants ─────────────────────────────────────────────── */
