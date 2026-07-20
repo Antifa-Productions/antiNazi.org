@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <!-- Force CSS to load before SW intercepts -->
+    <link rel="preload" href="/css/style_7.1.5.css" as="style">
+    <link rel="stylesheet" href="/css/style_7.1.5.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
@@ -11,11 +14,8 @@
 <!-- Manifest -->
     <link rel="manifest" href="/manifest.json">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="/css/style_7.1.5.css" integrity="sha512-ZULMpjOGFpP22o0QZWzAwF20KM+QNptfeik2IulG4vhcSLiNoKepX61CK5klSbvaold6yRRx/egAvuE9kVtsyQ==" crossorigin="anonymous">
-
     <!-- Service Worker -->
-    <script src="/scripts/init-service-worker.js" integrity="sha512-UE69PNs+uUmkiL2eXBWv4kIxQzpDr5dBPTt8yENTSPp/svvrt1vloe7ldbdKC2itTfOqPRJX7uNbZPtE2luQEQ==" crossorigin="anonymous"></script>
+    <script src="/scripts/init-service-worker.js" defer></script>
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
