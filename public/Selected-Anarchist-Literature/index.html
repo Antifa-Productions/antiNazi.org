@@ -19,20 +19,24 @@
     <meta name="theme-color" content="#990000">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
+    <!-- Preload CSS to help with standalone/PWA loading -->
+    <link rel="preload" href="https://antinazi.org/css/style_3.2.css" as="style">
+
     <!-- Stylesheets & Scripts -->
-    <link rel="stylesheet" href="/css/style_3.1.css" integrity="sha512-19EhYwac9jwpWZ562BElKRg7ABltFzuXJDo0bBBKsH9o8WQO65Aeo6X/UFQhqJfv8y2Z8+kFWUQkiwIbuKmvSw==" crossorigin="anonymous">
-    <script src="/scripts/init-service-worker.js" integrity="sha512-UE69PNs+uUmkiL2eXBWv4kIxQzpDr5dBPTt8yENTSPp/svvrt1vloe7ldbdKC2itTfOqPRJX7uNbZPtE2luQEQ==" crossorigin="anonymous"></script>
+    <!-- Simpler, less fragile -->
+    <link rel="stylesheet" href="https://antinazi.org/css/style_3.2.css" crossorigin="anonymous">
+    <script src="https:/antinazi.org/scripts/init-service-worker.js" defer crossorigin="anonymous"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "antiNazi | Anarchist Literature",
-        "alternateName": "antiNazi",
-        "url": "https://antinazi.org/Selected-Anarchist-Literature/",
-        "image": "https://antinazi.org/images/png/antiNazi.org_1200x630.png"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "antiNazi | Anarchist Literature",
+            "alternateName": "antiNazi",
+            "url": "https://antinazi.org/Selected-Anarchist-Literature/",
+            "image": "https://antinazi.org/images/png/antiNazi.org_1200x630.png"
+        }
     </script>
 
     <!-- Open Graph -->
