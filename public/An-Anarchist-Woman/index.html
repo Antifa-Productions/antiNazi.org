@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <!-- Force CSS to load before SW intercepts -->
+    <link rel="preload" href="/css/style_3.2.css" as="style">
+    <link rel="stylesheet" href="/css/style_3.2.css">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
@@ -46,11 +50,8 @@
     <meta name="twitter:image" content="https://antinazi.org/images/png/antiNazi.org_1200x630.png">
     <meta name="twitter:image:alt" content="Cover illustration for An Anarchist Woman by Hutchins Hapgood">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="/css/style_5.1.8.css" integrity="sha512-9BbGT1ePGjZS4jWVpIh56EijTWNjVZYSBGAradzWQXw6I5aNrwojkGARkU6RgOrgju3FVc21opAJvaFPBpzlLA==" crossorigin="anonymous">
-
     <!-- Service Worker -->
-    <script src="/scripts/init-service-worker.js" integrity="sha512-UE69PNs+uUmkiL2eXBWv4kIxQzpDr5dBPTt8yENTSPp/svvrt1vloe7ldbdKC2itTfOqPRJX7uNbZPtE2luQEQ==" crossorigin="anonymous"></script>
+    <script src="/scripts/init-service-worker.js" defer></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
