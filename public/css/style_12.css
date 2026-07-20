@@ -294,6 +294,7 @@ nav li a:active {
 /* ── Neutralize strong highlight inside nav buttons ─────────────────── */
 nav strong {
     background: none;
+    color: var(--nav-link-text);
     font-weight: inherit;
     position: static;
 }
