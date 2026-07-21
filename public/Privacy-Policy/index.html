@@ -89,7 +89,7 @@
             <p class="last-updated">Last updated: <time datetime="2026-07-20">July 20, 2026</time></p>
 
             <section class="privacy-intro">
-                <p>This website operates under the principle that <strong>minimal data collection respects user autonomy</strong>. We do not track visitors, sell personal information, or employ third-party analytics. Our commitment to privacy aligns with our mission to provide public-domain radical literature freely and without surveillance.</p>
+                <p>This website operates in accordance with the fundamental principle that <strong>minimal data collection preserves user autonomy and digital privacy</strong>. We do not track visitors, monetize personal information, or engage third-party analytics providers. Our commitment to privacy protection is integral to our mission of providing public-domain radical literature freely, without surveillance or data exploitation.</p>
             </section>
 
             <details class="key-practices">
@@ -97,152 +97,157 @@
 
                 <div class="practice-grid">
                     <div class="practice-item">
-                        <h3>No Tracking</h3>
-                        <p>We do not use cookies, pixel tags, fingerprinting, or any form of visitor tracking technology.</p>
+                        <h3>No Tracking Technologies</h3>
+                        <p>We do not deploy cookies, pixel tags, device fingerprinting, or any other visitor tracking mechanisms.</p>
                     </div>
 
                     <div class="practice-item">
-                        <h3>No Analytics</h3>
-                        <p>Third-party analytics services (Google Analytics, Matomo, Plausible, etc.) are not employed on this site.</p>
+                        <h3>No Analytics Services</h3>
+                        <p>Third-party analytics providers (including Google Analytics, Matomo, Plausible, and comparable services) are not utilized on this website.</p>
                     </div>
 
                     <div class="practice-item">
-                        <h3>Minimal Server Logs</h3>
-                        <p>Server access logs do not record IP addresses as no IP addresses are ever recorded. Therefore they cannot be logged.</p>
+                        <h3>IP Address Stripping</h3>
+                        <p>All IP addresses are removed from visitor request headers prior to logging. Consequently, IP addresses cannot be recorded or retained.</p>
                     </div>
 
                     <div class="practice-item">
-                        <h3>No User Accounts</h3>
-                        <p>This site does not require registration, login, or collection of any personal identifiers.</p>
+                        <h3>Referrer Header Stripping</h3>
+                        <p>HTTP Referer headers are stripped from all incoming requests. Referrer data cannot be captured or stored.</p>
+                    </div>
+
+                    <div class="practice-item">
+                        <h3>No User Authentication</h3>
+                        <p>This website does not require registration, authentication, or collection of any personally identifiable information.</p>
                     </div>
                 </div>
             </details>
 
             <section>
-                <h2>Data Collection</h2>
+                <h2>Data Collection Practices</h2>
 
-                <h3>Automatic Data</h3>
-                <p>When you visit this website, your web browser automatically sends certain information to our servers:</p>
+                <h3>Automatically Generated Data</h3>
+                <p>Upon visiting this website, web browsers transmit certain technical information to servers. Our system architecture ensures that identifying data is systematically removed:</p>
 
                 <ul class="data-types">
-                    <li><strong>IP address</strong> — All IP addresses are removed from all visitor&apos;s request headers. It is therefore never logged.</li>
-                    <li><strong>User agent string</strong> — Browser and device type information, logged only in access logs</li>
-                    <li><strong>Referrer URL</strong> — The page you visited before arriving here, logged only in access logs</li>
-                    <li><strong>Timestamp</strong> — Date and time of request, logged only in access logs</li>
+                    <li><strong>IP Address</strong> — All IP addresses are stripped from visitor request headers prior to any logging operation. IP addresses are therefore never recorded.</li>
+                    <li><strong>HTTP Referer</strong> — Referer headers are stripped from all incoming requests. Referer data is not captured or stored.</li>
+                    <li><strong>User Agent String</strong> — Browser and device configuration information may be logged in access logs for operational purposes only.</li>
+                    <li><strong>Request Timestamp</strong> — Date and time of requests may be logged in access logs for operational purposes only.</li>
                 </ul>
 
-                <p>All automatic data is deleted after 7 days and is never shared with third parties or used for profiling purposes.</p>
+                <p>All automatically generated access logs are retained for a maximum period of seven (7) days and are subsequently purged. Such data is never shared with third parties and is never utilized for user profiling or behavioral analysis.</p>
 
-                <h3>Voluntary Data</h3>
-                <p>This website has no contact forms, comment systems, newsletter signups, or any mechanism for collecting voluntary user data. There is no way for visitors to submit personal information to us.</p>
+                <h3>Voluntarily Submitted Data</h3>
+                <p>This website maintains no contact forms, comment submission systems, newsletter registration mechanisms, or any other infrastructure for collecting voluntarily submitted user data. Visitors have no means to transmit personal information to this website.</p>
             </section>
 
             <section>
-                <h2>Cookies and Storage</h2>
+                <h2>Cookies and Local Storage</h2>
 
-                <p><strong>We do not use cookies.</strong> Your browser will not receive any cookie files from this domain.</p>
+                <p><strong>This website does not utilize HTTP cookies.</strong> No cookie files will be transmitted to your browser from this domain.</p>
 
-                <p>If you use Progressive Web App features (offline access via service worker), the following local storage may occur:</p>
+                <p>In connection with Progressive Web Application (PWA) functionality (including offline accessibility via service worker), the following local storage mechanisms may be employed:</p>
 
                 <dl>
-                    <dt>Service Worker Cache</dt>
-                    <dd>Pages you visit may be cached locally in your browser for offline reading. This cache exists only on your device and contains only publicly-available content.</dd>
+                    <dt>Service Worker Cache Storage</dt>
+                    <dd>Content accessed during your browsing session may be cached locally within your browser for offline retrieval. This cache resides exclusively on your device and contains only publicly-available materials.</dd>
 
-                    <dt>IndexedDB</dt>
-                    <dd>If available, cached content may be stored in IndexedDB for improved performance. Again, this remains on your device and is accessible only to you.</dd>
+                    <dt>IndexedDB Storage</dt>
+                    <dd>Where supported, cached content may be persisted in IndexedDB for performance optimization. Such data remains localized on your device and is accessible solely to you.</dd>
                 </dl>
 
-                <p>You can clear this data at any time through your browser settings. It is never transmitted back to our servers.</p>
+                <p>You retain the ability to clear this stored data at any time through your browser's configuration settings. Under no circumstances is this data transmitted back to our servers.</p>
             </section>
 
             <section>
-                <h2>Third-Party Services</h2>
+                <h2>Third-Party Services and External Links</h2>
 
-                <p>This website intentionally avoids third-party services for the following reasons:</p>
+                <p>This website is intentionally architected to avoid dependence on third-party services for the following reasons:</p>
 
                 <ul>
-                    <li><strong>Analytics providers</strong> — We do not use analytics services and collect no statistics</li>
-                    <li><strong>CDN services</strong> — Static assets are served directly from our infrastructure</li>
-                    <li><strong>Font services</strong> — All typography uses system fonts to avoid external requests</li>
-                    <li><strong>Social media widgets</strong> — No embedded buttons, feeds, or sharing integrations</li>
-                    <li><strong>Advertising networks</strong> — The site contains no ads and generates no advertising revenue</li>
+                    <li><strong>Analytics Providers</strong> — No analytics services are employed; no statistical data is collected</li>
+                    <li><strong>Content Delivery Networks</strong> — Static assets are delivered directly from our own infrastructure</li>
+                    <li><strong>External Font Services</strong> — Typography relies exclusively on system fonts to eliminate external network requests</li>
+                    <li><strong>Social Media Integrations</strong> — No embedded buttons, activity feeds, or social sharing integrations are present</li>
+                    <li><strong>Advertising Networks</strong> — The website contains no advertising content and generates no advertising revenue</li>
                 </ul>
 
-                <p>External links to other websites (such as Project Gutenberg, academic sources, or related resources) are provided for reference. We have no control over those sites' privacy practices and encourage you to review their policies independently.</p>
+                <p>External hyperlinks to third-party websites (including Project Gutenberg, academic repositories, and related resources) are provided for informational reference only. We maintain no control over the privacy practices of such third-party sites and recommend independent review of their respective policies.</p>
             </section>
 
             <section>
-                <h2>Security Measures</h2>
+                <h2>Security Safeguards</h2>
 
-                <p>The following security measures protect visitor data:</p>
-
-                <ul>
-                    <li><strong>HTTPS encryption</strong> — All communications use TLS 1.3 with strong cipher suites</li>
-                    <li><strong>Security headers</strong> — Content Security Policy, X-Frame-Options, and other protective headers are implemented</li>
-                    <li><strong>Regular updates</strong> — Server software and dependencies are kept current to address vulnerabilities</li>
-                    <li><strong>Access controls</strong> — Administrative access to server infrastructure is restricted and logged</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Legal Disclosure</h2>
-
-                <p>We reserve the right to disclose log data if legally required by subpoena, court order, or other lawful process. However:</p>
+                <p>The following security measures are implemented to protect visitor data and ensure confidentiality:</p>
 
                 <ul>
-                    <li>We notify affected users of such requests whenever legally permitted</li>
-                    <li>We challenge overly broad or unconstitutional demands</li>
-                    <li>Given our minimal retention period (7 days), much requested data may already be deleted</li>
+                    <li><strong>Transport Layer Security</strong> — All communications are encrypted using TLS 1.3 with industry-standard cipher suites</li>
+                    <li><strong>Security Headers</strong> — Content Security Policy, X-Frame-Options, X-Content-Type-Options, and additional protective HTTP headers are enforced</li>
+                    <li><strong>System Maintenance</strong> — Server software and dependent libraries are maintained with current security patches</li>
+                    <li><strong>Administrative Access Controls</strong> — Administrative access to server infrastructure is restricted to authorized personnel only and access is logged</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Your Rights</h2>
+                <h2>Legal Disclosure Obligations</h2>
 
-                <p>Because we collect minimal data, your privacy rights are straightforward:</p>
+                <p>We reserve the right to disclose log data where legally compelled by subpoena, court order, warrant, or other lawful judicial process. However:</p>
 
                 <ul>
-                    <li><strong>Right to access</strong> — You can request copies of any logs containing your IP address within the 7-day retention window</li>
-                    <li><strong>Right to deletion</strong> — Request immediate removal of any retained data</li>
-                    <li><strong>Right to object</strong> — Object to any data processing (though processing is already minimal)</li>
-                    <li><strong>Right to portability</strong> — Receive your data in a machine-readable format</li>
+                    <li>Affected users will be notified of such disclosure requests to the extent legally permissible</li>
+                    <li>We will contest overly broad, constitutionally problematic, or insufficiently particularized demands</li>
+                    <li>Given our seven-day retention policy, substantially all requested data may have already been purged prior to receipt of any legal demand</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>User Privacy Rights</h2>
+
+                <p>Due to the minimal nature of our data collection practices, your applicable privacy rights are correspondingly streamlined:</p>
+
+                <ul>
+                    <li><strong>Right of Access</strong> — You may request copies of any logs containing identifiable information within the seven-day retention window</li>
+                    <li><strong>Right to Deletion</strong> — You may request immediate deletion of any retained data</li>
+                    <li><strong>Right to Object</strong> — You may object to any data processing activities (though processing is inherently minimal)</li>
+                    <li><strong>Right to Data Portability</strong> — You may receive any retained data in a structured, machine-readable format</li>
                 </ul>
 
-                <p>To exercise these rights, contact us using the information below.</p>
+                <p>To exercise any of these rights, please utilize the contact information provided below.</p>
             </section>
 
             <section>
                 <h2>Children's Privacy</h2>
 
-                <p>This website does not knowingly collect any personal information from children. Since no personal data collection mechanisms exist (no forms, no accounts, no tracking), children can browse the public-domain literature without privacy concerns.</p>
+                <p>This website does not knowingly collect personally identifiable information from minors. As no personal data collection mechanisms exist (including forms, authentication systems, or tracking technologies), minors may browse publicly-available literary materials without privacy concerns.</p>
             </section>
 
             <section>
-                <h2>Changes to This Policy</h2>
+                <h2>Policy Amendments</h2>
 
-                <p>We may update this privacy policy periodically. Changes will be:</p>
+                <p>This privacy policy may be amended periodically. Any modifications will be:</p>
 
                 <ul>
-                    <li>Published on this page with a revised "last updated" date</li>
-                    <li>Substantive changes will be announced via the site's RSS feed</li>
-                    <li>No version of this policy will retroactively reduce your privacy rights</li>
+                    <li>Published on this page with an updated "last modified" date</li>
+                    <li>Announced via the website's RSS feed for substantive changes</li>
+                    <li>Non-retroactive — no version of this policy shall diminish privacy rights that existed under prior versions</li>
                 </ul>
 
-                <p>We encourage periodic review of this page, particularly before engaging with any new site features.</p>
+                <p>Visitors are encouraged to review this policy periodically, particularly prior to utilizing any newly introduced website features.</p>
             </section>
 
             <section class="contact-section">
                 <h2>Contact Information</h2>
 
-                <p>For privacy-related inquiries, data requests, or concerns:</p>
+                <p>For privacy-related inquiries, data subject requests, or security concerns:</p>
 
                 <address>
                     <strong>Email:</strong> <a href="mailto:privacy@antinazi.org">privacy@antinazi.org</a><br>
-                    <strong>PGP Key:</strong> Available upon request for encrypted correspondence<br>
-                    <strong>Response time:</strong> Within 30 days
+                    <strong>PGP Encryption:</strong> Public keys available upon request for secure encrypted correspondence<br>
+                    <strong>Response Timeframe:</strong> All inquiries will be addressed within thirty (30) calendar days
                 </address>
 
-                <p>All privacy requests will be handled securely and confidentially.</p>
+                <p>All privacy-related requests shall be handled securely and treated with appropriate confidentiality.</p>
             </section>
 
             <section class="related-links">
@@ -250,9 +255,9 @@
 
                 <nav>
                     <ul>
-                        <li><a href="/terms/">Terms of Service</a></li>
-                        <li><a href="/gutenberg-license/">Project Gutenberg License</a></li>
-                        <li><a href="/about/">About This Site</a></li>
+                        <li><a href="/Terms-of-Service/">Terms of Service</a></li>
+                        <li><a href="/Gutenberg-License/">Project Gutenberg License Terms</a></li>
+                        <li><a href="/About/">About This Website</a></li>
                         <li><a href="https://www.eff.org/issues/privacy" target="_blank" rel="noopener noreferrer">Electronic Frontier Foundation — Privacy Guide</a></li>
                         <li><a href="https://www.privacyrights.org/" target="_blank" rel="noopener noreferrer">Privacy Rights Clearinghouse</a></li>
                     </ul>
