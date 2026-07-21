@@ -818,6 +818,7 @@ footer {
     margin-bottom: max(2rem, var(--safe-bottom));
     padding-top: 2rem;
     padding-bottom: 2rem;
+    padding-inline: clamp(1rem, 5vw, 3rem);
     border-top: 1px solid var(--section-divider);
     text-align: center;
 }
