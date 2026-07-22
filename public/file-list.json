@@ -1,6 +1,6 @@
 {
-  "version": 36,
-  "defaultRevision": "v36",
+  "version": 37,
+  "defaultRevision": "v37",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -19,7 +19,7 @@
         "/css/style_12.css",
         "/css/style_16.css",
         "/css/style_17.css",
-        "/scripts/init-service-worker.js"
+        "/scripts/init-sw-idb.js"
       ]
     },
     {
@@ -99,6 +99,6 @@
     "/css/style_12.css",
     "/css/style_16.css",
     "/css/style_17.css",
-    "/scripts/init-service-worker.js"
+    "/scripts/init-sw-idb.js"
   ]
 }
