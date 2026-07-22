@@ -30,14 +30,8 @@ const WORKBOX_SCRIPTS = [
 try {
   log('init', 'Loading Workbox modules from local /scripts/...');
   WORKBOX_SCRIPTS.forEach(scriptPath => {
-    try {
-      importScripts(scriptPath);
-      if (CONFIG.DEBUG)
-        console.debug(`[SW] Loaded: ${scriptPath}`);
-    } catch (e) {
-      console.error(`[SW] ERROR loading ${scriptPath}:`, e);
-      throw new Error(`Failed to load ${scriptPath}. Ensure files exist.`);
-    }
+    importScripts(scriptPath);
+    log('init', `Loaded: ${scriptPath}`);
   });
   log('init', 'All Workbox modules loaded successfully.');
   wbStrategies = workbox.strategies;
@@ -45,7 +39,7 @@ try {
   wbExpiration = workbox.expiration;
   wbBgSync = workbox.backgroundSync;
 } catch (err) {
-  console.error('[SW] FATAL: Workbox initialization failed.', err);
+  error('FATAL', 'Workbox initialization failed.', err);
   throw new Error('Service Worker Initialization Failed: Missing Workbox Libraries');
 }
 
@@ -88,11 +82,6 @@ async function initIDB() {
 
 // --- IDB Helper Functions ---------------------------------------------------
 
-/**
- * Store metadata about a precached or fetched resource.
- * @param {string} url - The URL of the resource
- * @param {*} metadata - Any serializable metadata to store
- */
 async function idbPutMetadata(url, metadata) {
   if (!dbPromise)
     return;
@@ -105,11 +94,6 @@ async function idbPutMetadata(url, metadata) {
   }
 }
 
-/**
- * Retrieve metadata for a URL.
- * @param {string} url - The URL key
- * @returns {Promise<*|null>}
- */
 async function idbGetMetadata(url) {
   if (!dbPromise)
     return null;
@@ -122,10 +106,6 @@ async function idbGetMetadata(url) {
   }
 }
 
-/**
- * Delete metadata for a URL.
- * @param {string} url - The URL key
- */
 async function idbDeleteMetadata(url) {
   if (!dbPromise)
     return;
@@ -138,13 +118,7 @@ async function idbDeleteMetadata(url) {
   }
 }
 
-/**
- * Store a failed request for manual retry or offline inspection.
- * @param {string} url - The request URL
- * @param {string} data - The request body (e.g. POST payload)
- * @param {string} method - The HTTP method (defaults to 'POST')  // NEW
- */
-async function idbStoreFailedRequest(url, data, method = 'POST') { // CHANGED: added method param
+async function idbStoreFailedRequest(url, data, method = 'POST') {
   if (!dbPromise)
     return;
   try {
@@ -152,19 +126,15 @@ async function idbStoreFailedRequest(url, data, method = 'POST') { // CHANGED: a
     await db.put('failed-retries', {
       url,
       data,
-      method, // NEW: store method for accurate retry
+      method,
       timestamp: Date.now()
     });
     log('IDB', `Stored failed request for: ${url}`);
   } catch (err) {
-    error('IDB', 'store failed request failed:', err);
+    error('IDB', 'store failed request:', err);
   }
 }
 
-/**
- * Retrieve all stored failed requests (for manual retry or diagnostics).
- * @returns {Promise<Array>}
- */
 async function idbGetFailedRequests() {
   if (!dbPromise)
     return [];
@@ -172,18 +142,11 @@ async function idbGetFailedRequests() {
     const db = await dbPromise;
     return await db.getAll('failed-retries');
   } catch (err) {
-    error('IDB', 'get failed requests failed:', err);
+    error('IDB', 'get failed requests:', err);
     return [];
   }
 }
 
-// NEW: Helper to delete a specific failed-request entry by URL. Previously the
-// bg-sync onSync callback called idbDeleteMetadata(), which targets the
-// prefetch-metadata store — not failed-retries. This fixes that.
-/**
- * Delete a failed request entry from IDB by URL.
- * @param {string} url - The URL key
- */
 async function idbDeleteFailedRequest(url) {
   if (!dbPromise)
     return;
@@ -192,21 +155,15 @@ async function idbDeleteFailedRequest(url) {
     await db.delete('failed-retries', url);
     log('IDB', `Deleted failed request for: ${url}`);
   } catch (err) {
-    error('IDB', 'delete failed request failed:', err);
+    error('IDB', 'delete failed request:', err);
   }
 }
 
-// NEW: Clean up stale prefetch-metadata entries that belong to old cache
-// versions. Called during activation alongside cache cleanup.
-/**
- * Remove prefetch-metadata entries whose cacheVersion no longer matches
- * the current cache, or whose status is 'precache' and are orphaned.
- */
 async function idbCleanStaleMetadata() {
   if (!dbPromise)
     return;
   if (!currentCacheName) {
-    warn('activate', 'Skipping stale IDB metadata cleanup: currentCacheName is not initialized.');
+    warn('activate', 'Skipping stale IDB metadata cleanup: currentCacheName not initialized.');
     return;
   }
   try {
@@ -218,7 +175,6 @@ async function idbCleanStaleMetadata() {
       if (!meta)
         continue;
 
-      // Delete entries tagged with a cache version that is no longer current
       if (meta.cacheName && meta.cacheName !== currentCacheName) {
         await db.delete('prefetch-metadata', key);
         cleaned++;
@@ -311,9 +267,6 @@ async function loadManifest() {
 }
 
 async function precacheAssets() {
-  // CHANGED: Initialize IDB *before* precache so metadata writes actually work.
-  // Previously, initIDB() was only called in initStrategies() during activate,
-  // meaning every idbPutMetadata() call below silently no-op'd during install.
   await initIDB();
 
   const entries = await loadManifest();
@@ -339,11 +292,9 @@ async function precacheAssets() {
         throw new Error(`HTTP ${response.status}`);
       await cache.put(cacheKey, response);
 
-      // Store metadata in IDB for each precached asset CHANGED: Include cacheName so
-      // stale entries can be cleaned on future activations
       await idbPutMetadata(url, {
         cacheKey,
-        cacheName: currentCacheName, // NEW: tag with version for cleanup
+        cacheName: currentCacheName,
         cachedAt: Date.now(),
         status: 'precache'
       });
@@ -368,8 +319,7 @@ async function precacheAssets() {
       const url = result.status === 'fulfilled' ?
         result.value.url :
         'unknown';
-      warn('install', `Failed to cache: ${url}`, result.value
-        ?.error ?? result.reason);
+      warn('install', `Failed to cache: ${url}`, result.value?.error ?? result.reason);
     }
   });
 
@@ -414,7 +364,6 @@ async function cleanupStaleCaches() {
     log('activate', `Cache cleanup complete. Deleted ${deletedCount} caches.`);
   }
 
-  // NEW: Clean up IDB prefetch-metadata entries belonging to old cache versions
   await idbCleanStaleMetadata();
 }
 
@@ -425,9 +374,6 @@ async function initStrategies() {
     throw new Error('Workbox modules not detected. Check importScripts.');
   }
 
-  // Initialize IDB before setting up strategies.
-  // Note: initIDB() may have already been called during precacheAssets() in the
-  // install phase. Calling it again is harmless — dbPromise is cached.
   await initIDB();
 
   const cacheablePlugin = new wbCacheable.CacheableResponsePlugin({
@@ -450,23 +396,15 @@ async function initStrategies() {
           await fetch(entry.request);
           log('bg-sync', `Replayed successfully: ${entry.request.url}`);
 
-          // CHANGED: Was idbDeleteMetadata() — that targets the prefetch-metadata store,
-          // not failed-retries. Now calls the correct helper.
           await idbDeleteFailedRequest(entry.request.url);
         } catch (err) {
-          // Store the failed request in IDB for later manual retry CHANGED: Pass the
-          // request method so manual retries use the correct HTTP verb instead of
-          // hardcoding POST.
-          await idbStoreFailedRequest(entry.request.url, await entry.request.clone().text(), entry.request.method, );
+          await idbStoreFailedRequest(entry.request.url, await entry.request.clone().text(), entry.request.method);
           await queue.unshiftRequest(entry);
           log('bg-sync', `Replay failed for ${entry.request.url}, re-queued.`, err.message);
         }
       }
 
-      // NEW: Notify all controlled clients that bg-sync completed
-      const clients = await self
-        .clients
-        .matchAll();
+      const clients = await self.clients.matchAll();
       for (const client of clients) {
         client.postMessage({
           type: 'BG_SYNC_COMPLETE'
@@ -503,19 +441,21 @@ async function warmUpCache() {
 
   const cache = await caches.open(currentCacheName);
   for (const url of warmUpUrls) {
-    if (await cache.match(url))
+    const normalizedUrl = normalizeUrl(url);
+    const cacheKey = normalizedUrl ? precacheAllowList.get(normalizedUrl) : normalizedUrl;
+    const lookupKey = cacheKey || url;
+
+    if (await cache.match(lookupKey))
       continue;
     try {
       const response = await fetch(url, {
         cache: 'no-cache'
       });
       if (response.ok) {
-        await cache.put(url, response);
+        await cache.put(lookupKey, response);
 
-        // Store warm-up metadata in IDB CHANGED: Include cacheName for consistent
-        // stale-cleanup behavior
         await idbPutMetadata(url, {
-          cacheName: currentCacheName, // NEW
+          cacheName: currentCacheName,
           warmedUpAt: Date.now(),
           status: 'warmup'
         });
@@ -557,34 +497,26 @@ self.addEventListener('activate', (event) => {
     await cleanupStaleCaches();
     log('activate', 'Stale cache cleanup finished.');
 
-    // NEW: Enable navigation preload if supported. This lets the browser start the
-    // network fetch for navigation requests in parallel with SW boot, reducing
-    // latency for NetworkFirst navigation handling.
     if (self.registration.navigationPreload) {
-      await self
-        .registration
-        .navigationPreload
-        .enable();
+      await self.registration.navigationPreload.enable();
       log('activate', 'Navigation preload enabled.');
     }
 
-    await self
-      .clients
-      .claim();
+    await self.clients.claim();
     await initStrategies();
     log('activate', 'Service Worker fully active and ready.');
   })());
 });
 
 // ---------------------------------------------------------------------------
-// Message Handler (page ↔ SW communication for IDB queries)             // NEW
+// Message Handler
 // ---------------------------------------------------------------------------
 
 self.addEventListener('message', async (event) => {
   const {
     type
   } = event.data ?? {};
-  const source = event.source; // The Client that sent the message
+  const source = event.source;
 
   switch (type) {
     case 'QUERY_SYNC_STATUS': {
@@ -623,7 +555,6 @@ self.addEventListener('message', async (event) => {
           error('retry', `Manual retry failed for ${item.url}:`, err.message);
         }
       }
-      // Notify the page of updated status
       const remaining = await idbGetFailedRequests();
       source.postMessage({
         type: 'SYNC_STATUS',
@@ -635,7 +566,6 @@ self.addEventListener('message', async (event) => {
     }
 
     case 'QUERY_METADATA': {
-      // Page requests metadata for a specific URL
       const {
         url
       } = event.data ?? {};
@@ -646,6 +576,15 @@ self.addEventListener('message', async (event) => {
           data: {
             url,
             metadata: meta
+          }
+        });
+      } else {
+        source.postMessage({
+          type: 'PRECACHE_METADATA',
+          data: {
+            url,
+            metadata: null,
+            error: 'No URL provided'
           }
         });
       }
@@ -670,9 +609,13 @@ self.addEventListener('fetch', (event) => {
     return;
 
   if (!strategiesInitialized) {
-    if (CONFIG.DEBUG)
-      console.debug('[SW] Fetch intercepted before init, passing through.');
+    log('fetch', 'Fetch intercepted before init, passing through.');
     return;
+  }
+
+  if (!self.warmupTriggered) {
+    self.warmupTriggered = true;
+    setTimeout(triggerWarmUp, 2000);
   }
 
   const normalizedUrl = normalizeUrl(event.request.url);
@@ -682,10 +625,7 @@ self.addEventListener('fetch', (event) => {
 
   if (cacheKey) {
     if (isNavigationRequest(event.request)) {
-      // CHANGED: Use navigation preload response if available, fall back to
-      // NetworkFirst strategy, then cached precache entry.
       event.respondWith((async () => {
-        // NEW: Check for navigation preload response first
         if (event.preloadResponse) {
           const preloadRes = await event.preloadResponse;
           if (preloadRes) {
@@ -709,9 +649,7 @@ self.addEventListener('fetch', (event) => {
     }
   } else {
     if (isNavigationRequest(event.request)) {
-      // CHANGED: Same navigation preload integration for non-precache nav
       event.respondWith((async () => {
-        // NEW: Check for navigation preload response first
         if (event.preloadResponse) {
           const preloadRes = await event.preloadResponse;
           if (preloadRes) {
@@ -739,10 +677,5 @@ self.addEventListener('fetch', (event) => {
         request: event.request
       }));
     }
-  }
-
-  if (!self.warmupTriggered) {
-    self.warmupTriggered = true;
-    setTimeout(triggerWarmUp, 2000);
   }
 });
