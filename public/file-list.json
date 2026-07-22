@@ -1,6 +1,6 @@
 {
-  "version": 35,
-  "defaultRevision": "v35",
+  "version": 36,
+  "defaultRevision": "v36",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -39,7 +39,12 @@
         "/Selected-Works-of-Voltairine-de-Cleyre",
         "/The-Conquest-of-Bread",
         "/The-Place-of-Anarchism-in-Socialistic-Evolution",
-        "/The-Right-To-Ignore-The-State"
+        "/The-Right-To-Ignore-The-State",
+        "/Privacy-Policy",
+        "/Accessibility-Statement",
+        "/Gutenberg-License",
+        "/About",
+        "/Terms-of-Service"
       ]
     },
     {
