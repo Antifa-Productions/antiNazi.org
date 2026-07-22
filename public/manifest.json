@@ -1,154 +1,164 @@
 {
-    "name": "antiNazi Literature Archive",
-    "short_name": "antiNazi",
-    "start_url": "https://antinazi.org/",
-    "id": "anti-nazi-literature-archive",
-    "description": "Archive of anarchist literature featuring works by Emma Goldman, Alexander Berkman, Kropotkin, and other revolutionary writers.",
-    "theme_color": "#990000",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "orientation": "portrait-primary",
-    "lang": "en",
-    "dir": "ltr",
-    "scope": "/",
-    "categories": [
-        "books",
-        "books & reference",
-        "education",
-        "entertainment",
-        "government",
-        "lifestyle",
-        "politics",
-        "reference",
-        "social"
-    ],
-    "icons": [
-        {
-            "src": "/images/png/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "/images/png/icon-192x192-maskable.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "/images/png/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "/images/png/icon-512x512-maskable.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "/images/webp/iOS-dark.webp",
-            "sizes": "730x1334",
-            "type": "image/webp",
-            "platform": "ios",
-            "form_factor": "narrow",
-            "label": "iOS dark mode homepage"
-        },
-        {
-            "src": "/images/webp/iOS-light.webp",
-            "sizes": "750x1334",
-            "type": "image/webp",
-            "platform": "ios",
-            "form_factor": "narrow",
-            "label": "iOS light mode homepage"
-        },
-        {
-            "src": "/images/webp/Linux-dark.webp",
-            "sizes": "2048x968",
-            "type": "image/webp",
-            "platform": "chromeos",
-            "form_factor": "wide",
-            "label": "Desktop dark mode homepage"
-        },
-        {
-            "src": "/images/webp/Linux-light.webp",
-            "sizes": "1884x947",
-            "type": "image/webp",
-            "platform": "chromeos",
-            "form_factor": "wide",
-            "label": "Desktop light mode homepage"
-        }
-    ],
-    "shortcuts": [
-        {
-            "name": "antiNazi Homepage",
-            "short_name": "homepage",
-            "url": "https://antinazi.org/"
-        },
-        {
-            "name": "A fragment of the prison experiences of Emma Goldman and Alexander Berkman",
-            "short_name": "Goldman",
-            "url": "https://antinazi.org/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman"
-        },
-        {
-            "name": "Prison Memoirs of an Anarchist",
-            "short_name": "Berkman",
-            "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist"
-        },
-        {
-            "name": "An Anarchist Woman",
-            "short_name": "Hapgood",
-            "url": "https://antinazi.org/An-Anarchist-Woman"
-        },
-        {
-            "name": "Anarchism and Other Essays",
-            "short_name": "Goldman",
-            "url": "https://antinazi.org/Anarchism-and-Other-Essays"
-        },
-        {
-            "name": "Anarchy",
-            "short_name": "Malatesta",
-            "url": "https://antinazi.org/Anarchy"
-        },
-        {
-            "name": "Deportation its meaning and menace",
-            "short_name": "Berkman",
-            "url": "https://antinazi.org/Deportation-its-meaning-and-menace"
-        },
-        {
-            "name": "God and the State",
-            "short_name": "Bakunin",
-            "url": "https://antinazi.org/God-and-the-State"
-        },
-        {
-            "name": "Proposed Roads To Freedom",
-            "short_name": "Russell",
-            "url": "https://antinazi.org/Proposed-Roads-To-Freedom"
-        },
-        {
-            "name": "Selected Works of Voltairine de Cleyre",
-            "short_name": "de Cleyre",
-            "url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre"
-        },
-        {
-            "name": "The Conquest of Bread",
-            "short_name": "Kropotkin",
-            "url": "https://antinazi.org/The-Conquest-of-Bread"
-        },
-        {
-            "name": "The Place of Anarchism in Socialistic Evolution",
-            "short_name": "Kropotkin",
-            "url": "https://antinazi.org/The-Place-of-Anarchism-in-Socialistic-Evolution"
-        },
-        {
-            "name": "The Right To Ignore The State",
-            "short_name": "Spencer",
-            "url": "https://antinazi.org/The-Right-To-Ignore-The-State"
-        }
-    ],
-    "related_applications": [],
-    "prefer_related_applications": false
+  "name": "antiNazi Literature Archive",
+  "short_name": "antiNazi",
+  "start_url": "https://antinazi.org/",
+  "id": "anti-nazi-literature-archive",
+  "description": "Archive of anarchist literature featuring works by Emma Goldman, Alexander Berkman, Kropotkin, and other revolutionary writers.",
+  "theme_color": "#990000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "categories": [
+    "books",
+    "books & reference",
+    "education",
+    "entertainment",
+    "government",
+    "lifestyle",
+    "politics",
+    "reference",
+    "social"
+  ],
+  "icons": [
+    {
+      "src": "/images/png/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/png/icon-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/png/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/png/icon-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/webp/iOS-dark.webp",
+      "sizes": "730x1334",
+      "type": "image/webp",
+      "platform": "ios",
+      "form_factor": "narrow",
+      "label": "iOS dark mode homepage"
+    },
+    {
+      "src": "/images/webp/iOS-light.webp",
+      "sizes": "750x1334",
+      "type": "image/webp",
+      "platform": "ios",
+      "form_factor": "narrow",
+      "label": "iOS light mode homepage"
+    },
+    {
+      "src": "/images/webp/Linux-dark.webp",
+      "sizes": "2048x968",
+      "type": "image/webp",
+      "platform": "chromeos",
+      "form_factor": "wide",
+      "label": "Desktop dark mode homepage"
+    },
+    {
+      "src": "/images/webp/Linux-light.webp",
+      "sizes": "1884x947",
+      "type": "image/webp",
+      "platform": "chromeos",
+      "form_factor": "wide",
+      "label": "Desktop light mode homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "antiNazi Homepage",
+      "short_name": "homepage",
+      "url": "https://antinazi.org/"
+    },
+    {
+      "name": "A fragment of the prison experiences of Emma Goldman and Alexander Berkman",
+      "short_name": "Goldman",
+      "url": "https://antinazi.org/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman"
+    },
+    {
+      "name": "Prison Memoirs of an Anarchist",
+      "short_name": "Berkman",
+      "url": "https://antinazi.org/Prison-Memoirs-of-an-Anarchist"
+    },
+    {
+      "name": "An Anarchist Woman",
+      "short_name": "Hapgood",
+      "url": "https://antinazi.org/An-Anarchist-Woman"
+    },
+    {
+      "name": "Anarchism and Other Essays",
+      "short_name": "Goldman",
+      "url": "https://antinazi.org/Anarchism-and-Other-Essays"
+    },
+    {
+      "name": "Anarchy",
+      "short_name": "Malatesta",
+      "url": "https://antinazi.org/Anarchy"
+    },
+    {
+      "name": "Deportation its meaning and menace",
+      "short_name": "Berkman",
+      "url": "https://antinazi.org/Deportation-its-meaning-and-menace"
+    },
+    {
+      "name": "God and the State",
+      "short_name": "Bakunin",
+      "url": "https://antinazi.org/God-and-the-State"
+    },
+    {
+      "name": "Proposed Roads To Freedom",
+      "short_name": "Russell",
+      "url": "https://antinazi.org/Proposed-Roads-To-Freedom"
+    },
+    {
+      "name": "Selected Works of Voltairine de Cleyre",
+      "short_name": "de Cleyre",
+      "url": "https://antinazi.org/Selected-Works-of-Voltairine-de-Cleyre"
+    },
+    {
+      "name": "The Conquest of Bread",
+      "short_name": "Kropotkin",
+      "url": "https://antinazi.org/The-Conquest-of-Bread"
+    },
+    {
+      "name": "The Place of Anarchism in Socialistic Evolution",
+      "short_name": "Kropotkin",
+      "url": "https://antinazi.org/The-Place-of-Anarchism-in-Socialistic-Evolution"
+    },
+    {
+      "name": "The Right To Ignore The State",
+      "short_name": "Spencer",
+      "url": "https://antinazi.org/The-Right-To-Ignore-The-State"
+    },
+    {
+      "name": "Privacy Policy",
+      "short_name": "Privacy",
+      "url": "https://antinazi.org/Privacy-Policy"
+    },
+    {
+      "name": "Gutenberg License",
+      "short_name": "License",
+      "url": "https://antinazi.org/Gutenberg-License"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
 }
