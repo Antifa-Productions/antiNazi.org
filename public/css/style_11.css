@@ -1,0 +1,93 @@
+/* ============================================================================
+   STYLE_11.CSS — Literature page for
+   "The Place of Anarchism in Socialistic Evolution" by Peter Kropotkin
+   Based on style_5.1.8.css, adapted for this text.
+   ========================================================================== */
+/* ============================================================================
+   ROOT & CUSTOM PROPERTIES
+   ========================================================================== */
+:root {
+  /* Font stacks */
+  --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+  --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
+  --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", serif;
+  /* Light theme (default fallback) */
+  --bg-body: #f2f2f2;
+  --color-body: #1a1a1a;
+  --bg-strong: #f1f1f1;
+  --color-strong: #000;
+  --border-fullscreen: #000;
+  --nav-link-bg: #3a3a3a;
+  --nav-link-text: #fdfdfd;
+  /* Reading-specific tokens */
+  --reading-bg: #ffffff;
+  --reading-text: #222;
+  --accent: #900;
+  --accent-hover: #b00;
+  --quote-border: #900;
+  --quote-bg: #faf5f5;
+  --pre-bg: #eee;
+  --pre-border: #ccc;
+  --pre-text: #222;
+  --toc-active: #900;
+  --section-divider: #ccc;
+  --metadata-bg: #f5f5f5;
+  /* Strong highlight customization */
+  --strong-highlight-overlay: #6a6a6a;
+  --strong-highlight-opacity: 0.3;
+  /* Layout tokens */
+  --max-reading-width: 42rem;
+  --side-padding: 1.25rem;
+  font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 1.5rem);
+}
+/* ── Dark Theme ─────────────────────────────────────────────────────── */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #1a1a1a;
+    --color-body: #e0e0e0;
+    --bg-strong: #1f1f1f;
+    --color-strong: #fdfdfd;
+    --border-fullscreen: #fff;
+    --nav-link-bg: #4a4a4a;
+    --nav-link-text: #fdfdfd;
+    --reading-bg: #262626;
+    --reading-text: #ddd;
+    --accent: #c44;
+    --accent-hover: #d66;
+    --quote-border: #c44;
+    --quote-bg: #2a1f1f;
+    --pre-bg: #1f1f1f;
+    --pre-border: #444;
+    --pre-text: #ddd;
+    --toc-active: #c44;
+    --section-divider: #444;
+    --metadata-bg: #222;
+    --strong-highlight-overlay: #fff;
+    --strong-highlight-opacity: 1;
+  }
+}
+/* ============================================================================
+   RESET & BASE
+   ========================================================================== */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+html {
+  overscroll-behavior: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(2rem + env(safe-area-inset-top));
+}
+body {
+  background: var(--bg-body);
+  color: var(--color-body);
+  font: 400 1.1rem/1.85 var(--serif-font);
+  min-height: 100dvh;
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+/* ============================================================================
+   SKIP LINK
+   ========================================================================== */
+.skip-link {
+  position: absolute;
