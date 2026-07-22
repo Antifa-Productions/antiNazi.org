@@ -1,93 +1,502 @@
 /* ============================================================================
-   STYLE_11.CSS — Literature page for
+   STYLE_11.CSS — Complete Literature page stylesheet
    "The Place of Anarchism in Socialistic Evolution" by Peter Kropotkin
-   Based on style_5.1.8.css, adapted for this text.
+   Full version with all rules restored and enhanced.
    ========================================================================== */
+
 /* ============================================================================
    ROOT & CUSTOM PROPERTIES
    ========================================================================== */
 :root {
-  /* Font stacks */
-  --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
-  --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
-  --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", serif;
-  /* Light theme (default fallback) */
-  --bg-body: #f2f2f2;
-  --color-body: #1a1a1a;
-  --bg-strong: #f1f1f1;
-  --color-strong: #000;
-  --border-fullscreen: #000;
-  --nav-link-bg: #3a3a3a;
-  --nav-link-text: #fdfdfd;
-  /* Reading-specific tokens */
-  --reading-bg: #ffffff;
-  --reading-text: #222;
-  --accent: #900;
-  --accent-hover: #b00;
-  --quote-border: #900;
-  --quote-bg: #faf5f5;
-  --pre-bg: #eee;
-  --pre-border: #ccc;
-  --pre-text: #222;
-  --toc-active: #900;
-  --section-divider: #ccc;
-  --metadata-bg: #f5f5f5;
-  /* Strong highlight customization */
-  --strong-highlight-overlay: #6a6a6a;
-  --strong-highlight-opacity: 0.3;
-  /* Layout tokens */
-  --max-reading-width: 42rem;
-  --side-padding: 1.25rem;
-  font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 1.5rem);
+    /* Font stacks */
+    --mono-font: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", "Liberation Mono", "Noto Sans Mono", Menlo, monospace;
+    --sans-font: ui-sans-serif, "SF Pro Text", "Segoe UI", "Open Sans", Roboto, "Liberation Sans", "Noto Sans", sans-serif;
+    --serif-font: ui-serif, "New York", "Liberation Serif", "Noto Serif", "Roboto Slab", Georgia, serif;
+
+    /* Light theme (default fallback) */
+    --bg-body: #f2f2f2;
+    --color-body: #1a1a1a;
+    --bg-strong: #f1f1f1;
+    --color-strong: #000;
+    --border-fullscreen: #000;
+    --nav-link-bg: #3a3a3a;
+    --nav-link-text: #fdfdfd;
+
+    /* Reading-specific tokens */
+    --reading-bg: #ffffff;
+    --reading-text: #222;
+    --accent: #900;
+    --accent-hover: #b00;
+    --quote-border: #900;
+    --quote-bg: #faf5f5;
+    --pre-bg: #eee;
+    --pre-border: #ccc;
+    --pre-text: #222;
+    --toc-active: #900;
+    --section-divider: #ccc;
+    --metadata-bg: #f5f5f5;
+
+    /* Strong highlight customization */
+    --strong-highlight-overlay: #6a6a6a;
+    --strong-highlight-opacity: 0.3;
+
+    /* Layout tokens */
+    --max-reading-width: 42rem;
+    --side-padding: 1.25rem;
+    --header-spacing: 2rem;
+    --section-spacing: 2.5rem;
+    --footer-spacing: 2rem;
+
+    font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.1rem) * 0.7328)), 1.5rem);
 }
+
 /* ── Dark Theme ─────────────────────────────────────────────────────── */
 @media screen and (prefers-color-scheme: dark) {
-  :root {
-    --bg-body: #1a1a1a;
-    --color-body: #e0e0e0;
-    --bg-strong: #1f1f1f;
-    --color-strong: #fdfdfd;
-    --border-fullscreen: #fff;
-    --nav-link-bg: #4a4a4a;
-    --nav-link-text: #fdfdfd;
-    --reading-bg: #262626;
-    --reading-text: #ddd;
-    --accent: #c44;
-    --accent-hover: #d66;
-    --quote-border: #c44;
-    --quote-bg: #2a1f1f;
-    --pre-bg: #1f1f1f;
-    --pre-border: #444;
-    --pre-text: #ddd;
-    --toc-active: #c44;
-    --section-divider: #444;
-    --metadata-bg: #222;
-    --strong-highlight-overlay: #fff;
-    --strong-highlight-opacity: 1;
-  }
+    :root {
+        --bg-body: #1a1a1a;
+        --color-body: #e0e0e0;
+        --bg-strong: #1f1f1f;
+        --color-strong: #fdfdfd;
+        --border-fullscreen: #fff;
+        --nav-link-bg: #4a4a4a;
+        --nav-link-text: #fdfdfd;
+
+        --reading-bg: #262626;
+        --reading-text: #ddd;
+        --accent: #c44;
+        --accent-hover: #d66;
+        --quote-border: #c44;
+        --quote-bg: #2a1f1f;
+        --pre-bg: #1f1f1f;
+        --pre-border: #444;
+        --pre-text: #ddd;
+        --toc-active: #c44;
+        --section-divider: #444;
+        --metadata-bg: #222;
+
+        --strong-highlight-overlay: #fff;
+        --strong-highlight-opacity: 1;
+    }
 }
+
 /* ============================================================================
    RESET & BASE
    ========================================================================== */
-*, *::after, *::before {
-  box-sizing: border-box;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
+
 html {
-  overscroll-behavior: none;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-  scroll-padding-top: calc(2rem + env(safe-area-inset-top));
+    overscroll-behavior: none;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(2rem + env(safe-area-inset-top));
+    -webkit-text-size-adjust: 100%;
 }
+
 body {
-  background: var(--bg-body);
-  color: var(--color-body);
-  font: 400 1.1rem/1.85 var(--serif-font);
-  min-height: 100dvh;
-  margin: 0;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    background: var(--bg-body);
+    color: var(--color-body);
+    font: 400 1.1rem/1.85 var(--serif-font);
+    min-height: 100dvh;
+    margin: 0;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 /* ============================================================================
    SKIP LINK
    ========================================================================== */
 .skip-link {
-  position: absolute;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 4px 4px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 1000;
+    transition: top 0.2s ease;
+}
+.skip-link:focus {
+    top: env(safe-area-inset-top);
+    outline: 3px solid var(--accent-hover);
+    outline-offset: 2px;
+}
+
+/* ============================================================================
+   NAVIGATION
+   ========================================================================== */
+nav[aria-label="Main navigation"] {
+    position: sticky;
+    top: calc(env(safe-area-inset-top) + 0.5rem);
+    z-index: 100;
+    margin: 1rem auto;
+    max-width: calc(var(--max-reading-width) + 4rem);
+    padding: 0 var(--side-padding);
+}
+
+nav[aria-label="Main navigation"] ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    justify-content: center;
+}
+
+nav[aria-label="Main navigation"] li {
+    flex-shrink: 0;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--nav-link-bg);
+    color: var(--nav-link-text);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+}
+.back-link:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+.back-link:active {
+    transform: translateY(0);
+}
+
+/* ============================================================================
+   HEADER (BOOK INFO)
+   ========================================================================== */
+.book-header {
+    max-width: calc(var(--max-reading-width) + 4rem);
+    margin: var(--header-spacing) auto var(--section-spacing);
+    padding: 0 var(--side-padding);
+    border-bottom: 2px solid var(--section-divider);
+    padding-bottom: 1.5rem;
+}
+
+.series-credit {
+    font-size: 0.9rem;
+    color: var(--color-body);
+    opacity: 0.75;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.gutenberg-license-summary {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--color-body);
+    opacity: 0.8;
+}
+
+.gutenberg-license-summary a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.gutenberg-license-summary a:hover {
+    color: var(--accent-hover);
+}
+
+.bibliographic-info {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    background: var(--metadata-bg);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--section-divider);
+}
+
+.bibliographic-info dt {
+    font-weight: 600;
+    color: var(--color-strong);
+    grid-column: 1;
+}
+
+.bibliographic-info dd {
+    margin: 0;
+    grid-column: 2;
+    color: var(--color-body);
+}
+
+.bibliographic-info dt::after {
+    content: ":";
+}
+
+.book-header h1 {
+    font-size: clamp(1.75rem, calc(1.75rem + ((1vw - 0.1rem) * 1.5)), 2.5rem);
+    font-weight: 700;
+    margin: 1.5rem 0 0.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-strong);
+}
+
+.byline {
+    font-size: 1.1rem;
+    color: var(--color-body);
+    opacity: 0.85;
+    margin: 0;
+}
+
+.byline span {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* ============================================================================
+   MAIN CONTENT
+   ========================================================================== */
+main#main-content {
+    max-width: var(--max-reading-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+}
+
+article {
+    background: var(--reading-bg);
+    padding: 2rem 0;
+}
+
+/* ============================================================================
+   TRANSCRIBER'S NOTE
+   ========================================================================== */
+.transcribers-note {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--quote-border);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.transcribers-note h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-strong);
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.transcribers-note p {
+    margin: 0.5rem 0;
+    color: var(--color-body);
+}
+
+.transcribers-note a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ============================================================================
+   SECTIONS
+   ========================================================================== */
+section {
+    margin-bottom: var(--section-spacing);
+}
+
+section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-strong);
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--section-divider);
+    letter-spacing: -0.01em;
+}
+
+section p {
+    margin: 1.25rem 0;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+}
+
+/* Remove <br> spacing conflicts */
+section p + p {
+    margin-top: 1.5rem;
+}
+
+/* ============================================================================
+   DIVIDERS
+   ========================================================================== */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--section-divider);
+    margin: 2rem auto;
+    max-width: 50%;
+}
+
+/* ============================================================================
+   FOOTER (BACK TO TOP)
+   ========================================================================== */
+.back-to-top {
+    text-align: center;
+    margin: 2.5rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--section-divider);
+}
+
+.back-to-top a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+    display: inline-block;
+}
+.back-to-top a:hover {
+    background: var(--quote-bg);
+    color: var(--accent-hover);
+}
+
+/* ============================================================================
+   FOOTER (SITE)
+   ========================================================================== */
+.book-footer {
+    max-width: calc(var(--max-reading-width) + 4rem);
+    margin: var(--footer-spacing) auto 3rem;
+    padding: 1.5rem var(--side-padding);
+    text-align: center;
+    border-top: 1px solid var(--section-divider);
+    font-size: 0.9rem;
+    color: var(--color-body);
+    opacity: 0.8;
+}
+
+.book-footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.book-footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.book-footer a:hover {
+    color: var(--accent-hover);
+}
+
+/* ============================================================================
+   TYPOGRAPHY ENHANCEMENTS
+   ========================================================================== */
+cite {
+    font-style: italic;
+}
+
+em {
+    font-style: italic;
+    color: var(--color-strong);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--color-strong);
+}
+
+/* ============================================================================
+   LINKS
+   ========================================================================== */
+a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+a:hover {
+    color: var(--accent-hover);
+    text-decoration-thickness: 2px;
+}
+a:visited {
+    opacity: 0.85;
+}
+a:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 480px) {
+    :root {
+        --side-padding: 1rem;
+    }
+
+    .book-header {
+        margin: 1.5rem auto 2rem;
+    }
+
+    .bibliographic-info {
+        grid-template-columns: 1fr;
+        gap: 0.25rem 0;
+    }
+
+    .bibliographic-info dd {
+        margin-left: 0.5rem;
+    }
+
+    nav[aria-label="Main navigation"] ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .back-link {
+        justify-content: center;
+    }
+
+    section h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+    .skip-link,
+    nav[aria-label="Main navigation"],
+    .back-to-top,
+    .book-footer {
+        display: none;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        font-size: 12pt;
+    }
+
+    .book-header {
+        border-bottom: 2px solid #000;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
