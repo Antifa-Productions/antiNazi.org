@@ -4,8 +4,9 @@ if ('serviceWorker' in navigator) {
   const initSw = async () => {
     try {
       const registration = await navigator.serviceWorker.register(
-        '/sw-idb.js',
-        { scope: '/' }
+        '/sw-idb.js', {
+          scope: '/'
+        }
       );
       console.log('[APP] SW registered:', registration.scope);
 
@@ -55,7 +56,10 @@ if ('serviceWorker' in navigator) {
   // Allows the page to ask the SW about IDB-stored data (failed retries,
   // prefetch metadata, etc.) without opening a competing IDB connection.
   navigator.serviceWorker.addEventListener('message', (event) => {
-    const { type, data } = event.data ?? {};
+    const {
+      type,
+      data
+    } = event.data ?? {};
 
     switch (type) {
       case 'SYNC_STATUS':
@@ -92,13 +96,17 @@ if ('serviceWorker' in navigator) {
       console.warn('[APP] No active controller to query.');
       return;
     }
-    sw.postMessage({ type: 'QUERY_SYNC_STATUS' });
+    sw.postMessage({
+      type: 'QUERY_SYNC_STATUS'
+    });
   }
 
   // --- Helper: request manual retry of failed requests ---------------------
   function requestManualRetry() {
     const sw = navigator.serviceWorker.controller;
     if (!sw) return;
-    sw.postMessage({ type: 'TRIGGER_RETRY' });
+    sw.postMessage({
+      type: 'TRIGGER_RETRY'
+    });
   }
 }
