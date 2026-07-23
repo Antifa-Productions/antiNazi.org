@@ -24,10 +24,9 @@ let wbStrategies,
   wbCacheable,
   wbExpiration,
   wbBgSync;
+let dbPromise;
 
-// Load Workbox loader from local /scripts/, then configure it
-// to pull individual modules from the same local directory.
-// debug: false ensures it loads .prod.js files (which we have).
+// Load Workbox loader from local /scripts/
 try {
   importScripts('/scripts/workbox-sw.js');
 
@@ -47,62 +46,59 @@ try {
   throw new Error('Service Worker Initialization Failed: ' + err.message);
 }
 
-// Load local IDB library
-try {
-  importScripts('/scripts/idb.min.js');
-  log('init', 'idb.min.js loaded from /scripts/.');
-} catch (err) {
-  console.error('[SW] FATAL: IDB library load failed.', err);
-  throw new Error('IDB Initialization Failed: ' + err.message);
-}
-
 log('init', 'All modules loaded successfully.');
 
 // ---------------------------------------------------------------------------
-// IndexedDB Setup
+// IndexedDB Setup (Native browser API, no external lib needed)
 // ---------------------------------------------------------------------------
-let dbPromise;
 
-async function initIDB() {
-  if (typeof idb === 'undefined') {
-    error('IDB', 'idb library not found. Ensure /scripts/idb.min.js is loaded.');
-    return null;
-  }
-  try {
-    dbPromise = idb.openDB('sw-custom-storage', 1, {
-      upgrade(db) {
-        if (!db.objectStoreNames.contains('offline-forms')) {
-          db.createObjectStore('offline-forms', {
-            keyPath: 'id',
-            autoIncrement: true
-          });
-        }
-        if (!db.objectStoreNames.contains('prefetch-metadata')) {
-          db.createObjectStore('prefetch-metadata');
-        }
-        if (!db.objectStoreNames.contains('failed-retries')) {
-          db.createObjectStore('failed-retries', {
-            keyPath: 'url'
-          });
-        }
-      }
-    });
-    log('IDB', 'Database initialized successfully.');
+async function openDB() {
+  if (dbPromise)
     return dbPromise;
-  } catch (err) {
-    error('IDB', 'Failed to open DB:', err);
-    return null;
-  }
+  
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('sw-custom-storage', 1);
+    
+    request.onerror = () => {
+      error('IDB', 'Failed to open database:', request.error);
+      reject(request.error);
+    };
+    
+    request.onsuccess = () => {
+      log('IDB', 'Database opened successfully.');
+      dbPromise = request.result;
+      resolve(dbPromise);
+    };
+    
+    request.onupgradeneeded = (event) => {
+      const db = event.target.result;
+      
+      if (!db.objectStoreNames.contains('offline-forms')) {
+        db.createObjectStore('offline-forms', {
+          keyPath: 'id',
+          autoIncrement: true
+        });
+      }
+      if (!db.objectStoreNames.contains('prefetch-metadata')) {
+        db.createObjectStore('prefetch-metadata'); // key: url, value: metadata object
+      }
+      if (!db.objectStoreNames.contains('failed-retries')) {
+        db.createObjectStore('failed-retries', {
+          keyPath: 'url'
+        });
+      }
+    };
+  });
 }
 
-// --- IDB Helper Functions ---------------------------------------------------
+// --- IDB Helper Functions (using native API) ---
 
 async function idbPutMetadata(url, metadata) {
-  if (!dbPromise)
-    return;
   try {
-    const db = await dbPromise;
-    await db.put('prefetch-metadata', metadata, url);
+    const db = await openDB();
+    const tx = db.transaction('prefetch-metadata', 'readwrite');
+    await tx.objectStore('prefetch-metadata').put(metadata, url);
+    await tx.complete;
     log('IDB', `Stored metadata for: ${url}`);
   } catch (err) {
     error('IDB', 'put failed:', err);
@@ -110,11 +106,12 @@ async function idbPutMetadata(url, metadata) {
 }
 
 async function idbGetMetadata(url) {
-  if (!dbPromise)
-    return null;
   try {
-    const db = await dbPromise;
-    return await db.get('prefetch-metadata', url);
+    const db = await openDB();
+    const tx = db.transaction('prefetch-metadata', 'readonly');
+    const result = await tx.objectStore('prefetch-metadata').get(url);
+    await tx.complete;
+    return result;
   } catch (err) {
     error('IDB', 'get failed:', err);
     return null;
@@ -122,11 +119,11 @@ async function idbGetMetadata(url) {
 }
 
 async function idbDeleteMetadata(url) {
-  if (!dbPromise)
-    return;
   try {
-    const db = await dbPromise;
-    await db.delete('prefetch-metadata', url);
+    const db = await openDB();
+    const tx = db.transaction('prefetch-metadata', 'readwrite');
+    await tx.objectStore('prefetch-metadata').delete(url);
+    await tx.complete;
     log('IDB', `Deleted metadata for: ${url}`);
   } catch (err) {
     error('IDB', 'delete failed:', err);
@@ -134,16 +131,16 @@ async function idbDeleteMetadata(url) {
 }
 
 async function idbStoreFailedRequest(url, data, method = 'POST') {
-  if (!dbPromise)
-    return;
   try {
-    const db = await dbPromise;
-    await db.put('failed-retries', {
+    const db = await openDB();
+    const tx = db.transaction('failed-retries', 'readwrite');
+    await tx.objectStore('failed-retries').put({
       url,
       data,
       method,
       timestamp: Date.now()
     });
+    await tx.complete;
     log('IDB', `Stored failed request for: ${url}`);
   } catch (err) {
     error('IDB', 'store failed request:', err);
@@ -151,11 +148,12 @@ async function idbStoreFailedRequest(url, data, method = 'POST') {
 }
 
 async function idbGetFailedRequests() {
-  if (!dbPromise)
-    return [];
   try {
-    const db = await dbPromise;
-    return await db.getAll('failed-retries');
+    const db = await openDB();
+    const tx = db.transaction('failed-retries', 'readonly');
+    const results = await tx.objectStore('failed-retries').getAll();
+    await tx.complete;
+    return results || [];
   } catch (err) {
     error('IDB', 'get failed requests:', err);
     return [];
@@ -163,35 +161,45 @@ async function idbGetFailedRequests() {
 }
 
 async function idbDeleteFailedRequest(url) {
-  if (!dbPromise)
-    return;
   try {
-    const db = await dbPromise;
-    await db.delete('failed-retries', url);
+    const db = await openDB();
+    const tx = db.transaction('failed-retries', 'readwrite');
+    await tx.objectStore('failed-retries').delete(url);
+    await tx.complete;
     log('IDB', `Deleted failed request for: ${url}`);
   } catch (err) {
     error('IDB', 'delete failed request:', err);
   }
 }
 
+async function idbGetAllKeys(storeName) {
+  try {
+    const db = await openDB();
+    const tx = db.transaction(storeName, 'readonly');
+    const results = await tx.objectStore(storeName).getAllKeys();
+    await tx.complete;
+    return results || [];
+  } catch (err) {
+    error('IDB', 'get keys failed:', err);
+    return [];
+  }
+}
+
 async function idbCleanStaleMetadata() {
-  if (!dbPromise)
-    return;
   if (!currentCacheName) {
     warn('activate', 'Skipping stale IDB metadata cleanup: currentCacheName not initialized.');
     return;
   }
   try {
-    const db = await dbPromise;
-    const allKeys = await db.getAllKeys('prefetch-metadata');
+    const allKeys = await idbGetAllKeys('prefetch-metadata');
     let cleaned = 0;
     for (const key of allKeys) {
-      const meta = await db.get('prefetch-metadata', key);
+      const meta = await idbGetMetadata(key);
       if (!meta)
         continue;
 
       if (meta.cacheName && meta.cacheName !== currentCacheName) {
-        await db.delete('prefetch-metadata', key);
+        await idbDeleteMetadata(key);
         cleaned++;
       }
     }
@@ -282,7 +290,7 @@ async function loadManifest() {
 }
 
 async function precacheAssets() {
-  await initIDB();
+  await openDB();
 
   const entries = await loadManifest();
   if (entries.length === 0) {
@@ -389,7 +397,7 @@ async function initStrategies() {
     throw new Error('Workbox modules not detected. Check importScripts.');
   }
 
-  await initIDB();
+  await openDB();
 
   const cacheablePlugin = new wbCacheable.CacheableResponsePlugin({
     statuses: [0, 200]
