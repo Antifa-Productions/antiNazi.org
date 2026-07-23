@@ -25,7 +25,7 @@ async function check() {
   }
 
   try {
-    const reg = await navigator.serviceWorker.getRegistration('/sw-idb.js');
+    const reg = await navigator.serviceWorker.getRegistration('/sw-idb.mjs');
     
     if (!reg) {
       out.innerHTML = '❌ No SW registration found<br/><br/>Click "Register SW" to try.';
