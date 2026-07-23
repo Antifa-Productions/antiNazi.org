@@ -1,5 +1,8 @@
 /*.js
   Content-Type: application/javascript
 
+/scripts/*
+  Content-Type: application/javascript
+
 /*.mjs
   Content-Type: text/javascript
