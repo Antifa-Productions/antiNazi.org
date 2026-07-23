@@ -8,7 +8,11 @@ async function check() {
   }
 
   try {
-    const reg = await navigator.serviceWorker.getRegistration('/sw-idb.mjs');
+    const reg = await navigator.serviceWorker.register('/sw-idb.mjs', {
+  scope: '/',
+  type: 'module',
+  updateViaCache: 'none'
+});
     
     if (!reg) {
       out.innerHTML = '❌ No SW registration found<br/><br/>Click "Register SW" to try.';
