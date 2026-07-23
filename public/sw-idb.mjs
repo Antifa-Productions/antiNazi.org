@@ -1,104 +1,67 @@
+// sw-idb.mjs - ES Module Service Worker with CDN Workbox + idb
+import { clientsClaim } from 'https://cdn.jsdelivr.net/npm/workbox-core@7/+esm';
+import { precacheAndRoute } from 'https://cdn.jsdelivr.net/npm/workbox-precaching@7/+esm';
+import { registerRoute } from 'https://cdn.jsdelivr.net/npm/workbox-routing@7/+esm';
+import { CacheFirst, NetworkFirst } from 'https://cdn.jsdelivr.net/npm/workbox-strategies@7/+esm';
+import { CacheableResponsePlugin } from 'https://cdn.jsdelivr.net/npm/workbox-cacheable-response@7/+esm';
+import { ExpirationPlugin } from 'https://cdn.jsdelivr.net/npm/workbox-expiration@7/+esm';
+import { BackgroundSyncPlugin } from 'https://cdn.jsdelivr.net/npm/workbox-background-sync@7/+esm';
+import { openDB } from 'https://cdn.jsdelivr.net/npm/idb@8/+esm';
+
 const CONFIG = {
   MANIFEST_URL: 'file-list.json',
   CACHE_NAME_PREFIX: 'precache',
   DYNAMIC_CACHE_NAME: 'dynamic-content',
   NETWORK_TIMEOUT_MS: 3000,
   MAX_DYNAMIC_ENTRIES: 50,
-  DEBUG: false
+  DEBUG: false,
 };
+
 const ORIGIN = self.location.origin;
 const log = (...args) => CONFIG.DEBUG && console.log('[SW]', ...args);
 const warn = (...args) => CONFIG.DEBUG && console.warn('[SW]', ...args);
 const error = (...args) => CONFIG.DEBUG && console.error('[SW]', ...args);
 
-// Global error logging for debugging
-self.addEventListener('error', (event) => {
-  console.error('[SW] Uncaught error:', event.error);
-});
-self.addEventListener('unhandledrejection', (event) => {
-  console.error('[SW] Unhandled rejection:', event.reason);
-});
+// Force SW to take control immediately
+clientsClaim();
 
-// Declare at module scope so initStrategies() can access them
-let wbStrategies,
-  wbCacheable,
-  wbExpiration,
-  wbBgSync;
-let dbPromise;
+let dbPromise = null;
+let currentCacheName = '';
+const precacheAllowList = new Map();
+let warmUpUrls = [];
+let strategiesInitialized = false;
+let cacheFirstHandler, networkFirstHandler, dynamicHandler;
 
-// Load Workbox loader from local /scripts/
-try {
-  importScripts('/scripts/workbox-sw.js');
+// --- IDB Setup ---
+async function initDB() {
+  if (dbPromise) return dbPromise;
 
-  workbox.setConfig({
-    modulePathPrefix: '/scripts/',
-    debug: false
-  });
-
-  wbStrategies = workbox.strategies;
-  wbCacheable = workbox.cacheableResponse;
-  wbExpiration = workbox.expiration;
-  wbBgSync = workbox.backgroundSync;
-
-  log('init', 'Workbox loaded from local /scripts/.');
-} catch (err) {
-  console.error('[SW] FATAL: Workbox initialization failed.', err);
-  throw new Error('Service Worker Initialization Failed: ' + err.message);
-}
-
-log('init', 'All modules loaded successfully.');
-
-// ---------------------------------------------------------------------------
-// IndexedDB Setup (Native browser API, no external lib needed)
-// ---------------------------------------------------------------------------
-
-async function openDB() {
-  if (dbPromise)
-    return dbPromise;
-  
-  return new Promise((resolve, reject) => {
-    const request = indexedDB.open('sw-custom-storage', 1);
-    
-    request.onerror = () => {
-      error('IDB', 'Failed to open database:', request.error);
-      reject(request.error);
-    };
-    
-    request.onsuccess = () => {
-      log('IDB', 'Database opened successfully.');
-      dbPromise = request.result;
-      resolve(dbPromise);
-    };
-    
-    request.onupgradeneeded = (event) => {
-      const db = event.target.result;
-      
+  dbPromise = openDB('sw-custom-storage', 1, {
+    upgrade(db, oldVersion, newVersion, transaction) {
       if (!db.objectStoreNames.contains('offline-forms')) {
-        db.createObjectStore('offline-forms', {
-          keyPath: 'id',
-          autoIncrement: true
-        });
+        db.createObjectStore('offline-forms', { keyPath: 'id', autoIncrement: true });
       }
       if (!db.objectStoreNames.contains('prefetch-metadata')) {
-        db.createObjectStore('prefetch-metadata'); // key: url, value: metadata object
+        db.createObjectStore('prefetch-metadata');
       }
       if (!db.objectStoreNames.contains('failed-retries')) {
-        db.createObjectStore('failed-retries', {
-          keyPath: 'url'
-        });
+        db.createObjectStore('failed-retries', { keyPath: 'url' });
       }
-    };
+    },
   });
+
+  return dbPromise;
 }
 
-// --- IDB Helper Functions (using native API) ---
+async function getDB() {
+  const db = await initDB();
+  return db;
+}
 
 async function idbPutMetadata(url, metadata) {
   try {
-    const db = await openDB();
-    const tx = db.transaction('prefetch-metadata', 'readwrite');
-    await tx.objectStore('prefetch-metadata').put(metadata, url);
-    await tx.complete;
+    const db = await getDB();
+    await db.put('prefetch-metadata', metadata, url);
     log('IDB', `Stored metadata for: ${url}`);
   } catch (err) {
     error('IDB', 'put failed:', err);
@@ -107,11 +70,8 @@ async function idbPutMetadata(url, metadata) {
 
 async function idbGetMetadata(url) {
   try {
-    const db = await openDB();
-    const tx = db.transaction('prefetch-metadata', 'readonly');
-    const result = await tx.objectStore('prefetch-metadata').get(url);
-    await tx.complete;
-    return result;
+    const db = await getDB();
+    return await db.get('prefetch-metadata', url);
   } catch (err) {
     error('IDB', 'get failed:', err);
     return null;
@@ -120,10 +80,8 @@ async function idbGetMetadata(url) {
 
 async function idbDeleteMetadata(url) {
   try {
-    const db = await openDB();
-    const tx = db.transaction('prefetch-metadata', 'readwrite');
-    await tx.objectStore('prefetch-metadata').delete(url);
-    await tx.complete;
+    const db = await getDB();
+    await db.delete('prefetch-metadata', url);
     log('IDB', `Deleted metadata for: ${url}`);
   } catch (err) {
     error('IDB', 'delete failed:', err);
@@ -132,15 +90,8 @@ async function idbDeleteMetadata(url) {
 
 async function idbStoreFailedRequest(url, data, method = 'POST') {
   try {
-    const db = await openDB();
-    const tx = db.transaction('failed-retries', 'readwrite');
-    await tx.objectStore('failed-retries').put({
-      url,
-      data,
-      method,
-      timestamp: Date.now()
-    });
-    await tx.complete;
+    const db = await getDB();
+    await db.put('failed-retries', { url, data, method, timestamp: Date.now() });
     log('IDB', `Stored failed request for: ${url}`);
   } catch (err) {
     error('IDB', 'store failed request:', err);
@@ -149,11 +100,8 @@ async function idbStoreFailedRequest(url, data, method = 'POST') {
 
 async function idbGetFailedRequests() {
   try {
-    const db = await openDB();
-    const tx = db.transaction('failed-retries', 'readonly');
-    const results = await tx.objectStore('failed-retries').getAll();
-    await tx.complete;
-    return results || [];
+    const db = await getDB();
+    return await db.getAll('failed-retries');
   } catch (err) {
     error('IDB', 'get failed requests:', err);
     return [];
@@ -162,10 +110,8 @@ async function idbGetFailedRequests() {
 
 async function idbDeleteFailedRequest(url) {
   try {
-    const db = await openDB();
-    const tx = db.transaction('failed-retries', 'readwrite');
-    await tx.objectStore('failed-retries').delete(url);
-    await tx.complete;
+    const db = await getDB();
+    await db.delete('failed-retries', url);
     log('IDB', `Deleted failed request for: ${url}`);
   } catch (err) {
     error('IDB', 'delete failed request:', err);
@@ -174,11 +120,8 @@ async function idbDeleteFailedRequest(url) {
 
 async function idbGetAllKeys(storeName) {
   try {
-    const db = await openDB();
-    const tx = db.transaction(storeName, 'readonly');
-    const results = await tx.objectStore(storeName).getAllKeys();
-    await tx.complete;
-    return results || [];
+    const db = await getDB();
+    return await db.getAllKeys(storeName);
   } catch (err) {
     error('IDB', 'get keys failed:', err);
     return [];
@@ -195,8 +138,7 @@ async function idbCleanStaleMetadata() {
     let cleaned = 0;
     for (const key of allKeys) {
       const meta = await idbGetMetadata(key);
-      if (!meta)
-        continue;
+      if (!meta) continue;
 
       if (meta.cacheName && meta.cacheName !== currentCacheName) {
         await idbDeleteMetadata(key);
@@ -211,18 +153,7 @@ async function idbCleanStaleMetadata() {
   }
 }
 
-// ---------------------------------------------------------------------------
-// End IDB Setup
-// ---------------------------------------------------------------------------
-
-let currentCacheName = '';
-const precacheAllowList = new Map();
-let warmUpUrls = [];
-let strategiesInitialized = false;
-let cacheFirstHandler,
-  networkFirstHandler,
-  dynamicHandler;
-
+// --- Utility Functions ---
 function normalizeUrl(url) {
   try {
     return new URL(url, ORIGIN).href;
@@ -233,41 +164,31 @@ function normalizeUrl(url) {
 
 function createCacheKey(url, revision) {
   const parsed = new URL(url, ORIGIN);
-  if (revision)
-    parsed.searchParams.set('__rev', revision);
+  if (revision) parsed.searchParams.set('__rev', revision);
   return parsed.href;
 }
 
+// --- Manifest Loading ---
 async function loadManifest() {
   let response;
   try {
-    response = await fetch(CONFIG.MANIFEST_URL, {
-      cache: 'no-cache'
-    });
+    response = await fetch(CONFIG.MANIFEST_URL, { cache: 'no-cache' });
   } catch (e) {
     throw new Error(`Failed to fetch manifest: Network error (${e.message})`);
   }
   if (!response.ok) {
     throw new Error(`Failed to fetch manifest: HTTP ${response.status}`);
   }
+
   const manifest = await response.json();
-  const {
-    version,
-    defaultRevision,
-    groups = [],
-    warmUp = []
-  } = manifest;
+  const { version, defaultRevision, groups = [], warmUp = [] } = manifest;
 
   currentCacheName = `${CONFIG.CACHE_NAME_PREFIX}-v${version}`;
-  warmUpUrls = warmUp
-    .map(u => normalizeUrl(u))
-    .filter(Boolean);
+  warmUpUrls = warmUp.map(u => normalizeUrl(u)).filter(Boolean);
 
   const entries = [];
-
   for (const group of groups || []) {
-    if (group.strategy !== 'precache')
-      continue;
+    if (group.strategy !== 'precache') continue;
     for (const file of group.files ?? []) {
       const revision = file.revision ?? defaultRevision;
       const normalizedUrl = normalizeUrl(file.url);
@@ -277,11 +198,7 @@ async function loadManifest() {
       }
       const cacheKey = createCacheKey(file.url, revision);
       precacheAllowList.set(normalizedUrl, cacheKey);
-      entries.push({
-        url: file.url,
-        cacheKey,
-        normalizedUrl
-      });
+      entries.push({ url: file.url, cacheKey, normalizedUrl });
     }
   }
 
@@ -289,59 +206,48 @@ async function loadManifest() {
   return entries;
 }
 
+// --- Precaching ---
 async function precacheAssets() {
-  await openDB();
+  await initDB();
 
   const entries = await loadManifest();
   if (entries.length === 0) {
     log('install', 'No assets defined in manifest to precache.');
     return;
   }
+
   log('install', `Starting precache: ${entries.length} assets into '${currentCacheName}'`);
 
   const cache = await caches.open(currentCacheName);
   let successCount = 0;
   let failureCount = 0;
 
-  const results = await Promise.allSettled(entries.map(async ({
-    url,
-    cacheKey
-  }) => {
-    try {
-      const response = await fetch(url, {
-        cache: 'no-cache'
-      });
-      if (!response.ok)
-        throw new Error(`HTTP ${response.status}`);
-      await cache.put(cacheKey, response);
+  const results = await Promise.allSettled(
+    entries.map(async ({ url, cacheKey }) => {
+      try {
+        const response = await fetch(url, { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        await cache.put(cacheKey, response);
 
-      await idbPutMetadata(url, {
-        cacheKey,
-        cacheName: currentCacheName,
-        cachedAt: Date.now(),
-        status: 'precache'
-      });
-      return {
-        success: true,
-        url
-      };
-    } catch (err) {
-      return {
-        success: false,
-        url,
-        error: err.message
-      };
-    }
-  }));
+        await idbPutMetadata(url, {
+          cacheKey,
+          cacheName: currentCacheName,
+          cachedAt: Date.now(),
+          status: 'precache',
+        });
+        return { success: true, url };
+      } catch (err) {
+        return { success: false, url, error: err.message };
+      }
+    })
+  );
 
   results.forEach(result => {
     if (result.status === 'fulfilled' && result.value.success) {
       successCount++;
     } else {
       failureCount++;
-      const url = result.status === 'fulfilled' ?
-        result.value.url :
-        'unknown';
+      const url = result.status === 'fulfilled' ? result.value.url : 'unknown';
       warn('install', `Failed to cache: ${url}`, result.value?.error ?? result.reason);
     }
   });
@@ -356,6 +262,7 @@ async function precacheAssets() {
   }
 }
 
+// --- Cache Cleanup ---
 async function cleanupStaleCaches() {
   const keys = await caches.keys();
   const prefixPattern = new RegExp(`^${CONFIG.CACHE_NAME_PREFIX}-v\\d+$`);
@@ -390,29 +297,20 @@ async function cleanupStaleCaches() {
   await idbCleanStaleMetadata();
 }
 
+// --- Strategy Initialization ---
 async function initStrategies() {
-  if (strategiesInitialized)
-    return;
-  if (!wbStrategies || !wbCacheable) {
-    throw new Error('Workbox modules not detected. Check importScripts.');
-  }
+  if (strategiesInitialized) return;
 
-  await openDB();
+  const cacheablePlugin = new CacheableResponsePlugin({ statuses: [0, 200] });
 
-  const cacheablePlugin = new wbCacheable.CacheableResponsePlugin({
-    statuses: [0, 200]
-  });
-
-  const expirationPlugin = new wbExpiration.ExpirationPlugin({
+  const expirationPlugin = new ExpirationPlugin({
     maxEntries: CONFIG.MAX_DYNAMIC_ENTRIES,
-    purgeOnQuotaError: true
+    purgeOnQuotaError: true,
   });
 
-  const bgSyncPlugin = new wbBgSync.BackgroundSyncPlugin('post-sync-queue', {
+  const bgSyncPlugin = new BackgroundSyncPlugin('post-sync-queue', {
     maxRetentionTime: 24 * 60,
-    onSync: async ({
-      queue
-    }) => {
+    onSync: async ({ queue }) => {
       let entry;
       while ((entry = await queue.shiftRequest())) {
         try {
@@ -421,7 +319,8 @@ async function initStrategies() {
 
           await idbDeleteFailedRequest(entry.request.url);
         } catch (err) {
-          await idbStoreFailedRequest(entry.request.url, await entry.request.clone().text(), entry.request.method);
+          const body = await entry.request.clone().text();
+          await idbStoreFailedRequest(entry.request.url, body, entry.request.method);
           await queue.unshiftRequest(entry);
           log('bg-sync', `Replay failed for ${entry.request.url}, re-queued.`, err.message);
         }
@@ -429,37 +328,35 @@ async function initStrategies() {
 
       const clients = await self.clients.matchAll();
       for (const client of clients) {
-        client.postMessage({
-          type: 'BG_SYNC_COMPLETE'
-        });
+        client.postMessage({ type: 'BG_SYNC_COMPLETE' });
       }
-    }
+    },
   });
 
-  cacheFirstHandler = new wbStrategies.CacheFirst({
+  cacheFirstHandler = new CacheFirst({
     cacheName: currentCacheName,
-    plugins: [cacheablePlugin]
+    plugins: [cacheablePlugin],
   });
 
-  networkFirstHandler = new wbStrategies.NetworkFirst({
+  networkFirstHandler = new NetworkFirst({
     cacheName: currentCacheName,
     networkTimeoutSeconds: Math.ceil(CONFIG.NETWORK_TIMEOUT_MS / 1000),
-    plugins: [cacheablePlugin]
+    plugins: [cacheablePlugin],
   });
 
-  dynamicHandler = new wbStrategies.NetworkFirst({
+  dynamicHandler = new NetworkFirst({
     cacheName: CONFIG.DYNAMIC_CACHE_NAME,
     networkTimeoutSeconds: Math.ceil(CONFIG.NETWORK_TIMEOUT_MS / 1000),
-    plugins: [cacheablePlugin, expirationPlugin, bgSyncPlugin]
+    plugins: [cacheablePlugin, expirationPlugin, bgSyncPlugin],
   });
 
   strategiesInitialized = true;
   log('init', 'All caching strategies initialized.');
 }
 
+// --- Warm-Up Cache ---
 async function warmUpCache() {
-  if (warmUpUrls.length === 0)
-    return;
+  if (warmUpUrls.length === 0) return;
   log('warming', `Triggering idle warm-up for ${warmUpUrls.length} URLs`);
 
   const cache = await caches.open(currentCacheName);
@@ -468,19 +365,16 @@ async function warmUpCache() {
     const cacheKey = normalizedUrl ? precacheAllowList.get(normalizedUrl) : normalizedUrl;
     const lookupKey = cacheKey || url;
 
-    if (await cache.match(lookupKey))
-      continue;
+    if (await cache.match(lookupKey)) continue;
     try {
-      const response = await fetch(url, {
-        cache: 'no-cache'
-      });
+      const response = await fetch(url, { cache: 'no-cache' });
       if (response.ok) {
         await cache.put(lookupKey, response);
 
         await idbPutMetadata(url, {
           cacheName: currentCacheName,
           warmedUpAt: Date.now(),
-          status: 'warmup'
+          status: 'warmup',
         });
         log('warming', `Warmed up: ${url}`);
       } else {
@@ -494,18 +388,13 @@ async function warmUpCache() {
 
 function triggerWarmUp() {
   if ('requestIdleCallback' in self) {
-    requestIdleCallback(warmUpCache, {
-      timeout: 5000
-    });
+    requestIdleCallback(warmUpCache, { timeout: 5000 });
   } else {
     setTimeout(warmUpCache, 5000);
   }
 }
 
-// ---------------------------------------------------------------------------
-// Lifecycle Events
-// ---------------------------------------------------------------------------
-
+// --- Lifecycle Events ---
 self.addEventListener('install', (event) => {
   event.waitUntil(
     precacheAssets()
@@ -536,14 +425,9 @@ self.addEventListener('activate', (event) => {
   })());
 });
 
-// ---------------------------------------------------------------------------
-// Message Handler
-// ---------------------------------------------------------------------------
-
+// --- Message Handler ---
 self.addEventListener('message', async (event) => {
-  const {
-    type
-  } = event.data ?? {};
+  const { type } = event.data ?? {};
   const source = event.source;
 
   switch (type) {
@@ -551,10 +435,7 @@ self.addEventListener('message', async (event) => {
       const failed = await idbGetFailedRequests();
       source.postMessage({
         type: 'SYNC_STATUS',
-        data: {
-          pendingCount: failed.length,
-          items: failed
-        }
+        data: { pendingCount: failed.length, items: failed },
       });
       break;
     }
@@ -563,14 +444,10 @@ self.addEventListener('message', async (event) => {
       const failed = await idbGetFailedRequests();
       for (const item of failed) {
         try {
-          const fetchOptions = {
-            method: item.method || 'POST'
-          };
+          const fetchOptions = { method: item.method || 'POST' };
           if (item.data) {
             fetchOptions.body = item.data;
-            fetchOptions.headers = {
-              'Content-Type': 'application/json'
-            };
+            fetchOptions.headers = { 'Content-Type': 'application/json' };
           }
           const res = await fetch(item.url, fetchOptions);
           if (res.ok) {
@@ -586,34 +463,23 @@ self.addEventListener('message', async (event) => {
       const remaining = await idbGetFailedRequests();
       source.postMessage({
         type: 'SYNC_STATUS',
-        data: {
-          pendingCount: remaining.length
-        }
+        data: { pendingCount: remaining.length },
       });
       break;
     }
 
     case 'QUERY_METADATA': {
-      const {
-        url
-      } = event.data ?? {};
+      const { url } = event.data ?? {};
       if (url) {
         const meta = await idbGetMetadata(url);
         source.postMessage({
           type: 'PRECACHE_METADATA',
-          data: {
-            url,
-            metadata: meta
-          }
+          data: { url, metadata: meta },
         });
       } else {
         source.postMessage({
           type: 'PRECACHE_METADATA',
-          data: {
-            url,
-            metadata: null,
-            error: 'No URL provided'
-          }
+          data: { url, metadata: null, error: 'No URL provided' },
         });
       }
       break;
@@ -621,20 +487,13 @@ self.addEventListener('message', async (event) => {
   }
 });
 
-// ---------------------------------------------------------------------------
-// Fetch Handler
-// ---------------------------------------------------------------------------
-
+// --- Fetch Handler ---
 function isNavigationRequest(request) {
-  return request.mode === 'navigate' || request
-    .headers
-    .get('accept')
-    ?.includes('text/html');
+  return request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html');
 }
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET')
-    return;
+  if (event.request.method !== 'GET') return;
 
   if (!strategiesInitialized) {
     log('fetch', 'Fetch intercepted before init, passing through.');
@@ -647,63 +506,34 @@ self.addEventListener('fetch', (event) => {
   }
 
   const normalizedUrl = normalizeUrl(event.request.url);
-  const cacheKey = normalizedUrl ?
-    precacheAllowList.get(normalizedUrl) :
-    null;
+  const cacheKey = normalizedUrl ? precacheAllowList.get(normalizedUrl) : null;
 
   if (cacheKey) {
     if (isNavigationRequest(event.request)) {
-      event.respondWith((async () => {
-        if (event.preloadResponse) {
-          const preloadRes = await event.preloadResponse;
-          if (preloadRes) {
-            return preloadRes;
-          }
-        }
-        try {
-          return await networkFirstHandler.handle({
-            request: event.request
-          });
-        } catch {
-          const cache = await caches.open(currentCacheName);
-          const cached = await cache.match(cacheKey);
-          return cached || Response.error();
-        }
-      })());
+      event.respondWith(
+        networkFirstHandler.handle({ request: event.request }).catch(() =>
+          caches.open(currentCacheName).then(cache => cache.match(cacheKey))
+        )
+      );
     } else {
-      event.respondWith(cacheFirstHandler.handle({
-        request: event.request
-      }));
+      event.respondWith(cacheFirstHandler.handle({ request: event.request }));
     }
   } else {
     if (isNavigationRequest(event.request)) {
-      event.respondWith((async () => {
-        if (event.preloadResponse) {
-          const preloadRes = await event.preloadResponse;
-          if (preloadRes) {
-            return preloadRes;
-          }
-        }
-        try {
-          return await networkFirstHandler.handle({
-            request: event.request
-          });
-        } catch {
+      event.respondWith(
+        networkFirstHandler.handle({ request: event.request }).catch(async () => {
           const offlinePage = await caches.match('/offline.html');
-          if (offlinePage)
-            return offlinePage;
+          if (offlinePage) return offlinePage;
           const rootKey = precacheAllowList.get(normalizeUrl('/'));
           if (rootKey) {
             const cache = await caches.open(currentCacheName);
             return cache.match(rootKey);
           }
           return Response.error();
-        }
-      })());
+        })
+      );
     } else {
-      event.respondWith(dynamicHandler.handle({
-        request: event.request
-      }));
+      event.respondWith(dynamicHandler.handle({ request: event.request }));
     }
   }
 });
