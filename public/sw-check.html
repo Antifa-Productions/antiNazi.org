@@ -12,7 +12,7 @@
 <body>
 <h1>Service Worker Diagnostics</h1>
 <pre id="output">Checking...</pre>
-<button id="registerBtn">Register Simple SW</button>
+<button id="registerBtn">Register SW</button>
 
 <script>
 const out = document.getElementById('output');
@@ -25,10 +25,10 @@ async function check() {
   }
 
   try {
-    const reg = await navigator.serviceWorker.getRegistration('/sw-simple.js');
+    const reg = await navigator.serviceWorker.getRegistration('/sw-idb.js');
     
     if (!reg) {
-      out.innerHTML = '❌ No SW registration found<br/><br/>Click "Register Simple SW" to try.';
+      out.innerHTML = '❌ No SW registration found<br/><br/>Click "Register SW" to try.';
       return;
     }
 
@@ -44,7 +44,6 @@ async function check() {
       Controller URL: ${navigator.serviceWorker.controller?.scriptURL || 'none'}<br/>
     `;
 
-    // Test message passing
     if (navigator.serviceWorker.controller) {
       try {
         const msgChannel = new MessageChannel();
@@ -72,7 +71,7 @@ btn.onclick = async () => {
   btn.textContent = 'Registering...';
   
   try {
-    const reg = await navigator.serviceWorker.register('/sw-simple.js', {
+    const reg = await navigator.serviceWorker.register('/sw-idb.js', {
       scope: '/',
       updateViaCache: 'none'
     });
@@ -100,7 +99,7 @@ btn.onclick = async () => {
     }
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Register Simple SW';
+    btn.textContent = 'Register SW';
   }
 };
 
