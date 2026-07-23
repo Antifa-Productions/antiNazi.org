@@ -1,7 +1,5 @@
 // sw-idb.mjs - ES Module Service Worker with CDN Workbox + idb
-import { clientsClaim } from 'https://cdn.jsdelivr.net/npm/workbox-core@7/+esm';
-import { precacheAndRoute } from 'https://cdn.jsdelivr.net/npm/workbox-precaching@7/+esm';
-import { registerRoute } from 'https://cdn.jsdelivr.net/npm/workbox-routing@7/+esm';
+
 import { CacheFirst, NetworkFirst } from 'https://cdn.jsdelivr.net/npm/workbox-strategies@7/+esm';
 import { CacheableResponsePlugin } from 'https://cdn.jsdelivr.net/npm/workbox-cacheable-response@7/+esm';
 import { ExpirationPlugin } from 'https://cdn.jsdelivr.net/npm/workbox-expiration@7/+esm';
@@ -21,9 +19,6 @@ const ORIGIN = self.location.origin;
 const log = (...args) => CONFIG.DEBUG && console.log('[SW]', ...args);
 const warn = (...args) => CONFIG.DEBUG && console.warn('[SW]', ...args);
 const error = (...args) => CONFIG.DEBUG && console.error('[SW]', ...args);
-
-// Force SW to take control immediately
-clientsClaim();
 
 let dbPromise = null;
 let currentCacheName = '';
@@ -387,7 +382,7 @@ async function warmUpCache() {
 }
 
 function triggerWarmUp() {
-  if ('requestIdleCallback' in self) {
+  if (typeof requestIdleCallback === 'function') {
     requestIdleCallback(warmUpCache, { timeout: 5000 });
   } else {
     setTimeout(warmUpCache, 5000);
@@ -431,6 +426,11 @@ self.addEventListener('message', async (event) => {
   const source = event.source;
 
   switch (type) {
+    case 'PING': {
+      source.postMessage({ type: 'PONG' });
+      break;
+    }
+
     case 'QUERY_SYNC_STATUS': {
       const failed = await idbGetFailedRequests();
       source.postMessage({
