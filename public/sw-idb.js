@@ -4,7 +4,7 @@ const CONFIG = {
   DYNAMIC_CACHE_NAME: 'dynamic-content',
   NETWORK_TIMEOUT_MS: 3000,
   MAX_DYNAMIC_ENTRIES: 50,
-  DEBUG: true
+  DEBUG: false
 };
 const ORIGIN = self.location.origin;
 const log = (...args) => CONFIG.DEBUG && console.log('[SW]', ...args);
@@ -25,12 +25,15 @@ let wbStrategies,
   wbExpiration,
   wbBgSync;
 
-// Load Workbox from CDN (static JS, no analytics/tracking)
+// Load Workbox loader from local /scripts/, then configure it
+// to pull individual modules from the same local directory.
+// debug: false ensures it loads .prod.js files (which we have).
 try {
-  importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.6.0/workbox-sw.js');
+  importScripts('/scripts/workbox-sw.js');
 
   workbox.setConfig({
-    debug: CONFIG.DEBUG
+    modulePathPrefix: '/scripts/',
+    debug: false
   });
 
   wbStrategies = workbox.strategies;
@@ -38,9 +41,9 @@ try {
   wbExpiration = workbox.expiration;
   wbBgSync = workbox.backgroundSync;
 
-  log('init', 'Workbox loaded from CDN.');
+  log('init', 'Workbox loaded from local /scripts/.');
 } catch (err) {
-  error('FATAL', 'Workbox initialization failed.', err);
+  console.error('[SW] FATAL: Workbox initialization failed.', err);
   throw new Error('Service Worker Initialization Failed: ' + err.message);
 }
 
@@ -49,7 +52,7 @@ try {
   importScripts('/scripts/idb.min.js');
   log('init', 'idb.min.js loaded from /scripts/.');
 } catch (err) {
-  error('FATAL', 'IDB library load failed.', err);
+  console.error('[SW] FATAL: IDB library load failed.', err);
   throw new Error('IDB Initialization Failed: ' + err.message);
 }
 
