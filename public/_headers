@@ -1,8 +1,28 @@
-/*.js
-  Content-Type: application/javascript
+/*
+    Content-Type: text/html; charset=utf-8
 
-/scripts/*
-  Content-Type: application/javascript
+*.js
+    Content-Type: text/javascript; charset=utf-8
+    Cross-Origin-Resource-Policy: cross-origin
 
-/*.mjs
-  Content-Type: text/javascript
+*.mjs
+    Content-Type: text/javascript; charset=utf-8
+    Cross-Origin-Resource-Policy: cross-origin
+
+*.css
+    Content-Type: text/css; charset=utf-8
+
+*.json
+    Content-Type: application/json; charset=utf-8
+
+*.svg
+    Content-Type: image/svg+xml
+
+*.png
+    Content-Type: image/png
+
+*.ico
+    Content-Type: image/x-icon
+
+*.woff2
+    Content-Type: font/woff2
