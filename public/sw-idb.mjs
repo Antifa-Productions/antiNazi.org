@@ -427,7 +427,12 @@ self.addEventListener('message', async (event) => {
 
   switch (type) {
     case 'PING': {
-      source.postMessage({ type: 'PONG' });
+      const port = event.ports[0];
+      if (port) {
+        port.postMessage({ type: 'PONG' });
+      } else {
+        source.postMessage({ type: 'PONG' });
+      }
       break;
     }
 
