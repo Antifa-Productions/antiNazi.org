@@ -25,14 +25,11 @@ let wbStrategies,
   wbExpiration,
   wbBgSync;
 
-// Load Workbox from the local loader, then configure it to pull
-// individual modules from /scripts/ — no CDN at runtime.
+// Load Workbox from CDN (static JS, no analytics/tracking)
 try {
-  importScripts('/scripts/workbox-sw.js');
-  importScripts('/scripts/idb.min.js');
+  importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.6.0/workbox-sw.js');
 
   workbox.setConfig({
-    modulePathPrefix: '/scripts/',
     debug: CONFIG.DEBUG
   });
 
@@ -41,11 +38,22 @@ try {
   wbExpiration = workbox.expiration;
   wbBgSync = workbox.backgroundSync;
 
-  log('init', 'All modules loaded from local /scripts/.');
+  log('init', 'Workbox loaded from CDN.');
 } catch (err) {
   error('FATAL', 'Workbox initialization failed.', err);
-  throw new Error('Service Worker Initialization Failed: Missing Workbox Libraries');
+  throw new Error('Service Worker Initialization Failed: ' + err.message);
 }
+
+// Load local IDB library
+try {
+  importScripts('/scripts/idb.min.js');
+  log('init', 'idb.min.js loaded from /scripts/.');
+} catch (err) {
+  error('FATAL', 'IDB library load failed.', err);
+  throw new Error('IDB Initialization Failed: ' + err.message);
+}
+
+log('init', 'All modules loaded successfully.');
 
 // ---------------------------------------------------------------------------
 // IndexedDB Setup
@@ -67,7 +75,7 @@ async function initIDB() {
           });
         }
         if (!db.objectStoreNames.contains('prefetch-metadata')) {
-          db.createObjectStore('prefetch-metadata'); // key: url, value: metadata object
+          db.createObjectStore('prefetch-metadata');
         }
         if (!db.objectStoreNames.contains('failed-retries')) {
           db.createObjectStore('failed-retries', {
