@@ -5,7 +5,8 @@ if ('serviceWorker' in navigator) {
     try {
       const registration = await navigator.serviceWorker.register(
         '/sw-idb.js', {
-          scope: '/'
+          scope: '/',
+          updateViaCache: 'none'
         }
       );
       console.log('[APP] SW registered:', registration.scope);
