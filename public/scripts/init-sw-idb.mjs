@@ -1,5 +1,5 @@
-// init-sw-idb.js - Service Worker Registration Script
-// Loads as: <script type="module" src="/init-sw-idb.js" integrity="sha384-XXX" crossorigin="anonymous"></script>
+// init-sw-idb.mjs - Service Worker Registration Script
+// Loads as: <script type="module" src="/scripts/init-sw-idb.mjs"></script>
 
 if ('serviceWorker' in navigator) {
   const initSw = async () => {
@@ -8,7 +8,7 @@ if ('serviceWorker' in navigator) {
         '/sw-idb.mjs',
         {
           scope: '/',
-          type: 'module',  // ← ES MODULE SERVICE WORKER
+          type: 'module',
           updateViaCache: 'none',
         }
       );
@@ -62,6 +62,9 @@ if ('serviceWorker' in navigator) {
         break;
       case 'BG_SYNC_COMPLETE':
         console.log('[APP] Background sync complete.');
+        break;
+      case 'PONG':
+        console.log('[APP] SW responded to PING.');
         break;
     }
   });
