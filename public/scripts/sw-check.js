@@ -8,11 +8,7 @@ async function check() {
   }
 
   try {
-    const reg = await navigator.serviceWorker.register('/sw-idb.mjs', {
-  scope: '/',
-  type: 'module',
-  updateViaCache: 'none'
-});
+    const reg = await navigator.serviceWorker.getRegistration('/sw-idb.mjs');
     
     if (!reg) {
       out.innerHTML = '❌ No SW registration found<br/><br/>Click "Register SW" to try.';
@@ -37,7 +33,7 @@ async function check() {
         navigator.serviceWorker.controller.postMessage({ type: 'PING' }, [msgChannel.port2]);
         
         msgChannel.port1.onmessage = (e) => {
-          out.innerHTML += `<br/>✓ Message test: ${e.data}`;
+          out.innerHTML += `<br/>✓ Message test: ${e.data?.type || e.data}`;
         };
         
         setTimeout(() => {
@@ -60,6 +56,7 @@ btn.onclick = async () => {
   try {
     const reg = await navigator.serviceWorker.register('/sw-idb.mjs', {
       scope: '/',
+      type: 'module',
       updateViaCache: 'none'
     });
     
