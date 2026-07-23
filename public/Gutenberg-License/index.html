@@ -38,6 +38,10 @@
     <meta name="twitter:title" content="Project Gutenberg License — antinazi.org">
     <meta name="twitter:description" content="Full text of the Project Gutenberg License for republished public-domain works on antinazi.org.">
 
+
+    <!-- webmanifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
@@ -126,7 +130,7 @@
     </script>
   
   <!-- Service-Worker -->
-  <script src="/scripts/init-sw-idb.js" defer></script>
+  <script type="module" src="/scripts/init-sw-idb.mjs"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
