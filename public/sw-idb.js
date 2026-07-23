@@ -11,33 +11,37 @@ const log = (...args) => CONFIG.DEBUG && console.log('[SW]', ...args);
 const warn = (...args) => CONFIG.DEBUG && console.warn('[SW]', ...args);
 const error = (...args) => CONFIG.DEBUG && console.error('[SW]', ...args);
 
+// Global error logging for debugging
+self.addEventListener('error', (event) => {
+  console.error('[SW] Uncaught error:', event.error);
+});
+self.addEventListener('unhandledrejection', (event) => {
+  console.error('[SW] Unhandled rejection:', event.reason);
+});
+
 // Declare at module scope so initStrategies() can access them
 let wbStrategies,
   wbCacheable,
   wbExpiration,
   wbBgSync;
 
-const WORKBOX_SCRIPTS = [
-  '/scripts/workbox-core.prod.js',
-  '/scripts/workbox-routing.prod.js',
-  '/scripts/workbox-strategies.prod.js',
-  '/scripts/workbox-cacheable-response.prod.js',
-  '/scripts/workbox-expiration.prod.js',
-  '/scripts/workbox-background-sync.prod.js',
-  '/scripts/idb.min.js'
-];
-
+// Load Workbox from the local loader, then configure it to pull
+// individual modules from /scripts/ — no CDN at runtime.
 try {
-  log('init', 'Loading Workbox modules from local /scripts/...');
-  WORKBOX_SCRIPTS.forEach(scriptPath => {
-    importScripts(scriptPath);
-    log('init', `Loaded: ${scriptPath}`);
+  importScripts('/scripts/workbox-sw.js');
+  importScripts('/scripts/idb.min.js');
+
+  workbox.setConfig({
+    modulePathPrefix: '/scripts/',
+    debug: CONFIG.DEBUG
   });
-  log('init', 'All Workbox modules loaded successfully.');
+
   wbStrategies = workbox.strategies;
   wbCacheable = workbox.cacheableResponse;
   wbExpiration = workbox.expiration;
   wbBgSync = workbox.backgroundSync;
+
+  log('init', 'All modules loaded from local /scripts/.');
 } catch (err) {
   error('FATAL', 'Workbox initialization failed.', err);
   throw new Error('Service Worker Initialization Failed: Missing Workbox Libraries');
@@ -484,12 +488,17 @@ function triggerWarmUp() {
 // ---------------------------------------------------------------------------
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(precacheAssets().then(() => {
-    log('install', 'Precaching finished successfully.');
-    return self.skipWaiting();
-  }).catch(err => {
-    error('install', 'Installation failed:', err.message);
-  }));
+  event.waitUntil(
+    precacheAssets()
+      .then(() => {
+        log('install', 'Precaching finished successfully.');
+        return self.skipWaiting();
+      })
+      .catch(err => {
+        error('install', 'Installation FAILED:', err.message);
+        throw err;
+      })
+  );
 });
 
 self.addEventListener('activate', (event) => {
