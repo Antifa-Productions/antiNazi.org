@@ -1,6 +1,5 @@
 // worker.js — Combined Security Headers + Dynamic CORS Worker
-// Updated: COOP and CORP set to same-origin (stricter isolation)
-// STS: 2 years (max-age=63072000), COEP: require-corp
+// Final version: COOP/COEP strict, dynamic ACAO, proper Vary, Nel/Report-To deleted
 
 const ALLOWED_ORIGINS = [
   'https://antinazi.org',
@@ -81,7 +80,8 @@ const SECURITY_HEADERS = {
     "worker-src 'self' https://cdn.jsdelivr.net"
   ].join('; '),
   'X-Frame-Options': 'DENY',
-  'X-XSS-Protection': '0'
+  'X-XSS-Protection': '0',
+  'Cache-Control': 'no-cache, no-transform'
 };
 
 // MIME type overrides for specific extensions
@@ -100,13 +100,15 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
-    // Handle preflight OPTIONS requests early
+    // ============================================
+    // Handle preflight OPTIONS requests
+    // ============================================
     if (request.method === 'OPTIONS') {
       const requestOrigin = request.headers.get('Origin');
 
       const preflightHeaders = new Headers();
 
-      // Copy relevant incoming headers
+      // Preflight-only CORS headers
       preflightHeaders.set(
         'Access-Control-Allow-Methods',
         'GET, HEAD, OPTIONS'
@@ -117,13 +119,20 @@ export default {
       );
       preflightHeaders.set('Access-Control-Max-Age', '86400');
 
+      // Always append Vary: Origin
+      preflightHeaders.append('Vary', 'Origin');
+
+      // ACAO only if origin is allowed
       if (requestOrigin && ALLOWED_ORIGINS.includes(requestOrigin)) {
         preflightHeaders.set(
           'Access-Control-Allow-Origin',
           requestOrigin
         );
-        preflightHeaders.append('Vary', 'Origin');
       }
+
+      // Delete Cloudflare's Nel and Report-To
+      preflightHeaders.delete('Nel');
+      preflightHeaders.delete('Report-To');
 
       // Apply security headers to preflight too
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
@@ -136,6 +145,10 @@ export default {
       });
     }
 
+    // ============================================
+    // Handle regular GET/HEAD requests
+    // ============================================
+
     // Fetch the original resource
     const response = await fetch(request);
 
@@ -145,6 +158,13 @@ export default {
       statusText: response.statusText,
       headers: response.headers
     });
+
+    // Remove any existing ACAO header from upstream/dashboard
+    modifiedResponse.headers.delete('Access-Control-Allow-Origin');
+
+    // Delete Cloudflare's Nel and Report-To headers
+    modifiedResponse.headers.delete('Nel');
+    modifiedResponse.headers.delete('Report-To');
 
     // Apply security headers
     for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
@@ -159,7 +179,13 @@ export default {
       }
     }
 
-    // --- Dynamic CORS (multi-origin reflection) ---
+    // ============================================
+    // Dynamic CORS (multi-origin reflection)
+    // ============================================
+
+    // Always append Vary: Origin so caches know responses differ by origin
+    modifiedResponse.headers.append('Vary', 'Origin');
+
     const requestOrigin = request.headers.get('Origin');
 
     if (requestOrigin && ALLOWED_ORIGINS.includes(requestOrigin)) {
@@ -167,19 +193,14 @@ export default {
         'Access-Control-Allow-Origin',
         requestOrigin
       );
-      modifiedResponse.headers.set(
-        'Access-Control-Allow-Methods',
-        'GET, HEAD, OPTIONS'
-      );
-      modifiedResponse.headers.set(
-        'Access-Control-Allow-Headers',
-        'Content-Type'
-      );
-      modifiedResponse.headers.set(
-        'Access-Control-Max-Age',
-        '86400'
-      );
-      modifiedResponse.headers.append('Vary', 'Origin');
+
+      // Expose-Headers: Uncomment if JS needs to read non-safelisted response headers
+      // Safe-listed headers (always readable by JS): Cache-Control, Content-Language,
+      // Content-Length, Content-Type, Expires, Last-Modified, Pragma
+      // modifiedResponse.headers.set(
+      //   'Access-Control-Expose-Headers',
+      //   'Content-Length, X-Custom-Header'
+      // );
     }
 
     return modifiedResponse;
