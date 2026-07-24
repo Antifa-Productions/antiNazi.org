@@ -133,10 +133,14 @@ body {
 /* ============================================================================
    NAVIGATION
    ========================================================================== */
+
+/* ============================================================================
+   NAVIGATION
+   ========================================================================== */
 nav[aria-label="Main navigation"] {
     position: relative;
     z-index: 1;
-    margin: 0 auto var(--section-spacing);
+    margin: 2.5rem auto var(--section-spacing);
     max-width: calc(var(--max-reading-width) + 4rem);
     padding: 0 var(--side-padding);
 }
@@ -144,7 +148,7 @@ nav[aria-label="Main navigation"] {
 nav[aria-label="Main navigation"] ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -158,13 +162,13 @@ nav[aria-label="Main navigation"] li {
 .back-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
     background: var(--nav-link-bg);
     color: var(--nav-link-text);
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: background 0.2s ease, transform 0.15s ease;
     white-space: nowrap;
