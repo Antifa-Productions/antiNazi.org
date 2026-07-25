@@ -5,7 +5,7 @@
   "id": "anti-nazi-literature-archive",
   "description": "Archive of anarchist literature featuring works by Emma Goldman, Alexander Berkman, Kropotkin, and other revolutionary writers.",
   "theme_color": "#990000",
-  "background_color": "#ffffff",
+  "background_color": "#990000",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "en",
