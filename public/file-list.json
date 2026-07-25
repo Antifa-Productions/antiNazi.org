@@ -1,6 +1,6 @@
 {
-  "version": 39,
-  "defaultRevision": "v39",
+  "version": 40,
+  "defaultRevision": "v40",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -19,7 +19,7 @@
         "/css/style_12.css",
         "/css/style_16.css",
         "/css/style_17.css",
-        "css/style_18.css",
+        "/css/style_18.css",
         "/scripts/init-sw-idb.mjs"
       ]
     },
