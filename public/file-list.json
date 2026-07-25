@@ -1,6 +1,6 @@
 {
-  "version": 38,
-  "defaultRevision": "v38",
+  "version": 39,
+  "defaultRevision": "v39",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -8,7 +8,7 @@
       "files": [
         "/",
         "/offline.html",
-        "/manifest.json",
+        "/manifest.webmanifest",
         "/css/style_2.min.css",
         "/css/style_2.1.min.css",
         "/css/style_3.2.css",
@@ -19,6 +19,7 @@
         "/css/style_12.css",
         "/css/style_16.css",
         "/css/style_17.css",
+        "css/style_18.css",
         "/scripts/init-sw-idb.mjs"
       ]
     },
@@ -88,7 +89,7 @@
   "warmUp": [
     "/",
     "/offline.html",
-    "/manifest.json",
+    "/manifest.webmanifest",
     "/css/style_2.min.css",
     "/css/style_2.1.min.css",
     "/css/style_3.2.css",
@@ -99,6 +100,7 @@
     "/css/style_12.css",
     "/css/style_16.css",
     "/css/style_17.css",
+    "/css/style_18.css",
     "/scripts/init-sw-idb.mjs"
   ]
 }
