@@ -1,6 +1,6 @@
 {
-  "version": 40,
-  "defaultRevision": "v40",
+  "version": 41,
+  "defaultRevision": "v41",
   "defaultStrategy": "precache",
   "groups": [
     {
@@ -14,6 +14,7 @@
         "/css/style_3.2.css",
         "/css/style_4.css",
         "/css/style_5.1.8.css",
+        "/css/style_6.css",
         "/css/style_7.1.6.css",
         "/css/style_11.css",
         "/css/style_12.css",
@@ -95,6 +96,7 @@
     "/css/style_3.2.css",
     "/css/style_4.css",
     "/css/style_5.1.8.css",
+    "/css/style_6.css",
     "/css/style_7.1.6.css",
     "/css/style_11.css",
     "/css/style_12.css",
