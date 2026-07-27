@@ -17,12 +17,11 @@
     <meta name="author" content="antiNazi">
 
     <!-- PWA / Manifest -->
-    <!-- webmanifest (Preferred standard) -->
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="manifest" href="/manifest.webmanifest">
     <meta name="application-name" content="antiNazi | Anarchist Literature">
     <meta name="apple-mobile-web-app-title" content="antiNazi | Anarchist Literature">
-    <!-- Updated to match site brand purple -->
-    <meta name="theme-color" content="#6d4aff">
+    <meta name="theme-color" content="#6d4aff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     <!-- Service Worker -->
@@ -54,18 +53,16 @@
     <!-- Skip Link for keyboard/screen reader users -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- Site Header (Placeholder for your standard header) -->
+    <!-- Site Header -->
     <header class="site-header" role="banner">
         <div class="container">
             <a href="/" class="logo" aria-label="antinazi.org Home">
-                <!-- Your logo SVG or text -->
                 <span>antinazi.org</span>
             </a>
             <nav aria-label="Main navigation">
-                <!-- Your standard nav links -->
                 <ul>
-                    <li><a href="/">Home 🏠</a></li>
-                    <li><a href="/literature/">Literature 📚</a></li>
+                    <li><a href="/">🏠 Home</a></li>
+                    <li><a href="/literature/">📚 Literature</a></li>
                     <li><a href="/about/">About</a></li>
                 </ul>
             </nav>
@@ -163,7 +160,7 @@
         </article>
     </main>
 
-    <!-- Site Footer (Placeholder for your standard footer) -->
+    <!-- Site Footer -->
     <footer class="site-footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2026 antinazi.org. Defending truth through literature.</p>
