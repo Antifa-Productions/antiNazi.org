@@ -152,15 +152,15 @@ section h3,
 }
 
 /* -------------------------------------------------------------------------
-   Site Header Navigation (Button Style)
+   Site Header Navigation (Compact Button Style)
    ------------------------------------------------------------------------- */
 .site-header nav ul {
   list-style: none;
   padding: 0;
-  margin: var(--space-md) 0 0;
+  margin: var(--space-sm) 0 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .site-header nav ul li {
@@ -171,20 +171,21 @@ section h3,
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
   background-color: var(--bg-secondary);
   color: var(--link-color);
   text-decoration: none;
   font-family: var(--sans-font);
   font-weight: 600;
+  font-size: 1rem;
   border-radius: var(--radius-md);
   border: var(--border-width) solid var(--border-subtle);
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .site-header nav ul li a span {
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1;
 }
 
@@ -214,7 +215,8 @@ section h3,
 @media (min-width: 768px) {
   .site-header nav ul {
     flex-direction: row;
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    justify-content: center;
   }
 
   .site-header nav ul li {
@@ -222,7 +224,8 @@ section h3,
   }
 
   .site-header nav ul li a {
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.9rem;
   }
 }
 
