@@ -1,108 +1,190 @@
 {
-  "version": 42,
-  "defaultRevision": "v42",
-  "defaultStrategy": "precache",
-  "groups": [
+  "version": 43,
+  "defaultRevision": "v43",
+  "files": [
     {
-      "label": "core",
-      "files": [
-        "/",
-        "/offline.html",
-        "/manifest.webmanifest",
-        "/css/style_2.min.css",
-        "/css/style_2.1.min.css",
-        "/css/style_3.2.css",
-        "/css/style_4.css",
-        "/css/style_5.1.8.css",
-        "/css/style_6.css",
-        "/css/style_7.1.6.css",
-        "/css/style_11.css",
-        "/css/style_12.css",
-        "/css/style_16.css",
-        "/css/style_17.css",
-        "/css/style_19.css",
-        "/scripts/init-sw-idb.mjs"
-      ]
+      "url": "/",
+      "precache": true
     },
     {
-      "label": "literature",
-      "files": [
-        "/Selected-Anarchist-Literature",
-        "/pdf/black-rose-pamphlet.pdf",
-        "/pdf/d-h-lewis-emma-goldman-nearly-complete.pdf",
-        "/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
-        "/An-Anarchist-Woman",
-        "/Anarchism-and-Other-Essays",
-        "/Anarchy",
-        "/Deportation-its-meaning-and-menace",
-        "/God-and-the-State",
-        "/Prison-Memoirs-of-an-Anarchist",
-        "/Proposed-Roads-To-Freedom",
-        "/Selected-Works-of-Voltairine-de-Cleyre",
-        "/The-Conquest-of-Bread",
-        "/The-Place-of-Anarchism-in-Socialistic-Evolution",
-        "/The-Right-To-Ignore-The-State",
-        "/Privacy-Policy",
-        "/Accessibility-Statement",
-        "/Gutenberg-License",
-        "/About",
-        "/Terms-of-Service"
-      ]
+      "url": "/offline.html",
+      "precache": true
     },
     {
-      "label": "images",
-      "files": [
-        "/favicon.ico",
-        "/favicon.png",
-        "/favicon.svg",
-        "/images/ico/favicon.ico",
-        "/images/png/favicon-96x96.png",
-        "/images/svg/favicon.svg",
-        "/images/png/icon-128x128.png",
-        "/images/png/icon-144x144.png",
-        "/images/png/icon-152x152.png",
-        "/images/png/icon-180x180.png",
-        "/images/png/icon-192x192.png",
-        "/images/png/icon-192x192-maskable.png",
-        "/images/png/icon-384x384.png",
-        "/images/png/icon-512x512.png",
-        "/images/png/icon-512x512-maskable.png",
-        "/images/png/apple-touch-icon-120x120.png",
-        "/images/png/apple-touch-icon-180x180.png",
-        "/images/splash/splash-750x1334.png",
-        "/images/splash/splash-1179x2556.png",
-        "/images/splash/splash-1290x2796.png",
-        "/images/splash/splash-1334x750.png",
-        "/images/splash/splash-1536x2048.png",
-        "/images/splash/splash-1640x2360.png",
-        "/images/splash/splash-1668x2388.png",
-        "/images/splash/splash-2048x1536.png",
-        "/images/splash/splash-2048x2732.png",
-        "/images/splash/splash-2360x1640.png",
-        "/images/splash/splash-2388x1668.png",
-        "/images/splash/splash-2556x1179.png",
-        "/images/splash/splash-2732x2048.png",
-        "/images/splash/splash-2796x1290.png",
-        "/images/png/antiNazi.org_1200x630.png"
-      ]
+      "url": "/manifest.webmanifest",
+      "precache": true
+    },
+    {
+      "url": "/css/style_2.min.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_2.1.min.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_3.2.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_4.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_5.1.8.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_6.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_7.1.6.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_11.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_12.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_16.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_17.css",
+      "precache": true
+    },
+    {
+      "url": "/css/style_19.css",
+      "precache": true
+    },
+    {
+      "url": "/scripts/init-sw-idb.mjs",
+      "precache": true
+    },
+    {
+      "url": "/favicon.ico",
+      "precache": true
+    },
+    {
+      "url": "/favicon.png",
+      "precache": true
+    },
+    {
+      "url": "/favicon.svg",
+      "precache": true
+    },
+    {
+      "url": "/images/png/favicon-96x96.png",
+      "precache": true
+    },
+    {
+      "url": "/images/png/icon-192x192.png",
+      "precache": true
+    },
+    {
+      "url": "/images/png/icon-192x192-maskable.png",
+      "precache": true
+    },
+    {
+      "url": "/images/png/icon-512x512.png",
+      "precache": true
+    },
+    {
+      "url": "/images/png/icon-512x512-maskable.png",
+      "precache": true
+    },
+    {
+      "url": "/images/png/apple-touch-icon-180x180.png",
+      "precache": true
+    },
+    {
+      "url": "/images/png/antiNazi.org_1200x630.png",
+      "precache": true
+    },
+    {
+      "url": "/Selected-Anarchist-Literature",
+      "precache": true
+    },
+    {
+      "url": "/A-fragment-of-the-prison-experiences-of-Emma-Goldman-and-Alexander-Berkman",
+      "precache": true
+    },
+    {
+      "url": "/An-Anarchist-Woman",
+      "precache": true
+    },
+    {
+      "url": "/Anarchism-and-Other-Essays",
+      "precache": true
+    },
+    {
+      "url": "/Anarchy",
+      "precache": true
+    },
+    {
+      "url": "/Deportation-its-meaning-and-menace",
+      "precache": true
+    },
+    {
+      "url": "/God-and-the-State",
+      "precache": true
+    },
+    {
+      "url": "/Prison-Memoirs-of-an-Anarchist",
+      "precache": true
+    },
+    {
+      "url": "/Proposed-Roads-To-Freedom",
+      "precache": true
+    },
+    {
+      "url": "/Selected-Works-of-Voltairine-de-Cleyre",
+      "precache": true
+    },
+    {
+      "url": "/The-Conquest-of-Bread",
+      "precache": true
+    },
+    {
+      "url": "/The-Place-of-Anarchism-in-Socialistic-Evolution",
+      "precache": true
+    },
+    {
+      "url": "/The-Right-To-Ignore-The-State",
+      "precache": true
+    },
+    {
+      "url": "/Privacy-Policy",
+      "precache": true
+    },
+    {
+      "url": "/Accessibility-Statement",
+      "precache": true
+    },
+    {
+      "url": "/Gutenberg-License",
+      "precache": true
+    },
+    {
+      "url": "/About",
+      "precache": true
+    },
+    {
+      "url": "/Terms-of-Service",
+      "precache": true
+    },
+    {
+      "url": "/pdf/black-rose-pamphlet.pdf",
+      "precache": false
+    },
+    {
+      "url": "/pdf/d-h-lewis-emma-goldman-nearly-complete.pdf",
+      "precache": false
     }
-  ],
-  "warmUp": [
-    "/",
-    "/offline.html",
-    "/manifest.webmanifest",
-    "/css/style_2.min.css",
-    "/css/style_2.1.min.css",
-    "/css/style_3.2.css",
-    "/css/style_4.css",
-    "/css/style_5.1.8.css",
-    "/css/style_6.css",
-    "/css/style_7.1.6.css",
-    "/css/style_11.css",
-    "/css/style_12.css",
-    "/css/style_16.css",
-    "/css/style_17.css",
-    "/css/style_19.css",
-    "/scripts/init-sw-idb.mjs"
   ]
 }
