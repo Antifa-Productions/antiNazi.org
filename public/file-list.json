@@ -1,6 +1,6 @@
 {
-  "version": 43,
-  "defaultRevision": "v43",
+  "version": 44,
+  "defaultRevision": "v44",
   "files": [
     {
       "url": "/",
@@ -59,11 +59,15 @@
       "precache": true
     },
     {
+      "url": "/css/style_18.css",
+      "precache": true
+    },
+    {
       "url": "/css/style_19.css",
       "precache": true
     },
     {
-      "url": "/scripts/init-sw-idb.mjs",
+      "url": "/scripts/init-sw.mjs",
       "precache": true
     },
     {
